@@ -1,0 +1,17 @@
+#' Create Z.
+#'
+#' @param sampleSize sample size, a.k.a. \code{N} of the sample of \code{X}.
+#' @param mean the mean.
+#' @param sd standard deviation.
+#' @return The vector of numbers.
+#' @examples
+#' createZ(sampleSize = 10, mean = 0, sd =  1)
+#' createZ(sampleSize = 20, mean = 5, sd =  10)
+
+createZ <- function(time,
+                    mean,
+                    sd) {
+  Z <- rnorm(n = time,
+             mean = mean,
+             sd = sd)
+}
