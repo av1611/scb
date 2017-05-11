@@ -20,4 +20,5 @@ Creating \code{psi} using a model. If no model provided, \code{psi} vector equal
 \examples{
 createPsi(t =  seq(from = 0, to = 1, length.out = 10))
 createPsi(t =  seq(from = 0, to = 1, by = 0.1))
+Before it was not uniformly
 }

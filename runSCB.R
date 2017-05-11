@@ -10,8 +10,13 @@ library(roxygen2)
 if (!require("devtools"))
   install.packages("devtools")
 library(devtools)
+
+if (!require("ggplot2"))
+  install.packages("ggplot2")
 require(ggplot2)
-setwd("SCB/")
+
+setwd("SCB/") # error? at this level there is no more scb
+
 roxygen2::roxygenise()
 devtools::document()
 
@@ -24,26 +29,37 @@ corruption = sin #function(x){sqrt(x)}
 T <- createT(number_steps = sampling_time)
 T
 Psi <- createPsi(model = corruption,
-                   t = T)
+                 t = T)
 Psi
 Z = createZ(time = sampling_time,
-              mean = noise_mean,
-              sd = noise_sd)
+            mean = noise_mean,
+            sd = noise_sd)
 Z
 
 X <- createX(model = ma1,
-               time = sampling_time,
-               Z = Z,
-               psi = Psi)
+             time = sampling_time,
+             Z = Z,
+             psi = Psi)
 X
 corrupted_ma1 = data.frame(T*sampling_time,X)
 colnames(corrupted_ma1) <- c('time','sample')
 
 pl_title = sprintf("Noise distribution: N(%d,%.2f), corruption is sin, time steps: %d", noise_mean, noise_sd, sampling_time)
-jpeg(filename = paste(pl_title, ".jpg", sep = ""),width = 2*585, height = 2*403, units = "px", quality = 80)
+if (! dir.exists ("Plots"))
+  dir.create("Plots")
+setwd ("Plots")
+jpeg(filename = paste0(pl_title, ".jpg"), width = 2*585, height = 2*403, units = "px", quality = 80)
 ggplot(data=corrupted_ma1, aes(x = time, y = sample)) + geom_line() +
   xlab("Time steps") +
   ylab("Sample path") +
   ggtitle(pl_title) +
   theme(plot.title = element_text(face = "bold", hjust = .5, size = 25), axis.text = element_text(size=20), axis.title = element_text(size = 20))
+graphics.off()
+# dev.off()
+setwd ("..")
+getwd()
+
+
+jpeg (filename = "tmp0.jpeg")
 dev.off()
+
