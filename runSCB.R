@@ -22,9 +22,9 @@ devtools::document()
 
 # Loading the functions
 
-noise_mean = 100
-noise_sd = 0.1
-sampling_time = 60000
+noise_mean = 0
+noise_sd = 1
+sampling_time = 350
 corruption = sin #function(x){sqrt(x)}
 T <- createT(number_steps = sampling_time)
 T
@@ -62,4 +62,10 @@ getwd()
 
 jpeg (filename = "tmp0.jpeg")
 dev.off()
-
+gauss_ker <- function(x){
+  1/sqrt(2*pi)*exp(-0.5*x^2)
+}
+W <- data.frame(cbind(1:sampling_time, createW(kernel=gauss_ker,bandwidth=0.5,sampling_time)))
+colnames(W) <- c('time', 'W')
+ggplot(data = W, aes(x=time, y=W)) + geom_line() + ggtitle('W kernel process') +
+  theme(plot.title = element_text(face = "bold", hjust = .5, size = 20), axis.text = element_text(size=15), axis.title = element_text(size = 15))
