@@ -1,5 +1,5 @@
-#' Run a bootstrap on X vector.
-#' 
+#' Run a bootstrap on sample vector.
+#'
 #' @param X a vector of \code{X}.
 #'
 #' @return A two dimensional vector representing the lower and the upper bound of CI.
@@ -8,6 +8,6 @@
 #' createBand(X = rnorm(n = 20, mean = 5, sd = 10), alpha = 0.15))
 
 bootstrapOnX <- function(X) {
-  
+
 }
 
