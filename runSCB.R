@@ -29,6 +29,7 @@ devtools::document()
 
 # Loading the functions
 
+<<<<<<< HEAD
 noiseMean = 0
 noiseSd = 1
 sampleSize = 100
@@ -52,9 +53,39 @@ corruptedMA1 = data.frame(T*sampleSize,X)
 colnames(corruptedMA1) <- c('time','sample')
 
 pl_title = sprintf("Noise distribution N(%d,%.2f), corruption is sin, time steps %d", noiseMean, noiseSd, sampleSize)
+=======
+noise_mean = 0
+noise_sd = 1
+sampling_time = 350
+corruption = sin #function(x){sqrt(x)}
+noise <- createSleeper(number_steps = sampling_time)
+noise
+
+psi <- createPsi(model = corruption,
+                 sleeper = sleeper)
+psi
+
+noise = createNoise(time = sampling_time,
+            mean = noise_mean,
+            sd = noise_sd)
+noise
+
+sample <- createSample(model = ma1,
+             time = sampling_time,
+             noise = noise,
+             psi = psi)
+sample
+
+corrupted_ma1 = data.frame(T*sampling_time, sample)
+colnames(corrupted_ma1) <- c('time','sample')
+
+pl_title = sprintf("Noise distribution N(%d,%.2f), corruption is sin, time steps %d", noise_mean, noise_sd, sampling_time)
+
+>>>>>>> 4bfb282544601b59851f24cef9e00599c5b92b58
 if (! dir.exists ("Plots"))
   dir.create("Plots")
 setwd ("Plots")
+
 jpeg(filename = paste0(pl_title, ".jpg"), width = 2*585, height = 2*403, units = "px", quality = 80)
 ggplot(data=corruptedMA1, aes(x = time, y = sample)) + geom_line() +
   xlab("Time steps") +
@@ -69,6 +100,7 @@ getwd()
 
 jpeg (filename = "tmp0.jpeg")
 dev.off()
+<<<<<<< HEAD
 
 # W-process generation & plotting
 gaussKernel <- function(x){
@@ -99,3 +131,12 @@ bootstr1 = ggplot(b1, aes(x=time, y=sample)) + geom_line()
 bootstr2 = ggplot(b2, aes(x=time, y=sample)) + geom_line()
 grid.arrange(bootstr1, bootstr2, ncol=2, nrow=1)
 
+=======
+gauss_ker <- function(x){
+  1/sqrt(2*pi)*exp(-0.5*x^2)
+}
+W <- data.frame(cbind(1:sampling_time, createBootstrapMultiplier(kernel=gauss_ker, bandwidth=0.5, sampling_time)))
+colnames(W) <- c('time', 'W')
+ggplot(data = W, aes(x=time, y=W)) + geom_line() + ggtitle('W kernel process') +
+  theme(plot.title = element_text(face = "bold", hjust = .5, size = 20), axis.text = element_text(size=15), axis.title = element_text(size = 15))
+>>>>>>> 4bfb282544601b59851f24cef9e00599c5b92b58
