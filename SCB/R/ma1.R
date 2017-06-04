@@ -13,14 +13,14 @@
 
 
 
-ma1 <- function(sampleSize,
+ma1 <- function(time,
                 psi,
                 Z
                 ) {
-  X = array(0, dim = c(sampleSize, 1))
+  X = array(0, dim = time)
   X[1] <- Z[1]
 
-  for (i in 2:sampleSize) {
+  for (i in 2:time) {
     X[i] <- Z[i] + psi[i] * Z[i - 1]
   }
 

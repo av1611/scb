@@ -8,10 +8,10 @@
 #' createZ(sampleSize = 10, mean = 0, sd =  1)
 #' createZ(sampleSize = 20, mean = 5, sd =  10)
 
-createZ <- function(sampleSize,
+createZ <- function(time,
                     mean,
                     sd) {
-  Z <- rnorm(n = sampleSize,
+  Z <- rnorm(n = time,
              mean = mean,
              sd = sd)
 }

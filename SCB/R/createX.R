@@ -1,27 +1,28 @@
-#' Create \code{sample}.
+#' Create vector of X.
 #'
-#' Creating \code{sample}.
+#' Intended to be run as an underlying function from within \code{createX}. Thus, supposed to be passed as the value of \code{model} option of \code{createX} function
 #'
 #' @param model a model, which is an underlying function used to generate X vector. If model is missing, MA(1) is going to be used.
 #' @param sampleSize the sample size.
 #' @param psi the psi value.
-#' @param noise a white-noise vector.
+#' @param Z a white-noise vector.
 #' @return The vector of \code{X}
 #' @examples
 #'
 #'
 
-createSample <- function(model,
+createX <- function(model,
                     time,
-                    noise,
+                    Z,
                     psi) {
   # if(missing(model)) {
   #   X = ma1(sampleSize,
   #           psi,
-  #           noise)
+  #           Z)
   # }
 
-  sample <- model(time,
+  X = model(time,
             psi,
-            noise)
+            Z)
+  X
 }

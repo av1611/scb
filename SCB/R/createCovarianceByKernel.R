@@ -1,6 +1,4 @@
 #' Generate covariance function given kernel
-
-
 createCovarianceByKernel <- function(kernel,
                                      bandwidth = 1,
                                      sampleSize

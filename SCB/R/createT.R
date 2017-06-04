@@ -6,8 +6,8 @@
 #' createT(lengthT = 10)
 #' createT(lengthT = 100)
 
-createT <- function(sampleSize) {
+createT <- function(number_steps) {
   t <- seq(from = 0,
-           to = 1-1/sampleSize,
-           by = 1/sampleSize)
+           to = 1-1/number_steps,
+           by = 1/number_steps)
 }
