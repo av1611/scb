@@ -4,16 +4,16 @@
 \alias{createX}
 \title{Create vector of X.}
 \usage{
-createX(model, time, Z, psi)
+createX(model, sampleSize, Z, psi)
 }
 \arguments{
 \item{model}{a model, which is an underlying function used to generate X vector. If model is missing, MA(1) is going to be used.}
 
+\item{sampleSize}{the sample size.}
+
 \item{Z}{a white-noise vector.}
 
 \item{psi}{the psi value.}
-
-\item{sampleSize}{the sample size.}
 }
 \value{
 The vector of \code{X}

@@ -4,14 +4,14 @@
 \alias{createZ}
 \title{Create Z.}
 \usage{
-createZ(time, mean, sd)
+createZ(sampleSize, mean, sd)
 }
 \arguments{
+\item{sampleSize}{sample size, a.k.a. \code{N} of the sample of \code{X}.}
+
 \item{mean}{the mean.}
 
 \item{sd}{standard deviation.}
-
-\item{sampleSize}{sample size, a.k.a. \code{N} of the sample of \code{X}.}
 }
 \value{
 The vector of numbers.

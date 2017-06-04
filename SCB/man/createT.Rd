@@ -4,7 +4,7 @@
 \alias{createT}
 \title{Create \code{t}.}
 \usage{
-createT(number_steps)
+createT(sampleSize)
 }
 \arguments{
 \item{lengthT}{the desired length of \code{t} vector.}

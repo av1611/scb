@@ -12,7 +12,7 @@
 #'
 
 createX <- function(model,
-                    time,
+                    sampleSize,
                     Z,
                     psi) {
   # if(missing(model)) {
@@ -21,7 +21,7 @@ createX <- function(model,
   #           Z)
   # }
 
-  X = model(time,
+  X = model(sampleSize,
             psi,
             Z)
   X

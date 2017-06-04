@@ -4,12 +4,12 @@
 \alias{createPsi}
 \title{Create psi.}
 \usage{
-createPsi(model, t)
+createPsi(model, time)
 }
 \arguments{
 \item{model}{a model, which is an underlying function used to generate \code{psi} vector.}
 
-\item{t}{a time parameter, a sequence of numbers {0, 1}.}
+\item{time}{a time parameter, a sequence of numbers {0, 1}.}
 }
 \value{
 The vector of psi values
