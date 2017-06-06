@@ -4,14 +4,14 @@
 \alias{ma1}
 \title{A manual implementation of MA1 algo.}
 \usage{
-ma1(sampleSize, psi, Z)
+ma1(time, psi, Z)
 }
 \arguments{
-\item{sampleSize}{the sample size.}
-
 \item{psi}{the \code{psi} value.}
 
 \item{Z}{a white-noise vector.}
+
+\item{sampleSize}{the sample size.}
 }
 \value{
 The vector of \code{X}

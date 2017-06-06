@@ -9,5 +9,6 @@ computeNonCoverageProbabilityDistribution  <- function(
   # Creates an array of zeros and ones (1 if a true rho is covered by a band)
   # Calculates alpha hat or
   # nonCoverageProbabilityHat = number of zeros / superReplication
-  nonCoverageProbabilityHat <-
+  # nonCoverageProbabilityHat <- 0
 }
+
