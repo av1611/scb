@@ -6,6 +6,19 @@
 \usage{
 createBootstrapMultiplier(kernel, bandwidth = 1, sampleSize)
 }
+\arguments{
+\item{kernel}{kernel.}
+
+\item{bandwidth}{bandwidth = 1, by default}
+
+\item{sampleSize}{the sample size.}
+}
+\value{
+The covariance matrix.
+}
 \description{
 Create bootstrap W series using Cholesky decomposition
+}
+\examples{
+createCovarianceByKernel(kernel, bandwidth = 1, sampleSize = 10)
 }

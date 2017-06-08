@@ -17,7 +17,3 @@ A two dimensional vector representing the lower and the upper bound of CI.
 \description{
 Create a confidence intervals band.
 }
-\examples{
-createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
-createBand(X = rnorm(n = 20, mean = 5, sd = 10), alpha = 0.15))
-}

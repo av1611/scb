@@ -1,8 +1,15 @@
 #' Create bootstrap W series using Cholesky decomposition
+#'
+#' @param kernel kernel.
+#' @param bandwidth bandwidth = 1, by default
+#' @param sampleSize the sample size.
+#' @return The covariance matrix.
+#' @examples
+#' createCovarianceByKernel(kernel, bandwidth = 1, sampleSize = 10)
+
 createBootstrapMultiplier <- function(kernel,
                                       bandwidth = 1,
-                                      sampleSize
-                                      ) {
+                                      sampleSize) {
   noise = createNoise(sampleSize, 0, 1)
   covar = createCovarianceByKernel(kernel, bandwidth, sampleSize)
   W = chol(covar) %*% noise

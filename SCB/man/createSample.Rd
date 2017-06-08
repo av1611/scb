@@ -4,16 +4,14 @@
 \alias{createSample}
 \title{Create \code{sample}.}
 \usage{
-createSample(model, time, noise, psi)
+createSample(model, psi, noise)
 }
 \arguments{
 \item{model}{a model, which is an underlying function used to generate X vector. If model is missing, MA(1) is going to be used.}
 
-\item{noise}{a white-noise vector.}
-
 \item{psi}{the psi value.}
 
-\item{sampleSize}{the sample size.}
+\item{noise}{a white-noise vector.}
 }
 \value{
 The vector of \code{X}

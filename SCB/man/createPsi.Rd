@@ -4,21 +4,20 @@
 \alias{createPsi}
 \title{Create psi.}
 \usage{
-createPsi(model, t)
+createPsi(model, sleeper)
 }
 \arguments{
 \item{model}{a model, which is an underlying function used to generate \code{psi} vector.}
 
-\item{t}{a time parameter, a sequence of numbers {0, 1}.}
+\item{sleeper}{a sleeper parameter, a sequence of numbers {0, 1}.}
 }
 \value{
 The vector of psi values
 }
 \description{
-Creating \code{psi} using a model. If no model provided, \code{psi} vector equals to \code{t} vector.
+Creating \code{psi} using a model. If no model provided, \code{psi} vector equals to \code{sleeper} vector.
 }
 \examples{
-createPsi(t =  seq(from = 0, to = 1, length.out = 10))
-createPsi(t =  seq(from = 0, to = 1, by = 0.1))
-Before it was not uniformly
+createPsi(sleeper =  seq(from = 0, to = 1, length.out = 10))
+createPsi(sleeper =  seq(from = 0, to = 1, by = 0.1))
 }

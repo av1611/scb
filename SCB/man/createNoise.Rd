@@ -4,14 +4,14 @@
 \alias{createNoise}
 \title{Create \code{noise}}
 \usage{
-createNoise(time, mean, sd)
+createNoise(sampleSize, mean, sd)
 }
 \arguments{
-\item{time}{time, a.k.a. \code{N} of the sample of \code{X}.}
-
 \item{mean}{the mean.}
 
 \item{sd}{standard deviation.}
+
+\item{time}{time, a.k.a. \code{N} of the sample of \code{X}.}
 }
 \value{
 The vector of numbers.
@@ -20,6 +20,6 @@ The vector of numbers.
 Create \code{noise}
 }
 \examples{
-createZ(sampleSize = 10, mean = 0, sd =  1)
-createZ(sampleSize = 20, mean = 5, sd =  10)
+createNoise(sampleSize = 10, mean = 0, sd =  1)
+createNoise(sampleSize = 20, mean = 5, sd =  10)
 }

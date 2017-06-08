@@ -2,10 +2,23 @@
 % Please edit documentation in R/createCovarianceByKernel.R
 \name{createCovarianceByKernel}
 \alias{createCovarianceByKernel}
-\title{Generate covariance function given kernel}
+\title{Generate covariance function given kernel. Is being called from within \code{createBootstrapMultiplier} function.}
 \usage{
 createCovarianceByKernel(kernel, bandwidth = 1, sampleSize)
 }
+\arguments{
+\item{kernel}{kernel.}
+
+\item{bandwidth}{bandwidth = 1, by default}
+
+\item{sampleSize}{the sample size.}
+}
+\value{
+The covariance matrix.
+}
 \description{
-Generate covariance function given kernel
+Generate covariance function given kernel. Is being called from within \code{createBootstrapMultiplier} function.
+}
+\examples{
+createCovarianceByKernel(kernel, bandwidth = 1, sampleSize = 10)
 }

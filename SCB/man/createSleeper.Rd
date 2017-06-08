@@ -16,6 +16,6 @@ The vector of \code{sleeper} values
 Create \code{sleeper}.
 }
 \examples{
-createT(lengthT = 10)
-createT(lengthT = 100)
+createSleeper(number_steps = 10)
+createSleeper(number_steps = 100)
 }
