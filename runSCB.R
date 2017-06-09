@@ -53,7 +53,8 @@ corruptedMA1 = data.frame(T*sampleSize,X)
 colnames(corruptedMA1) <- c('time','sample')
 
 pl_title = sprintf("Noise distribution N(%d,%.2f), corruption is sin, time steps %d", noiseMean, noiseSd, sampleSize)
-=======
+
+
 noise_mean = 0
 noise_sd = 1
 sampling_time = 350
@@ -140,3 +141,4 @@ colnames(W) <- c('time', 'W')
 ggplot(data = W, aes(x=time, y=W)) + geom_line() + ggtitle('W kernel process') +
   theme(plot.title = element_text(face = "bold", hjust = .5, size = 20), axis.text = element_text(size=15), axis.title = element_text(size = 15))
 >>>>>>> 4bfb282544601b59851f24cef9e00599c5b92b58
+

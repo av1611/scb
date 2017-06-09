@@ -7,7 +7,7 @@
 #' @param psi the \code{psi} value.
 #' @param Z a white-noise vector.
 #' @return The vector of \code{X}
-#' @examples
+#' @example
 #'
 #'
 
