@@ -1,8 +1,13 @@
 test_that("Testing createNoise for length", {
-  mockNoise <- createNoise(time = 10,
-                   mean = 0,
-                   sd = 1)
+  set.seed(100)
+  mockNoise <- createNoise(sampleSize = 10,
+                           mean = 0,
+                           sd = 1)
+  set.seed(100)
+  mockRnorm <- rnorm(n = 10,
+                     mean = 0,
+                     sd = 1)
   expect_that(mockNoise, is_a("numeric"))
-  expect_that(length(mockNoise), equals(10))
+  expect_that(mockNoise, equals(mockRnorm))
   }
 )

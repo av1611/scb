@@ -4,11 +4,10 @@ test_that("Testing createSample for length and being numeric", {
                             mean = 0,
                             sd = 1)
   mockPsi <- createPsi(model = sin,
-                       t = mockSleeper)
+                       sleeper = mockSleeper)
   mockSample <- createSample(model = ma1,
-                   sampleSize = 10,
-                   Z = mockZ,
-                   psi = mockPsi)
+                             psi = mockPsi,
+                             noise = mockNoise)
   expect_that(mockSample, is_a("array"))
   expect_that(length(mockSample), equals(10))
 })

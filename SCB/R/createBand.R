@@ -4,7 +4,7 @@
 #' @param alpha the probability of non-covering the real values with the estimated ones. \code{alpha = 0.05} by default.
 #' @return A two dimensional vector representing the lower and the upper bound of CI.
 #' @examples
-#' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05)
+#' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
 
 createBand <- function (X,
                         alpha = 0.05) {
