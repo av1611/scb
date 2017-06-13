@@ -8,10 +8,6 @@
 #' @param Z a white-noise vector.
 #' @return The vector of \code{X}
 #' @example
-#'
-#'
-
-
 
 ma1 <- function(sampleSize,
                 psi,
