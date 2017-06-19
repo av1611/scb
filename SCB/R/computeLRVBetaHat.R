@@ -1,0 +1,37 @@
+#' @name computeLRVBetaHat
+#'
+#' @aliases computeGammaHat
+#'
+#' @description Computing a \code{LRV Beta Hat} given certain \code{lag}.
+#'
+#'
+#' @param tParArray a T parameter, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.
+#' @param lag a lag value.
+#' @param sample a sample.
+#' @param kernel a kernel function.
+#' @param bandwidth by default, bandwidth = 1.
+#'
+#'
+#' @return A scalar value of a \code{LRV Beta Hat} given certain \code{lag}.
+#'
+#' @examples
+#'
+
+computeLRVBetaHat <- function(tParArray,
+                            lag,
+                            sample,
+                            kernel,
+                            bandwidth, ...) {
+  sampleSize <- length(sample)
+  summation <- 0
+  for (i in 1  : sampleSize) {
+    summation <- 0
+    for (j in seq_len(sampleSize - lag)) {
+      sumTmp <- sample[j] * sample[j + lag] * kernel((j/sampleSize) - tParArray) / bandwidth
+    }
+
+    summation <- summation + sumTmp
+  }
+
+  lrvBetaHat <- summation / (sampleSize * bandwidth)
+}

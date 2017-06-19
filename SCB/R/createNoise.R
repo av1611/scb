@@ -1,0 +1,23 @@
+#' @name createNoise
+#'
+#' @aliases createZ
+#'
+#' @description  Creating \code{noise} given \code{time} (length), \code{mean} and \code{sd}.
+#'
+#' @param time time, a.k.a. \code{N} of the sample of \code{X}.
+#' @param mean the mean.
+#' @param sd standard deviation.
+#'
+#' @return The vector of numbers.
+#'
+#' @examples
+#' createNoise(sampleSize = 10, mean = 0, sd =  1)
+#' createNoise(sampleSize = 20, mean = 5, sd =  10)
+
+createNoise <- function(sampleSize,
+                    mean,
+                    sd) {
+  noise <- rnorm(n = sampleSize,
+                 mean = mean,
+                 sd = sd)
+}
