@@ -2,9 +2,9 @@
 #'
 #' @aliases createZ
 #'
-#' @description  Creating \code{noise} given \code{time} (length), \code{mean} and \code{sd}.
+#' @description  Creating \code{noise} given \code{sampleSize} (length), \code{mean} and \code{sd}.
 #'
-#' @param time time, a.k.a. \code{N} of the sample of \code{X}.
+#' @param sampleSize time, a.k.a. \code{N} of the sample of \code{X}.
 #' @param mean the mean.
 #' @param sd standard deviation.
 #'

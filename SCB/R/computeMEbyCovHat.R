@@ -1,4 +1,4 @@
-computeMEbyGammaHat <- function(sample,
+computeMEbyCovHat <- function (sample,
                                 bootstrapReplicationCount) {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,

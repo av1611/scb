@@ -1,4 +1,4 @@
-#' @name createMA1
+#' @name createTVMA1
 #'
 #' @aliases ma1
 #'
@@ -8,21 +8,21 @@
 #' Thus, supposed to be passed as the value of \code{model} option of \code{createX} function
 #'
 #' @param sampleSize the sample size.
-#' @param ma1CoefArray the \code{MA1 coefficents array}.
+#' @param tvMA1CoefArray the \code{MA1 coefficents array}.
 #' @param noise a white-noise vector.
 #'
 #' @return The vector of \code{X}
 #'
 #' @example
 
-createMA1 <- function(sampleSize,
-                      ma1CoefArray,
+createTVMA1 <- function(sampleSize,
+                      tvMA1CoefArray,
                       noise) {
   X = array(0, dim = sampleSize)
   X[1] <- noise[1]
 
   for (i in 2:sampleSize) {
-    X[i] <- noise[i] + ma1CoefArray[i] * noise[i - 1]
+    X[i] <- noise[i] + tvMA1CoefArray[i] * noise[i - 1]
   }
 
   X

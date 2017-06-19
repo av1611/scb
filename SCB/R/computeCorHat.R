@@ -25,12 +25,12 @@ computeCorHat <- function(tParArray,
                           bandwidth = 1,
                           ...)
 {
-  numerator = computeLRVBetaHat(tParArray,
+  numerator = computeBetaLRVHat (tParArray,
                                lag = lag,
                                sample,
                                kernel,
                                bandwidth)
-  denominator = computeLRVBetaHat(tParArray,
+  denominator = computeBetaLRVHat (tParArray,
                                 lag = 0,
                                 sample,
                                 kernel,

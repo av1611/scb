@@ -1,4 +1,4 @@
-#' @name computeCorr
+#' @name computeCor
 #'
 #' @aliases createRho
 #'
@@ -12,14 +12,14 @@
 
 #'
 #' @examples
-#' createRho(model = ma1, lag = 1, sleeper = seq(0, 1, 0.1)
+#' computeCor (model = ma1, lag = 1, tParArray = seq(0, 1, 0.1)
 
-computeCorr <- function(model,
+computeCor <- function(model,
                       lag,
-                      computeCorr) {
+                      tParArray) {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
   # horizontal ACF of a sleepers process
-  lengthSleeper <- length(sleeper)
+  tParCount <- length(tParArray)
   rhoHI <- rep(0, 10)
 }

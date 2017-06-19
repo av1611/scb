@@ -1,4 +1,4 @@
-#' @name createMA1CoefArray
+#' @name createTVMA1CoefArray
 #'
 #' @aliases createpsi
 #'
@@ -7,13 +7,13 @@
 #' @param tParArray a T parameter, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.
 #' @param model a model, which is an underlying function used to generate \code{psi} vector.
 #'
-#' @return The vector of MA1 coefficients.
+#' @return The vector of TVMA1 coefficient values corresponding to time values.
 #'
 #' @examples
-#' createMA1CoefArray (sleeper =  seq(from = 0, to = 1, length.out = 10))
-#' createMA1CoefArray (sleeper =  seq(from = 0, to = 1, by = 0.1))
+#' createMA1CoefArray (tParArray =  seq(from = 0, to = 1, length.out = 10))
+#' createMA1CoefArray (tParArray =  seq(from = 0, to = 1, by = 0.1))
 
-createPsi <- function(model,
+createTVMA1CoefArray <- function(model,
                       tParArray) {
   ma1CoefArray <- array(0, dim = length(tParArray))
   if (missing(model)) {

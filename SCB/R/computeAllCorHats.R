@@ -2,7 +2,7 @@
 #'
 #' @aliases computeAllRhoHats
 #'
-#' @description Computing computing correlations hat, that is, all rho hats.
+#' @description Computing correlations hat, that is, all rho hats.
 #'
 #' @param tParArray a T parameter, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}
 #' @param lagCount lag
@@ -10,7 +10,7 @@
 #' @param kernel kernel.
 #' @param bandwidth bandwidth.
 #'
-#' @return Double array of sizes sleeperCount and lagCount
+#' @return
 #'
 #' @examples
 #'
@@ -33,7 +33,7 @@ computeAllCorHats <- function(tParArray,
   for (lagIndex in seq_len(lagCount)) {
     for (tParIndex in seq_len(tParCount)) {
       tParPoint = tPar[tParIndex]
-      allRhoHats[lagIndex, tParIndex] <- computeRhoHat(tParPoint,
+      allCorHats[lagIndex, tParIndex] <- computeCorHat(tParPoint,
                                                          lagIndex,
                                                          sample,
                                                          kernel,
