@@ -1,4 +1,4 @@
-#' @name createMa1
+#' @name createMA1
 #'
 #' @aliases ma1
 #'
@@ -15,7 +15,7 @@
 #'
 #' @example
 
-createMa1 <- function(sampleSize,
+createMA1 <- function(sampleSize,
                       ma1CoefArray,
                       noise) {
   X = array(0, dim = sampleSize)
