@@ -1,3 +1,19 @@
+#' @name computeNonCoverageProbDist
+#'
+#' @aliases
+#'
+#' @description
+#'
+#' @param sampleSize sampleSize
+#' @param replicationCount replicationCount
+#' @param nonCoverageProbability nonCoverageProbability
+
+#' @return
+#'
+#' @examples
+#'
+
+
 computeNonCoverageProbHat  <- function(sampleSize,
                                               replicationCount,
                                               nonCoverageProbability) {

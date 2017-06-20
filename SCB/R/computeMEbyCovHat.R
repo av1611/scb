@@ -1,3 +1,19 @@
+#' @name computeMEbyCovHat
+#'
+#' @aliases
+#'
+#' @description
+#'
+#' @param sample sample.
+#' @param bootstrapReplicationCount bootstrapReplicationCount.
+#'
+#' @return
+#'
+#' @examples
+#'
+
+
+
 computeMEbyCovHat <- function (sample,
                                 bootstrapReplicationCount) {
   # Array rho_h(i),

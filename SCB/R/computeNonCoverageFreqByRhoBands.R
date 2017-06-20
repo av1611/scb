@@ -1,3 +1,19 @@
+#' @name computeNonCoverageFreqByRhoBands
+#'
+#' @aliases
+#'
+#' @description
+#'
+#' @param bandsArray bandsArray.
+#' @param rho rho
+#'
+#' @return
+#'
+#' @examples
+#'
+
+
+
 computeNonCoverageFreqByRhoBands  <- function(bandsArray,
                                               rho) {
   # What it does

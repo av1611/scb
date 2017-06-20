@@ -1,5 +1,5 @@
 
-test_that("Testing \'computeGammaHat\' for being a matrix of 2 by N dimensions")
+test_that("Testing \'computeCorHat\' for being a matrix of 2 by N dimensions")
 {
 
   sampleSize = 3
@@ -10,7 +10,7 @@ test_that("Testing \'computeGammaHat\' for being a matrix of 2 by N dimensions")
   kernelArguments = seq (begin = -4, end = 4, by = myStep)
   kernelValues = normalDifferenceKernel (kernelArguments)
 
-  myGammaHat = computeGammaHat <- function(tPar,
+  myGammaHat = computeCorHat <- function(tPar,
                               lag,
                               sample,
                               kernel,

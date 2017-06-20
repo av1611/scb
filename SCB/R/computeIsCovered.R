@@ -1,3 +1,18 @@
+#' @name computeIsCovered
+#'
+#' @aliases
+#'
+#' @description
+#'
+#' @param band band
+#' @param rho rho
+#'
+#' @return Vector of {0, 1 values}.
+#'
+#' @examples
+#'
+
+
 computeIsCovered <- function(band,
                              rho) {
   # Array rho_h(i),

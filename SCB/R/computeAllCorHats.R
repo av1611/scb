@@ -4,8 +4,8 @@
 #'
 #' @description Computing correlations hat, that is, all rho hats.
 #'
-#' @param tParArray a T parameter, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}
-#' @param lagCount lag
+#' @param tParArray a T parameter array, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.
+#' @param lagCount lag.
 #' @param sample sample.
 #' @param kernel kernel.
 #' @param bandwidth bandwidth.

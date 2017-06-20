@@ -2,7 +2,7 @@
 #'
 #' @aliases createZ
 #'
-#' @description  Creating \code{noise} given \code{sampleSize} (length), \code{mean} and \code{sd}.
+#' @description Creating a normally distributed vector of \code{noise} given \code{sampleSize} (length), \code{mean} and \code{sd}.
 #'
 #' @param sampleSize time, a.k.a. \code{N} of the sample of \code{X}.
 #' @param mean the mean.

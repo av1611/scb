@@ -1,13 +1,13 @@
 test_that("Testing createSample for length and being numeric", {
-  mockSleeper <- createSleeper(number_steps = 10)
+  mockTParArray <- createTParArray(tParCount = 10)
   mockNoise <- createNoise(sampleSize = 10,
-                            mean = 0,
-                            sd = 1)
-  mockPsi <- createPsi(model = sin,
-                       sleeper = mockSleeper)
-  mockSample <- createSample(model = ma1,
-                             psi = mockPsi,
-                             noise = mockNoise)
+                           mean = 0,
+                           sd = 1)
+  mockTVMA1Array <- createTVMA1Array(model = sin,
+                                     tParArray = mockTParArray)
+  mockSample <- createSample(model = createMa1,
+                             tvMA1CoefArray,
+                             noise)
   expect_that(mockSample, is_a("array"))
   expect_that(length(mockSample), equals(10))
 })
