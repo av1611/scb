@@ -1,4 +1,3 @@
-
 normalDifferenceKernelTestFunction = function ()
 {
 
@@ -7,7 +6,9 @@ normalDifferenceKernelTestFunction = function ()
   plot (myK ~ u)
 }
 
-test_that("Testing ma1 for length and being numeric",
+# recollect the requirements to kernel
+# like integration to 1
+test_that("Testing normalDifferenceKernel properties",
           normalDifferenceKernelTestFunction())
 
 

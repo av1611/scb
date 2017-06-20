@@ -1,6 +1,8 @@
 test_that("Testing createSample for length and being numeric", {
-  mockTParArray <- createTParArray(tParCount = 10)
-  mockNoise <- createNoise(sampleSize = 10,
+  tParCount = 10
+  mockTParArray <- createTParArray(tParCount = tParCount)
+  # may be different
+  mockNoise <- createNoise(sampleSize = tParCount,
                            mean = 0,
                            sd = 1)
   mockTVMA1Array <- createTVMA1Array(model = sin,
@@ -9,5 +11,5 @@ test_that("Testing createSample for length and being numeric", {
                              tvMA1CoefArray,
                              noise)
   expect_that(mockSample, is_a("array"))
-  expect_that(length(mockSample), equals(10))
+  expect_that(length(mockSample), equals(tParCount))
 })

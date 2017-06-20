@@ -13,7 +13,7 @@
 #' createTParArray(tParCount = 100)
 
 createTParArray <- function(tParCount) {
-  number_steps <- seq(from = 0,
-           to = 1-1/number_steps,
-           by = 1/number_steps)
+  tParArray <- seq(from = 0,
+                   to = 1-1/tParCount,
+                   by = 1/tParCount)
 }
