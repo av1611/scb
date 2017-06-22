@@ -1,4 +1,4 @@
-test_that("Testing createSample for length and being numeric", {
+createSampleFunction <- function () {
   tParCount = 10
   mockTParArray <- createTParArray(tParCount = tParCount)
   # may be different
@@ -10,6 +10,12 @@ test_that("Testing createSample for length and being numeric", {
   mockSample <- createSample(model = createMa1,
                              tvMA1CoefArray,
                              noise)
+}
+
+
+
+test_that("Testing createSample for length and being numeric", {
+  mockSample <- createSampleFunction()
   expect_that(mockSample, is_a("array"))
   expect_that(length(mockSample), equals(tParCount))
 })

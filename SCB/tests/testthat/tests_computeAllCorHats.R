@@ -1,4 +1,10 @@
-computeCorHatFunction = function () {
+computeAllCorHatsFunction = function () {
+
+}
+
+test_that("Testing \'computeAllCorHats\' for being a matrix of 2 by N dimensions", {
+  computeAllCorHatsFunction()
+
   # sampleSize = 3
   # tParCount = 5
   # lag = 0
@@ -8,19 +14,17 @@ computeCorHatFunction = function () {
   # kernelValues = normalDifferenceKernel (kernelArguments)
   #
   # myGammaHat = computeCorHat <- function(tPar,
-  #                                        lag,
-  #                                        sample,
-  #                                        kernel,
-  #                                        bandwidth, ...) {
-
-}
-
-test_that("Testing \'computeCorHat\' for being a matrix of 2 by N dimensions", {
-  computeCorHatFunction()
-
-
+  #                             lag,
+  #                             sample,
+  #                             kernel,
+  #                             bandwidth, ...) {
+  #
+  #
+  #
+  #
   # expect_that(mockBand, is_a("matrix"))
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
   }
+
 )
