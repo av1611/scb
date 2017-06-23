@@ -22,5 +22,16 @@ computeCovHat <- function(tParArray,
                           kernel,
                           bandwidth = 1,
                           ...) {
-  covHat = 0
+
+  sampleSize <- length(sample)
+  summation <- 0
+  for (i in 1  : sampleSize) {
+    for (j in seq_len(sampleSize - lag)) {
+      sumTmp <- sample[j] * sample[j + lag] * kernel((j/sampleSize) - tParArray) / bandwidth
+    }
+
+    summation <- summation + sumTmp
+  }
+
+  covHat <- summation / (sampleSize * bandwidth)
 }

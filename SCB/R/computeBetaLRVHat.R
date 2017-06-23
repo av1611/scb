@@ -20,16 +20,5 @@ computeBetaLRVHat  <- function(tParArray,
                             sample,
                             kernel,
                             bandwidth, ...) {
-  sampleSize <- length(sample)
-  summation <- 0
-  for (i in 1  : sampleSize) {
-    summation <- 0
-    for (j in seq_len(sampleSize - lag)) {
-      sumTmp <- sample[j] * sample[j + lag] * kernel((j/sampleSize) - tParArray) / bandwidth
-    }
-
-    summation <- summation + sumTmp
-  }
-
-  betaLRVHat <- summation / (sampleSize * bandwidth)
+  betaLRVHat = 0
 }

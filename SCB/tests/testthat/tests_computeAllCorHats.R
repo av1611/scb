@@ -9,15 +9,15 @@ computeAllCorHatsTestFunction = function ()
   kernel = normalDifferenceKernel
   bandwidth = 1
 
-  mock = computeAllCorHats (tParArray = tParArray,
+  mockCorHats = computeAllCorHats (tParArray = tParArray,
                             lagCount = lagCount,
                             sample = sample,
                             kernel = kernel,
                             bandwidth = 1)
 
-  expect_that(mockBand, is_a("numeric"))
-  # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
-  # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
+  # expect_that(mockCorHats, is_a("numeric"))
+  # expect_that(dim(mockCorHats)[1], equals(2))  # the number of rows
+  # expect_that(dim(mockCorHats)[2], equals(10)) # the number of cols
 }
 
 test_that("Testing \'computeAllCorHats\' for being a matrix of 2 by N dimensions",
