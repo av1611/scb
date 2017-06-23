@@ -10,12 +10,14 @@ createSampleFunction <- function () {
   mockSample <- createSample(model = createMa1,
                              tvMA1CoefArray,
                              noise)
+
+  expect_that(mockSample, is_a("array"))
+  expect_that(length(mockSample), equals(tParCount))
 }
 
 
 
 test_that("Testing createSample for length and being numeric", {
-  mockSample <- createSampleFunction()
-  expect_that(mockSample, is_a("array"))
-  expect_that(length(mockSample), equals(tParCount))
+  createSampleFunction()
+
 })

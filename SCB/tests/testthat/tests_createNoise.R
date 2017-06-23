@@ -8,15 +8,15 @@ createNoiseFunction <- function () {
                      mean = 0,
                      sd = 1)
 
-
+  # The actual testing
+  expect_that(mockRnorm, is_a("matrix"))
+  expect_that(dim(mockRnorm)[1], equals(2))  # the number of rows
+  expect_that(dim(mockRnorm)[2], equals(10)) # the number of cols
 }
 
 test_that("Testing \'createMultiplierCovarianceByKernel\'", {
   mockRnorm <- createNoiseFunction()
 
-  expect_that(mockRnorm, is_a("matrix"))
-  expect_that(dim(mockRnorm)[1], equals(2))  # the number of rows
-  expect_that(dim(mockRnorm)[2], equals(10)) # the number of cols
 }
 )
 

@@ -2,6 +2,9 @@ computeCorTestFunction = function ()
 {
   computeCor(tParArray = )
 
+  # expect_that(mockBand, is_a("matrix"))
+  # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
+  # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 
 }
 
@@ -9,9 +12,6 @@ computeCorTestFunction = function ()
 test_that("Testing \'computeCor\'", {
   mockComputeCor <- computeCorFunction()
 
-  # expect_that(mockBand, is_a("matrix"))
-  # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
-  # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
   }
 
 )
