@@ -39,3 +39,4 @@ computeCorHat <- function(tParArray,
   corHat = numerator / denominator
 
 }
+#1234
