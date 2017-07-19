@@ -1,5 +1,5 @@
-computeBetaLRVHatFunction = function () {
-  cat("\n Testing \'computeBetaLRVHat\' \n")
+computeAllBetaLRVHatsFunction = function () {
+  cat("\n Testing \'computeAllBetaLRVHats\' \n")
 
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
@@ -13,7 +13,6 @@ computeBetaLRVHatFunction = function () {
                              tvMA1CoefArray = mockTVMA1Array,
                              noise = mockNoise)
 
-  myLag = 3
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
@@ -25,25 +24,19 @@ computeBetaLRVHatFunction = function () {
                                     kernel = myKernel,
                                     bandwidth = myBandwidth)
 
-#  cat("mockAllCorHats[1:3, 1:3] =", mockAllCorHats[1:3, 1:3])
 
-
-  mockBetaLRVHat <- computeBetaLRVHat(tParArray = mockTParArray,
-                                      lag = myLag,
+  mockAllBetaLRVHats <- computeAllBetaLRVHats(tParArray = mockTParArray,
+                                      lagCount = myLagCount,
                                       sample = mockSample,
                                       kernel = myKernel,
                                       bandwidth = myBandwidth,
                                       allCorHats = mockAllCorHats)
 
-  cat("mockBetaLRVHat[1:5] =", mockBetaLRVHat[1:5], "\n")
-  # expect_that(betaLRVHat, is_a("matrix"))
-  # expect_that(dim(betaLRVHat)[1], equals(2))  # the number of rows
-  # expect_that(dim(betaLRVHat)[2], equals(10)) # the number of cols
-
+  cat("mockAllBetaLRVHats[1:3] =", mockBetaLRVHat[1:3], "\n")
 }
 
-test_that("Testing \'computeBetaLRVHat\'", {
-  computeBetaLRVHatFunction()
+test_that("Testing \'computeAllBetaLRVHats\'", {
+  computeAllBetaLRVHatsFunction()
   }
 )
 

@@ -40,9 +40,9 @@ computeBetaLRVHat  <- function(tParArray,
   # array of size tParCount
 
   for (tParIndex in 1 : tParCount) {
-    for (termIndex in 1 : termCount) {
+    for (termIndex in 1 : (termCount - lag)) {
      term = (2 * allCorHats[tParIndex, lag] * allCorHats[tParIndex, termIndex] -
-        allCorHats[tParIndex, abs(lag - termIndex) + 1] -
+        allCorHats[tParIndex, abs(lag - termIndex)] -
         allCorHats[tParIndex, lag + termIndex]) ^ 2
 
       betaLRVHat[tParIndex] = betaLRVHat[tParIndex] + term
