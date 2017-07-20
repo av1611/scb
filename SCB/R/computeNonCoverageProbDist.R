@@ -11,7 +11,7 @@
 
 #' @return
 #'
-#' @examples
+#' @example
 #'
 
 computeNonCoverageProbDist <- function(superReplicationCount,

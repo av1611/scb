@@ -2,27 +2,32 @@ computeCorTestFunction = function () {
   cat("\n Testing \'computeCor\' \n")
 
   myTParCount = 10
+  myLag = 0
+
   mockTParArray <- createTParArray(tParCount = myTParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+                                             tParArray = mockTParArray)
+  mockComputeCor <- computeCor(lag = myLag,
+                               tvMa1CoefArray = mockTVMA1CoefArray)
+  cat ("lag = 0; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
+
   myLag = 1
-  myModel = createTVMA1
+  mockComputeCor <- computeCor(lag = myLag,
+                               tvMa1CoefArray = mockTVMA1CoefArray)
+  cat ("lag = 1; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
 
-  mockComputeCor <- computeCor(tParArray = mockTParArray,
-                               lag = myLag,
-                               model = myModel)
+  myLag = 2
+  mockComputeCor <- computeCor(lag = myLag,
+                               tvMa1CoefArray = mockTVMA1CoefArray)
+  cat ("lag = 2; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
 
-  cat ("mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
+
   cat ("length(mockComputeCor) =", length(mockComputeCor), "\n")
-  expect_that(mockComputeCor, is_a("numeric"))
-  # expect_that(mockComputeCor, is_a("matrix"))
-  # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
-  # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 
+  # expect_that(mockComputeCor, is_a("numeric"))
 }
-
 
 test_that("Testing \'computeCor\'", {
   computeCorTestFunction()
-
   }
-
 )

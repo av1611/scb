@@ -12,7 +12,7 @@
 #'
 #' @return
 #'
-#' @examples
+#' @example
 #'
 
 

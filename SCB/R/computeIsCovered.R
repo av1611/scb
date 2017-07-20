@@ -9,7 +9,7 @@
 #'
 #' @return Vector of {0, 1 values}.
 #'
-#' @examples
+#' @example
 #'
 
 

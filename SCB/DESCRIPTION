@@ -1,7 +1,7 @@
 Package: SCB
 Title: Computing confidence bands in a simulation process
 Version: 0.0.0.1
-Authors@R: person("Boris Garbuzov", email = "boris.garbuzov@gmail.com", role = c("aut", "cre"))
+Authors: person("Boris Garbuzov", email = "boris.garbuzov@gmail.com", role = c("aut", "cre"))
 Description: Computing confidence bands in a simulation process using S3 approach.
 Depends: R (>= 3.3.2)
 License: BSD

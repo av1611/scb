@@ -8,7 +8,7 @@
 #'
 #' @return The vector of \code{T parameter array}.
 #'
-#' @examples
+#' @example
 #' createTParArray(tParCount = 10)
 #' createTParArray(tParCount = 100)
 
