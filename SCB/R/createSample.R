@@ -10,7 +10,7 @@
 #'
 #' @return The vector of \code{X}
 #'
-#' @examples
+#' @example
 #' createSample(model = createMa1,
 #'              tvMA1CoefArray = seq(from = 0,
 #'                                   to = 1,

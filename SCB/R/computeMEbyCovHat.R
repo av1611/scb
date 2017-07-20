@@ -9,7 +9,7 @@
 #'
 #' @return
 #'
-#' @examples
+#' @example
 #'
 
 

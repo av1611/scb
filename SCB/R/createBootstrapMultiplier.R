@@ -10,7 +10,7 @@
 #'
 #' @return The covariance matrix.
 #'
-#' @examples
+#' @example
 #' createBootstrapMultiplier(kernel, bandwidth = 1, sampleSize = 10)
 
 createBootstrapMultiplier <- function(kernel,

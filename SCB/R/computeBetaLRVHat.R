@@ -12,7 +12,7 @@
 #'
 #' @return A scalar value of a \code{Beta LRV Hat} given certain \code{lag}.
 #'
-#' @examples
+#' @example
 #'
 
 computeBetaLRVHat  <- function(tParArray,

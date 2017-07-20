@@ -14,7 +14,7 @@
 #'
 #' @return A scalar value of a ratio of \code{correlation hat} given certain \code{lag} over \code{correlation hat} of \code{lag = 0}
 #'
-#' @examples
+#' @example
 #'
 
 
