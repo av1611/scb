@@ -1,3 +1,5 @@
+#' @title createTVMA1CoefArray
+#'
 #' @name createTVMA1CoefArray
 #'
 #' @aliases createPsi
@@ -9,7 +11,7 @@
 #'
 #' @return The vector of the array of time variant coefficients values corresponding to T parameter values.
 #'
-#' @example
+#' @examples
 #' createMA1CoefArray(coefFunction = sin, tParArray =  seq(from = 0, to = 1, length.out = 10))
 #' createMA1CoefArray(coefFunction = sin, tParArray =  seq(from = 0, to = 1, by = 0.1))
 

@@ -1,3 +1,5 @@
+#' @title createTVMA1
+#'
 #' @name createTVMA1
 #'
 #' @aliases ma1
@@ -13,7 +15,7 @@
 #'
 #' @return The vector of \code{X}
 #'
-#' @example
+#' @examples
 #'
 
 createTVMA1 <- function(sampleSize,

@@ -1,8 +1,10 @@
+#' @title computeAllCorHats
+#'
 #' @name computeAllCorHats
 #'
 #' @aliases computeAllRhoHats
 #'
-#' @description Computing correlations hat, that is, all rho hats.
+#' @description Computing correlations hat, that is, all \eqn{\rho} hats.
 #'
 #' @param tParArray a T parameter array, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.
 #' @param lagCount lag.
@@ -12,7 +14,7 @@
 #'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 computeAllCorHats <- function(tParArray,

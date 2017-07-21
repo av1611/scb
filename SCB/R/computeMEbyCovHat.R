@@ -1,3 +1,5 @@
+#' @title computeMEbyCovHat
+#'
 #' @name computeMEbyCovHat
 #'
 #' @aliases
@@ -9,7 +11,7 @@
 #'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 

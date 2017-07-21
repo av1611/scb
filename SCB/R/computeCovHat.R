@@ -1,3 +1,5 @@
+#' @title computeCovHat
+#'
 #' @name computeCovHat
 #'
 #' @aliases
@@ -12,7 +14,7 @@
 #'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 

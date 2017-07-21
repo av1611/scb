@@ -1,3 +1,5 @@
+#' @title computeIsCovered
+#'
 #' @name computeIsCovered
 #'
 #' @aliases
@@ -9,7 +11,7 @@
 #'
 #' @return Vector of {0, 1 values}.
 #'
-#' @example
+#' @examples
 #'
 
 

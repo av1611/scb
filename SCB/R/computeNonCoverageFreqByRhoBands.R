@@ -1,3 +1,5 @@
+#' @title computeNonCoverageFreqByRhoBands
+#'
 #' @name computeNonCoverageFreqByRhoBands
 #'
 #' @aliases
@@ -9,7 +11,7 @@
 #'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 

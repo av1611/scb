@@ -1,3 +1,5 @@
+#' @title createTParArray
+#'
 #' @name createTParArray
 #'
 #' @aliases createSleeper
@@ -8,7 +10,7 @@
 #'
 #' @return The vector of \code{T parameter array}.
 #'
-#' @example
+#' @examples
 #' createTParArray(tParCount = 10)
 #' createTParArray(tParCount = 100)
 
