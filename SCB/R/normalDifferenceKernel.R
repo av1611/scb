@@ -1,3 +1,5 @@
+#' @title normalDifferenceKernel
+#'
 #' @name normalDifferenceKernel
 #'
 #' @aliases kernelGaussian4
@@ -7,10 +9,10 @@
 #' A manual implementation of the 4th Gaussian kernel.
 #'
 #' @param u the length.
-
+#'
 #' @return A scalar kernel
 #'
-#' @example
+#' @examples
 #' normalDifferenceKernel(10)
 
 normalDifferenceKernel  <-  function(u)  {

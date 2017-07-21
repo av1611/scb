@@ -1,3 +1,5 @@
+#' @title createBand
+
 #' @name createBand
 #'
 #' @aliases createConfidenceBand
@@ -9,7 +11,7 @@
 #'
 #' @return A two dimensional vector representing the lower and the upper bound of CI.
 #'
-#' @example
+#' @examples
 #' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
 
 createBand <- function (X,

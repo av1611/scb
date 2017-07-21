@@ -1,3 +1,5 @@
+#' @title computeNonCoverageProbDist
+#'
 #' @name computeNonCoverageProbDist
 #'
 #' @aliases
@@ -8,10 +10,10 @@
 #' @param sampleSize sampleSize
 #' @param replicationCount replicationCount
 #' @param nonCoverageProbability nonCoverageProbability
-
+#'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 computeNonCoverageProbDist <- function(superReplicationCount,

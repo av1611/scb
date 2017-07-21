@@ -1,4 +1,6 @@
-#' @name computeNonCoverageProbDist
+#' @title computeNonCoverageProbHat
+#'
+#' @name computeNonCoverageProbHat
 #'
 #' @aliases
 #'
@@ -7,10 +9,10 @@
 #' @param sampleSize sampleSize
 #' @param replicationCount replicationCount
 #' @param nonCoverageProbability nonCoverageProbability
-
+#'
 #' @return
 #'
-#' @example
+#' @examples
 #'
 
 

@@ -1,3 +1,5 @@
+#' @title createSample
+#'
 #' @name createSample
 #'
 #' @aliases createX
@@ -10,7 +12,7 @@
 #'
 #' @return The vector of \code{X}
 #'
-#' @example
+#' @examples
 #' createSample(model = createMa1,
 #'              tvMA1CoefArray = seq(from = 0,
 #'                                   to = 1,

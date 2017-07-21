@@ -1,3 +1,5 @@
+#' @title createMultiplierCovarianceByKernel
+#'
 #' @name createMultiplierCovarianceByKernel
 #'
 #' @aliases createCovarianceByKernel
@@ -10,7 +12,7 @@
 #'
 #' @return The covariance matrix.
 #'
-#' @example
+#' @examples
 #' createMultiplierCovarianceByKernel(kernel, bandwidth = 1, sampleSize = 10)
 
 createMultiplierCovarianceByKernel <- function(kernel,

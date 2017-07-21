@@ -1,15 +1,17 @@
+#' @title computeCor
+#'
 #' @name computeCor
 #'
 #' @aliases computeRho
 #'
-#' @description Computing correlation: \code{cor} (\code{rho}) given \code{tvMa1CoefArray}.
+#' @description Computing correlation: \code{cor} (\eqn{\rho}) given \code{tvMa1CoefArray}.
 #'
 #' @param lag the lag
 #' @param tvMa1CoefArray the tvMa1CoefArray
 #'
 #' @return Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}.
 #'
-#' @example
+#' @examples
 #'
 
 computeCor <- function(lag,
