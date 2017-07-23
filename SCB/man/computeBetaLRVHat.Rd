@@ -22,7 +22,7 @@ computeBetaLRVHat(tParArray, lag, sample, kernel, bandwidth, allCorHats, ...)
 A scalar value of a \code{Beta LRV Hat} given certain \code{lag}.
 }
 \description{
-Computing a \code{Beta LRV Hat} given certain \code{lag}.
+Computing a \code{betaLRVHat} given certain \code{lag}.
 }
 \examples{
 
