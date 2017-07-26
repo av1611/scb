@@ -22,7 +22,7 @@ computeBetaLRVHat  <- function(tParArray,
                                sample,
                                kernel,
                                bandwidth,
-                               allCorHats, ...) {
+                               allCorHats) {
   tParCount = length(tParArray)
   sampleSize = length(sample)
   termCount = 2 * sampleSize ^ (4/15) # aka L
