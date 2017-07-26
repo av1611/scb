@@ -22,8 +22,7 @@ computeCovHat <- function(tParArray,
                           lag,
                           sample,
                           kernel,
-                          bandwidth = 1,
-                          ...) {
+                          bandwidth = 1) {
 
   sampleSize <- length(sample)
   summation <- 0

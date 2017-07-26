@@ -22,8 +22,7 @@ computeCorHat <- function(tParArray,
                           lag,
                           sample,
                           kernel,
-                          bandwidth = 1,
-                          ...)
+                          bandwidth = 1)
 {
   numerator = computeCovHat(tParArray,
                                lag = lag,
