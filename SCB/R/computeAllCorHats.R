@@ -15,6 +15,8 @@
 #' @return
 #'
 #' @examples
+#'  mockCorHats = computeAllCorHats(tParArray = mockTParArray,
+#'  lagCount = myLagCount,sample = mockSample,kernel = kernel,bandwidth = 1)
 #'
 
 computeAllCorHats <- function(tParArray,

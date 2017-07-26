@@ -16,7 +16,7 @@
 #' @return The vector of \code{X}
 #'
 #' @examples
-#'
+#' createTVMA1(8,tvMA1CoefArray,noise)
 
 createTVMA1 <- function(sampleSize,
                       tvMA1CoefArray,

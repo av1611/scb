@@ -10,7 +10,7 @@
 #'
 #' @return A scalar value of \code{b}.
 #'
-#' @examples
+#' @examples computeB(n=8)
 #'
 
 computeB <- function(n) {
