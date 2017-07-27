@@ -1,4 +1,4 @@
-computeME=function()
+computeMEbyCovHatFunction = function()
 {
   cat ("\n Testing \'computeME\'\n")
   myLag=2
@@ -22,7 +22,7 @@ mockTParArray <- createTParArray(tParCount = tParCount)
 
 }
 test_that("Testing \'computeME\' ", {
-  computeME()
+  computeMEbyCovHatFunction()
 
 }
 )
