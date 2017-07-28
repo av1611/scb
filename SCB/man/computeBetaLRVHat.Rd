@@ -5,7 +5,7 @@
 \alias{computeGammaHat}
 \title{computeBetaLRVHat}
 \usage{
-computeBetaLRVHat(tParArray, lag, sample, kernel, bandwidth, allCorHats, ...)
+computeBetaLRVHat(tParArray, lag, sample, kernel, bandwidth, allCorHats)
 }
 \arguments{
 \item{tParArray}{a T parameter array, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.}
@@ -22,7 +22,7 @@ computeBetaLRVHat(tParArray, lag, sample, kernel, bandwidth, allCorHats, ...)
 A scalar value of a \code{Beta LRV Hat} given certain \code{lag}.
 }
 \description{
-Computing a \code{Beta LRV Hat} given certain \code{lag}.
+Computing a \code{betaLRVHat} given certain \code{lag}.
 }
 \examples{
 

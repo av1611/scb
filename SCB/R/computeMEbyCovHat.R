@@ -31,29 +31,25 @@ computeMEbyCovHat <- function (lag,
   INT_SQ_DER = 0.306951
   PHI_K_NORMAL_DIF = 0.4065
   # mylag=2
-  mytParArray = createTParArray(tParCount = 10)
-
-
-
-  mockAllCorHats <- computeAllCorHats(tParArray = mockTParArray,
-                                      lagCount = myLagCount,
-                                      sample = mockSample,
-                                      kernel = myKernel,
-                                      bandwidth = myBandwidth)
-
+  tParCount = 10
+  mytParArray = createTParArray(tParCount)
   mykernel = normalDifferenceKernel
-  myBetaLRVHat = computeBetaLRVHat(
-    tParArray = mytParArray,
-    lag = lag,
-    sample = sample,
-    kernel = mykernel,
-    bandwidth = bandwith,
-    allCorHats=mockAllCorHats
-  )
+  myLagCount = tParCount - 1
+
+  mockAllCorHats <- computeAllCorHats(tParArray = mytParArray,
+                                      lagCount = myLagCount,
+                                      sample = sample,
+                                      kernel = mykernel,
+                                      bandwidth = bandwidth)
+ cat("mockAllCorHats",str(mockAllCorHats),"\n")
+
+  myBetaLRVHat = computeBetaLRVHat(tParArray = mytParArray,lag=lag,sample=sample,kernel = mykernel,allCorHats = mockAllCorHats)
+  cat("myBetaLRVHat",myBetaLRVHat, "\n")
   sampleSize = 8
   MySqrt = sqrt (-2 * log (bandwidth))
+  cat("mySqrt",MySqrt,"\n")
   CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - alpha)))) / MySqrt
 
   ME = CFactor * myBetaLRVHat * sqrt (PHI_K_NORMAL_DIF / (sampleSize * bandwidth))
-  ME
+
 }

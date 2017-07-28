@@ -5,7 +5,7 @@
 \alias{}
 \title{computeMEbyCovHat}
 \usage{
-computeMEbyCovHat(sample, bootstrapReplicationCount)
+computeMEbyCovHat(lag, sample, bandwidth, alpha)
 }
 \arguments{
 \item{sample}{sample.}

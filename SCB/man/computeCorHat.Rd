@@ -5,7 +5,7 @@
 \alias{computeRhoHat}
 \title{computeCorHat}
 \usage{
-computeCorHat(tParArray, lag, sample, kernel, bandwidth = 1, ...)
+computeCorHat(tParArray, lag, sample, kernel, bandwidth = 1)
 }
 \arguments{
 \item{tParArray}{a T parameter, a.k.a. a sleeper parameter, a sequence of numbers {0, 1}.}
