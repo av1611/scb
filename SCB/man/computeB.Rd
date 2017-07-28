@@ -14,8 +14,9 @@ computeB(n)
 A scalar value of \code{b}.
 }
 \description{
-Create B, a.k.a. bandwidth given \code{n} as being a sample size
+Create \code{b}, a.k.a. bandwidth given \code{n} as being a sample size
 }
 \examples{
+computeB(n=8)
 
 }

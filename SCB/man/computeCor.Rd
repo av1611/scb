@@ -16,7 +16,7 @@ computeCor(lag, tvMa1CoefArray)
 Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}.
 }
 \description{
-Computing correlation: \code{cor} (\code{rho}) given \code{tvMa1CoefArray}.
+Computing correlation: \code{cor} (\eqn{\rho}) given \code{tvMa1CoefArray}.
 }
 \examples{
 

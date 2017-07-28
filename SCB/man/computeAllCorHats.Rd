@@ -25,5 +25,7 @@ computeAllCorHats(tParArray, lagCount, sample, kernel, bandwidth = 1)
 Computing correlations hat, that is, all \eqn{\rho} hats.
 }
 \examples{
+ mockCorHats = computeAllCorHats(tParArray = mockTParArray,
+ lagCount = myLagCount,sample = mockSample,kernel = kernel,bandwidth = 1)
 
 }

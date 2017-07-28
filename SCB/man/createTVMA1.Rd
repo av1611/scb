@@ -24,5 +24,5 @@ Intended to be run as an underlying function from within \code{createX}.
 Thus, supposed to be passed as the value of \code{model} option of \code{createX} function
 }
 \examples{
-
+createTVMA1(8,tvMA1CoefArray,noise)
 }
