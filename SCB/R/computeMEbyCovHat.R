@@ -46,6 +46,7 @@ computeMEbyCovHat <- function (lag,
   myBetaLRVHat = computeBetaLRVHat(tParArray = mytParArray,lag=lag,sample=sample,kernel = mykernel,allCorHats = mockAllCorHats)
   cat("myBetaLRVHat",myBetaLRVHat, "\n")
   sampleSize = 8
+  cat("bandwidth",bandwidth)
   MySqrt = sqrt (-2 * log (bandwidth))
   cat("mySqrt",MySqrt,"\n")
   CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - alpha)))) / MySqrt
