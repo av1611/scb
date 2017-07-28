@@ -16,7 +16,11 @@
 #' @return The vector of \code{X}
 #'
 #' @examples
-#' createTVMA1(8,tvMA1CoefArray,noise)
+#' tParCount = 10
+#' tParArray <- createTParArray(tParCount = tParCount)
+#' noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
+#' tvMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
+#' tvMA1 <- createTVMA1(sampleSize = tParCount, tvMA1CoefArray = tvMA1CoeffArray, noise = noise)
 
 createTVMA1 <- function(sampleSize,
                       tvMA1CoefArray,

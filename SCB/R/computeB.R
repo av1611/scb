@@ -10,8 +10,7 @@
 #'
 #' @return A scalar value of \code{b}.
 #'
-#' @examples computeB(n=8)
-#'
+#' @examples bandwidthValue <- computeB(n = 8)
 
 computeB <- function(n) {
   b <- n ^ (-0.2)
