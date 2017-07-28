@@ -7,9 +7,10 @@ x <- Sym("x")
 
 normDifKernel <- function(x)
 {
-  2 * dnorm(x) - dnorm(x / sqrt(2)) * (1 / sqrt(2))
+  # 2 * dnorm(x) - dnorm(x / sqrt(2)) * (1 / sqrt(2))
+  x
 }
-
+myfunString = "x * x"
 normDifKernel(-4)
 
 
