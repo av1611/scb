@@ -10,9 +10,7 @@ mockTParArray <- createTParArray(tParCount = tParCount)
 
   mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
                                               tParArray = mockTParArray)
-  mockTVMA1 <- createTVMA1(sampleSize = tParCount,
-                           tvMA1CoefArray = mockTVMA1CoeffArray,
-                           noise=Mynoise)
+
   mysample=createSample(model = createTVMA1,tvMA1CoefArray = seq(from = 0,to = 1,
                                                                length.out = 10),
                         noise = Mynoise)
