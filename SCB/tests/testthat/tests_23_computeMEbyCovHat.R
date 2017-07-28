@@ -1,4 +1,4 @@
-computeMEfunction = function()
+computeMEfunction=function()
 {
   cat ("\n Testing \'computeME\'\n")
   myLag=2
