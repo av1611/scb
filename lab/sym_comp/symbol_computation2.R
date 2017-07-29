@@ -4,41 +4,39 @@ library(Ryacas)
 
 x <- Sym("x")
 
+phi <- function(x)
+{
+  (1 / sqrt(2 * pi)) * exp((-x ^ 2) / 2)
+}
 
 normDifKernel <- function(x)
 {
-  # 2 * dnorm(x) - dnorm(x / sqrt(2)) * (1 / sqrt(2))
-  x
+  2 * phi(x) - phi(x / sqrt(2)) * (1 / sqrt(2))
 }
-myfunString = "x * x"
-normDifKernel(-4)
 
+kernelDeriv <- normDifKernel
+body(kernelDeriv) <- yacas((deriv(normDifKernel(x))))[[1]]
 
-KDerive <- Ryacas::yacas(deriv(normDifKernel(x), x))
-KDerive$text
+kernelDerivSquared <- normDifKernel
+body(kernelDerivSquared) <- yacas(kernelDeriv(x) ^ 2)[[1]]
+
 lowBound <- -6
 upBound <- 6
 
-
-KDerivSquared <- Eval(yacas((KDerive$text)^2))
-
-
-KDerivIntegrated <- Ryacas::Integrate.default(f = KDerivSquared,
-                                              x = x,
-                                              a = lowBound,
-                                              b = upBound)
+intSqDer <- integrate(f = kernelDerivSquared,
+                      lower = lowBound,
+                      upper = upBound)[[1]]
+intSqDer
 
 
-normDifKernelSquared <- Eval(yacas((normDifKernel(x))^2))
+kernelSquared <- normDifKernel
+body(kernelSquared) <- yacas(normDifKernel(x) ^ 2)[[1]]
+
+phiKNormalDif <- integrate(f = kernelSquared,
+                           lower = lowBound,
+                           upper = upBound)[[1]]
+phiKNormalDif
 
 
-phiKNormalDif <- Ryacas::Integrate.default(f = normDifKernelSquared,
-                                           x = x,
-                                           a = lowBound,
-                                           b = upBound)
-
-print(yacas(expression(integrate(1 / x, x))))
-print(Eval(yacas(expression(2 * x))))
-
-CK <- 0.5 * log (KDerivIntegrated / (4 * pi^2 * phiKNormalDif))
+CK <- 0.5 * log (intSqDer / (4 * pi ^ 2 * phiKNormalDif))
 CK
