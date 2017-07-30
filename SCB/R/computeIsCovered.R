@@ -16,11 +16,23 @@
 
 
 computeIsCovered <- function(band,
-                             rho) {
+                             trueCor)
+{
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
   # horizontal ACF of a sleepers process
-  lengthSleeper <- length(sleeper)
-  rhoHI <- rep(0, 10)
+
+  tParCount = length (trueCor)
+  isCoveredArray = array (size = tParCount)
+  for (tParIndex in 1 : tParCount)
+  {
+    upper = band [2, ]
+    lower = band [1, ]
+    isUnder = (trueCor [tParIndex ] <= upper  [tParIndex ] )
+    isAbove = (trueCor [tParIndex ] >= lower [tParIndex ] )
+    isBetween = isUnder  & isAbove
+    isCoveredArray  [tParIndex ] = isBetween
+  }
+
 }
 

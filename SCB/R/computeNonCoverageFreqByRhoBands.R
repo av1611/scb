@@ -17,7 +17,8 @@
 
 
 computeNonCoverageFreqByRhoBands  <- function(bandsArray,
-                                              rho) {
+                                              rho)
+{
   # What it does
   # Takes a model.
   # For this model it calculates the rho
