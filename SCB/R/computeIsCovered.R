@@ -23,7 +23,7 @@ computeIsCovered <- function(band,
   # horizontal ACF of a sleepers process
 
   tParCount = length (trueCor)
-  isCoveredArray = array (size = tParCount)
+  isCoveredArray = array (0,dim = tParCount)
   for (tParIndex in 1 : tParCount)
   {
     upper = band [2, ]
@@ -31,8 +31,8 @@ computeIsCovered <- function(band,
     isUnder = (trueCor [tParIndex ] <= upper  [tParIndex ] )
     isAbove = (trueCor [tParIndex ] >= lower [tParIndex ] )
     isBetween = isUnder  & isAbove
-    isCoveredArray  [tParIndex ] = isBetween
+    isCoveredArray[tParIndex ] = isBetween
   }
-
+isCoveredArray
 }
 
