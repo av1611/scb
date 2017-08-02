@@ -12,14 +12,18 @@
 #' @return
 #'
 #' @examples
-#'
+#'lag=2
+#'sample <- createSample(model = createTVMA1, tvMA1CoefArray = tvMA1Array, noise = noise)
+#'bandwith=1
+#'nonCoverageProbability=0.05
+#'ME=computeMEbyCovHats(lag=lag,sample=sample,bandwith=0.5,nonCoverageProbability=0.05)
 
 
 
 computeMEbyCovHat <- function (lag,
                                sample,
                                bandwidth,
-                               alpha)
+                               nonCoverageProbability)
 {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
@@ -49,7 +53,7 @@ computeMEbyCovHat <- function (lag,
   cat("bandwidth",bandwidth)
   MySqrt = sqrt (-2 * log (bandwidth))
   cat("mySqrt",MySqrt,"\n")
-  CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - alpha)))) / MySqrt
+  CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - nonCoverageProbability)))) / MySqrt
 
   ME = CFactor * myBetaLRVHat * sqrt (PHI_K_NORMAL_DIF / (sampleSize * bandwidth))
 

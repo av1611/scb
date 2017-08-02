@@ -15,7 +15,12 @@
 #' @return
 #'
 #' @examples
-#'
+#'tParArray <- createTParArray(tParCount = tParCount)
+#'createSample(model = createMa1,tvMA1CoefArray = seq(from = 0,to = 1,length.out = 10),noise = rnorm(n = 10,mean = 0,sd = 1)))
+#'kernel=normalDiferencekernel
+#'lag=2
+#'bandwith=1
+#'CovHat=computeCovHat(tParArray=tParArray,lag=lag,sample=sample,kernel=kernel,bandwidth=1)
 
 
 computeCovHat <- function(tParArray,
