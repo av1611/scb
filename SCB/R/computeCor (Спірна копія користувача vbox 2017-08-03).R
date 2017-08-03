@@ -12,11 +12,11 @@
 #' @return Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}.
 #'
 #' @examples
-#' tParCount <- 10
-#' lag <- 0
-#' tParArray <- createTParArray(tParCount = tParCount)
-#' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-#' corArray <- computeCor(lag = lag, tvMa1CoefArray = tvMA1CoefArray)
+#' myTParCount = 10
+#' myLag = 0
+#' mockTParArray <- createTParArray(tParCount = myTParCount)
+#' mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,tParArray = mockTParArray)
+#' mockComputeCor <- computeCor(lag = myLag,tvMa1CoefArray = mockTVMA1CoefArray)
 
 computeCor <- function(lag,
                        tvMa1CoefArray) {

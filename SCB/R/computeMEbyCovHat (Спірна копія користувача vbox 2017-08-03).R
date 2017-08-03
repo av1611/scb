@@ -12,16 +12,11 @@
 #' @return
 #'
 #' @examples
-#' tParCount = 10
-#' tParArray <- createTParArray(tParCount = tParCount)
-#' noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-#' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-#' sample <- createSample(model = createMa1, tvMA1CoefArray = tvMA1CoefArray, noise = noise)
-#' kernel = normalDiferencekernel
-#' bandwith <- 0.5
-#' lag <- 2
-#' nonCoverageProbability <- 0.05
-#' meByCovHat <- computeMEbyCovHats(lag = lag, sample = sample, bandwith = bandwidth, nonCoverageProbability = nonCoverageProbability
+#'lag=2
+#'sample <- createSample(model = createTVMA1, tvMA1CoefArray = tvMA1Array, noise = noise)
+#'bandwith=1
+#'nonCoverageProbability=0.05
+#'ME=computeMEbyCovHats(lag=lag,sample=sample,bandwith=0.5,nonCoverageProbability=0.05)
 
 
 

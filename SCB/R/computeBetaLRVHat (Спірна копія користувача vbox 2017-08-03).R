@@ -15,16 +15,14 @@
 #' @return A scalar value of a \code{Beta LRV Hat} given certain \code{lag}.
 #'
 #' @examples
-#' tParCount = 10
-#' tParArray <- createTParArray(tParCount = tParCount)
-#' noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-#' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-#' sample <- createSample(model = createMa1, tvMA1CoefArray = tvMA1CoefArray, noise = noise)
-#' kernel = normalDiferencekernel
-#' bandwith = 1
-#' lag = 2
-#' allCorHats = computeAllCorHats(tParArray = tParArray, lagCount = tParCount - 1, sample = sample, kernel = kernel, bandwidth = bandwidth)
-#' betaLRVHat = computeBetaLRVHat(tParArray = tParArray, lag = lag, sample = sample, kernel = kernel, bandwidth = bandwidth, allCorHats = allCorHats)
+#'tParArray <- createTParArray(tParCount = tParCount)
+#'createSample(model = createMa1,tvMA1CoefArray = seq(from = 0,to = 1,length.out = 10),noise = rnorm(n = 10,mean = 0,sd = 1)))
+#'kernel=normalDiferencekernel
+#'bandwith=1
+#'lag=2
+#'allCorHats=computeAllCorHats(tParArray=tParArray,lagCount=tParCount-1,sample=sample,kernel=kernel,bandwidth = 1)
+#'BetaLRVHat=computeBetaLRVHat(tParArray=tParArray,lag=lag,sample=sample,allCorHats=allCorHats)
+
 
 computeBetaLRVHat  <- function(tParArray,
                                lag,

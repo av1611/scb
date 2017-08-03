@@ -12,15 +12,15 @@
 #' @return Vector of {0, 1 values}.
 #'
 #' @examples
+#' band=createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05)
+#' myLag=2
 #' tParCount = 10
-#' tParArray <- createTParArray(tParCount = tParCount)
-#' noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-#' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
+#' mockTParArray <- createTParArray(tParCount = tParCount)
+#' mockNoise <- createNoise(sampleSize = tParCount,mean = 0,sd = 1)
+#' mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,tParArray = mockTParArray)
 #' mockTVMA1 <- createTVMA1(sampleSize = tParCount,tvMA1CoefArray = mockTVMA1CoeffArray,noise = mockNoise)
-#' corArray <- computeCor(lag = lag, tvMa1CoefArray = tvMA1CoefArray)
-#' lag  <- 2
-#' band <- createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05)
-#' isCovered <- computeIsCovered(band = band, trueCor = corArray)
+#' Cor=computeCor(lag=myLag,tvMa1CoefArray = mockTVMA1)
+#'IsCovered=computeIsCovered(band,Cor)
 
 
 computeIsCovered <- function(band,

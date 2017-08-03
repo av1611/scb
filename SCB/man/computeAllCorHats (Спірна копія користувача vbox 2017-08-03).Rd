@@ -25,14 +25,7 @@ computeAllCorHats(tParArray, lagCount, sample, kernel, bandwidth = 1)
 Computing correlations hat, that is, all \eqn{\rho} hats.
 }
 \examples{
-tParCount = 10
-tParArray <- createTParArray(tParCount = tParCount)
-tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-sample <- createSample(model = createTVMA1, tvMA1CoefArray = tvMA1Array, noise = noise)
-lagCount = tParCount - 1
-kernel = normalDifferenceKernel
-bandwidth = 1
-allCorHats = computeAllCorHats(tParArray = tParArray, lagCount = lagCount, sample = sample, kernel = kernel,  bandwidth = 1)
+ mockCorHats = computeAllCorHats(tParArray = mockTParArray,
+ lagCount = myLagCount,sample = mockSample,kernel = kernel,bandwidth = 1)
+
 }

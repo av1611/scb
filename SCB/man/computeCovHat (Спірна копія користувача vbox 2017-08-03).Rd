@@ -25,13 +25,5 @@ computeCovHat(tParArray, lag, sample, kernel, bandwidth = 1)
 
 }
 \examples{
-tParCount = 10
-tParArray <- createTParArray(tParCount = tParCount)
-noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-sample <- createSample(model = createMa1, tvMA1CoefArray = tvMA1CoefArray, noise = noise)
-kernel  <- normalDiferencekernel
-bandwith <- 1
-lag <- 2
-covHat <- computeCovHat(tParArray = tParArray, lag = lag, sample = sample, kernel = kernel, bandwidth = bandwidth)
+
 }

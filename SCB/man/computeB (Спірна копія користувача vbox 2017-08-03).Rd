@@ -17,5 +17,6 @@ A scalar value of \code{b}.
 Create \code{b}, a.k.a. bandwidth given \code{n} as being a sample size
 }
 \examples{
-bandwidthValue <- computeB(n = 8)
+computeB(n=8)
+
 }

@@ -19,9 +19,5 @@ Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i 
 Computing correlation: \code{cor} (\eqn{\rho}) given \code{tvMa1CoefArray}.
 }
 \examples{
-tParCount <- 10
-lag <- 0
-tParArray <- createTParArray(tParCount = tParCount)
-tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-corArray <- computeCor(lag = lag, tvMa1CoefArray = tvMA1CoefArray)
+
 }

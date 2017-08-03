@@ -5,7 +5,7 @@
 \alias{}
 \title{computeMEbyCovHat}
 \usage{
-computeMEbyCovHat(lag, sample, bandwidth, alpha)
+computeMEbyCovHat(lag, sample, bandwidth, nonCoverageProbability)
 }
 \arguments{
 \item{sample}{sample.}
@@ -19,5 +19,14 @@ computeMEbyCovHat(lag, sample, bandwidth, alpha)
 
 }
 \examples{
-
+tParCount = 10
+tParArray <- createTParArray(tParCount = tParCount)
+noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
+tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
+sample <- createSample(model = createMa1, tvMA1CoefArray = tvMA1CoefArray, noise = noise)
+kernel = normalDiferencekernel
+bandwith <- 0.5
+lag <- 2
+nonCoverageProbability <- 0.05
+meByCovHat <- computeMEbyCovHats(lag = lag, sample = sample, bandwith = bandwidth, nonCoverageProbability = nonCoverageProbability
 }
