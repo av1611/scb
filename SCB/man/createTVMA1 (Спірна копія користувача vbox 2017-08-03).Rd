@@ -24,9 +24,5 @@ Intended to be run as an underlying function from within \code{createX}.
 Thus, supposed to be passed as the value of \code{model} option of \code{createX} function
 }
 \examples{
-tParCount = 10
-tParArray <- createTParArray(tParCount = tParCount)
-noise <- createNoise(sampleSize = tParCount, mean = 0, sd = 1)
-tvMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-tvMA1 <- createTVMA1(sampleSize = tParCount, tvMA1CoefArray = tvMA1CoeffArray, noise = noise)
+createTVMA1(8,tvMA1CoefArray,noise)
 }

@@ -11,11 +11,11 @@
 #' @return The vector of \code{T parameter array}.
 #'
 #' @examples
-#' tParCount = 10
-#' createTParArray(tParCount = tParCount)
+#' createTParArray(tParCount = 10)
+#' createTParArray(tParCount = 100)
 
 createTParArray <- function(tParCount) {
   tParArray <- seq(from = 0,
-                   to = 1 - 1 / tParCount,
-                   by = 1 / tParCount)
+                   to = 1-1/tParCount,
+                   by = 1/tParCount)
 }

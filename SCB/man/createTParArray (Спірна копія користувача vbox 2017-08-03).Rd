@@ -17,6 +17,6 @@ The vector of \code{T parameter array}.
 Create \code{T parameter array}.
 }
 \examples{
-tParCount = 10
-createTParArray(tParCount = tParCount)
+createTParArray(tParCount = 10)
+createTParArray(tParCount = 100)
 }
