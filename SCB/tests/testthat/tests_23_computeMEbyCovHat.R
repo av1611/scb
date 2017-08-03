@@ -15,6 +15,7 @@ mockTParArray <- createTParArray(tParCount = tParCount)
                                                                length.out = 10),
                         noise = Mynoise)
   Ck=computeMEbyCovHat(lag=myLag,sample=mysample,bandwidth = 0.5,nonCoverageProbability = 0.05)
+
   cat("ME",Ck,"\n")
 
 
