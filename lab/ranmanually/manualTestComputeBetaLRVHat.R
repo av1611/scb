@@ -6,5 +6,6 @@ library ("testthat")
 getwd()
 source("../util/sourceDir.R")
 sourceDir(path = "./R/")
-source ("tests/testthat/tests_computeBetaLRVHat.R")
+sourceDir(path = "tests/testthat/")
+#source ("tests/testthat/tests_computeBetaLRVHat.R")
 

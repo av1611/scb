@@ -28,4 +28,11 @@ computeNonCoverageFreqByRhoBands  <- function(bandsArray,
   # Calculates alpha hat or
   # nonCoverageProbabilityHat = number of zeros / superReplication
   # nonCoverageProbabilityHat <-
+  n=length(bandsArray);
+  for(index in 1:n)
+  {
+
+
+  }
+
 }

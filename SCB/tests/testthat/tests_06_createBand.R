@@ -2,8 +2,7 @@ createBandFunction <- function() {
   cat("\n Testing \'createBand\' for length and being numeric \n")
   mockBand <- createBand(X = rnorm(n = 10,
                                    mean = 0,
-                                   sd = 1),
-                         alpha = 0.05)
+                                   sd = 1),nonCoverageProbability = 0.05)
 
   cat ("mockBand =", mockBand, "\n")
   # # expect_that(mockBand, is_a("matrix"))
