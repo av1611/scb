@@ -2,7 +2,7 @@ computeIsCoveredfunction=function()
 {
   cat ("\n Testing \'computeIsCovered\'\n")
 
-  band=createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05)
+  band=createBand(X = rnorm(n = 10, mean = 0, sd = 1), nonCoverageProbability = 0.05)
   myLag=2
   tParCount = 10
   mockTParArray <- createTParArray(tParCount = tParCount)
