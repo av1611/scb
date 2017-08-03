@@ -14,7 +14,17 @@
 #' @examples
 #' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
 
-createBand <- function (X,nonCoverageProbability = 0.05) {
+createBand <- function (
+  sample,
+  corArray,
+  bandwidth = 1,
+  nonCoverageProbability = 0.05)
+
+{
+  # get the real correlation computeCor
+  # call ME (sample, bandwidth, nonCoverageProbability)
+  # upper = corArray + ME
+  # upper = corArray + ME
   lowerBound <- rep(x = 0, times = length(X))
   upperBound <- rep(x = 1, times = length(X))
   band <- rbind(lowerBound, upperBound)

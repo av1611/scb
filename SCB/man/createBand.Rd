@@ -5,7 +5,7 @@
 \alias{createConfidenceBand}
 \title{createBand}
 \usage{
-createBand(X, alpha = 0.05)
+createBand(X, nonCoverageProbability = 0.05)
 }
 \arguments{
 \item{sample}{a vector of \code{sample}.}

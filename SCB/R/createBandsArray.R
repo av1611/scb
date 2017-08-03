@@ -1,4 +1,7 @@
-createbands=function(count)
+
+
+
+createBandsArray=function(count)
 {
   for(index in 1:count)
   {
