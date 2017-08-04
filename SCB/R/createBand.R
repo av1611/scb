@@ -19,18 +19,19 @@
 
 createBand <- function(lag,
                        sample,
-                       corArray,
                        bandwidth = 1,
                        nonCoverageProbability = 0.05) {
   # get the real correlation computeCor
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
+  corHatArray = computeCorHat()
+
   meByCovHat <- computeMEbyCovHat(lag,
                                   sample,
                                   bandwidth,
                                   nonCoverageProbability)
-  lowerBound <- corArray - meByCovHat
-  upperBound <- corArray + meByCovHat
+  lowerBound <- corHatArray - meByCovHat
+  upperBound <- corHatArray + meByCovHat
   band <- rbind(lowerBound, upperBound)
 }

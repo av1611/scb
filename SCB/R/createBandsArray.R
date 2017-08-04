@@ -15,16 +15,22 @@
 #' createBandsArray(replicationCount = 10, sample, corArray, bandwidth = 1, nonCoverageProbability = 0.5))
 
 createBandsArray <- function(replicationCount,
-                             sample,
-                             corArray,
+                             sampleSize,
+                             tParArray,
                              bandwidth = 1,
-                             nonCoverageProbability = 0.05) {
+                             nonCoverageProbability = 0.05)
+{
+  # generate replicationCount of samples
+  # for each sample, create a band
+  # pack those bands together into a brick
+  # return that brick
   sampleSize = size(sample)
+
   bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
 
-  for(repCountIndex in 1:replicationCount) {
-    bandsArray[repCountIndex, , , ] <- createBand(replicationCount,
-                                                  sample,
+  for(repCountIndex in 1:replicationCount)
+  {
+    bandsArray[repCountIndex, , , ] <- createBand(sample,
                                                   corArray,
                                                   bandwidth,
                                                   nonCoverageProbability)

@@ -16,8 +16,10 @@
 
 
 
-computeNonCoverageFreqByCorBands  <- function(bandsArray,
-                                              corArray) {
+computeNonCoverageFreqByCorBands  <- function(sampleSize,
+                                              tPar,
+                                              corArray)
+{
   # What it does
   # Takes a model.
   # For this model it calculates the rho
