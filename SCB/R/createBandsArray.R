@@ -1,14 +1,33 @@
+#' @title createBandsArray
 
+#' @name createBandsArray
+#'
+#' @aliases createBands
+#'
+#' @description Create a three-dimensional array of confidence intervals bands of size c(replicationCount, 2, sampleSize).
+#'
+#' @param sample a vector of \code{sample}.
+#' @param coverageProbability the probability of non-covering the real values with the estimated ones. \code{alpha = 0.05} by default.
+#'
+#' @return A two dimensional vector representing the lower and the upper bound of CI.
+#'
+#' @examples
+#' createBandsArray(replicationCount = 10, sample, corArray, bandwidth = 1, nonCoverageProbability = 0.5))
 
+createBandsArray <- function(replicationCount,
+                             sample,
+                             corArray,
+                             bandwidth = 1,
+                             nonCoverageProbability = 0.05) {
+  sampleSize = size(sample)
+  bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
 
-createBandsArray=function(count)
-{
-  for(index in 1:count)
-  {
-    replicationCount=index
-band=createBand(X = rnorm(n = 10, mean = 0+index, sd = 1+index), nonCoverageProbability = 0.05)
-cat("band",band,"\n")
-bandslist=list(replicationCount,band)
-}
-bandslist
+  for(repCountIndex in 1:replicationCount) {
+    bandsArray[repCountIndex, , , ] <- createBand(replicationCount,
+                                                  sample,
+                                                  corArray,
+                                                  bandwidth,
+                                                  nonCoverageProbability)
+    bandsArray
+    }
 }

@@ -20,26 +20,26 @@
 #' corArray <- computeCor(lag = lag, tvMa1CoefArray = tvMA1CoefArray)
 #' lag  <- 2
 #' band <- createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05)
-#' isCovered <- computeIsCovered(band = band, trueCor = corArray)
+#' isCovered <- computeIsCovered(band = band, corArray = corArray)
 
 
 computeIsCovered <- function(band,
-                             trueCor)
+                             corArray)
 {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
   # horizontal ACF of a sleepers process
 
-  tParCount = length (trueCor)
-  isCoveredArray = array (0,dim = tParCount)
+  tParCount <- length (corArray)
+  isCoveredArray <- array (0, dim = tParCount)
   for (tParIndex in 1 : tParCount)
   {
-    upper = band [2, ]
-    lower = band [1, ]
-    isUnder = (trueCor [tParIndex ] <= upper  [tParIndex ] )
-    isAbove = (trueCor [tParIndex ] >= lower [tParIndex ] )
-    isBetween = isUnder  & isAbove
-    isCoveredArray[tParIndex ] = isBetween
+    upper <- band [2, ]
+    lower <- band [1, ]
+    isUnder <- (corArray[tParIndex ] <= upper [tParIndex ])
+    isAbove <- (corArray[tParIndex ] >= lower [tParIndex ])
+    isBetween <- isUnder  & isAbove
+    isCoveredArray[tParIndex ] <- isBetween
   }
 isCoveredArray
 }
