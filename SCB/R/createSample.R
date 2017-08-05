@@ -4,11 +4,10 @@
 #'
 #' @aliases createX
 #'
-#' @description Creating \code{sample} given \code{tvMA1CoefArray}, \code{noise} and \code{model} being a function. If no model passed, \code{ma1} is used instead.
+#' @description Creating \code{sample} given \code{tvMA1CoefArray} and \code{model} being a function.
 #'
-#' @param model a model, which is an underlying function used to generate a sample vector. If model is missing, MA(1) is going to be used.
+#' @param model a model, which is an underlying function used to generate a sample vector.
 #' @param tvMA1CoefArray the psi value.
-#' @param noise a white-noise vector.
 #'
 #' @return The vector of \code{X}
 #'
@@ -17,17 +16,14 @@
 #'              tvMA1CoefArray = seq(from = 0,
 #'                                   to = 1,
 #'                                   length.out = 10),
-#'              ))
+#'              )
 
 createSample <- function(model = createMa1,
-                         tvMA1CoefArray
-                         )
+                         tvMA1CoefArray)
 {
-  noise = rnorm(n = 10,mean = 0, sd = 1)
+  noise = rnorm(n = 10, mean = 0, sd = 1)
   sampleSize <- length(tvMA1CoefArray)
-  sample <- model(sampleSize,
-                  tvMA1CoefArray,
+
+  sample <- model(tvMA1CoefArray,
                   noise)
 }
-
-
