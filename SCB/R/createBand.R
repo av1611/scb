@@ -25,13 +25,20 @@ createBand <- function(lag,
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
-  corHatArray = computeCorHat()
+  myTParCount = 10
+  myLag = 0
 
-  meByCovHat <- computeMEbyCovHat(lag,
-                                  sample,
-                                  bandwidth,
-                                  nonCoverageProbability)
-  lowerBound <- corHatArray - meByCovHat
-  upperBound <- corHatArray + meByCovHat
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+                                             tParArray = mockTParArray)
+  mockComputeCor <- computeCorHat(tParArray = mockTParArray,lag=lag,sample = sample,kernel = normalDifferenceKernel)
+
+
+  meByCovHat <- computeMEbyCovHat(lag=lag,
+                                  sample=sample,
+                                  bandwidth=1,
+                                  nonCoverageProbability=0.05)
+  lowerBound <- mockComputeCor - meByCovHat
+  upperBound <- mockComputeCor + meByCovHat
   band <- rbind(lowerBound, upperBound)
 }

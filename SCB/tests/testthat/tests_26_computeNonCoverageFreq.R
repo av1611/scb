@@ -2,31 +2,30 @@ computeNonCoverageFreqByCorHatsfunction=function()
 {
   cat ("\n Testing \'computeNonCoverageFreqByCorHats\'\n")
   myLag=2
-  tParCount = 10
-  mockTParArray <- createTParArray(tParCount = tParCount)
-  mockNoise <- createNoise(sampleSize = tParCount,
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockNoise <- createNoise(sampleSize = myTParCount,
                            mean = 0,
                            sd = 1)
-  mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
-                                              tParArray = mockTParArray)
-  mockTVMA1 <- createTVMA1(sampleSize = tParCount,
-                           tvMA1CoefArray = mockTVMA1CoeffArray,
-                           noise = mockNoise)
-  mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
-                                              tParArray = mockTParArray)
-  mockTVMA1 <- createTVMA1(sampleSize = tParCount,
-                           tvMA1CoefArray = mockTVMA1CoeffArray,
-                           noise = mockNoise)
-  Cor=computeCor(lag=myLag,tvMa1CoefArray = mockTVMA1)
-  mySample=createSample(model = mockTVMA1,
-  tvMA1CoefArray = seq(from = 0,to = 1,length.out = 10),noise = rnorm(n = 10,mean = 0,
-                              sd = 1))
-BandsArrray=createBandsArray(replicationCount = 10,sample = mySample,
-                             corArray = Cor,bandwidth = 1 ,
-                             nonCoverageProbability = 0.05)
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
+                                         tParArray = mockTParArray)
+  mockSample <- createSample(model = createTVMA1,
+                             tvMA1CoefArray = mockTVMA1Array,
+                             noise = mockNoise)
+
+
+ cat ("mockSample[1:5] =", mockSample[1:5], "\n")
+  expect_that(mockSample, is_a("array"))
+
+  Cor=computeCor(lag=myLag,tvMa1CoefArray = mockTVMA1Array)
+mySampleSize=length(mockSample)
+cat("sampleSize:",mySampleSize,"\n")
+
+BandsArrray=createBandsBrick(replicationCount = 10,sampleSize = mySampleSize,tParArray = mockTParArray)
 NonCov=computeNonCoverageFreqByCorBands(bandsArray = BandsArrray,
-                                        corArray = Cor)
-cat("NonCoverageFreqByCorBands:",NonCov,"\n")
+                                       corArray = Cor)
+at("NonCoverageFreqByCorBands:",NonCov,"\n")
 
 }
 test_that("computeNonCoverageFreqByCorHats", {
