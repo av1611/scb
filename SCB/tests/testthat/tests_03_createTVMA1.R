@@ -1,4 +1,5 @@
-createTVMA1Function <- function() {
+createTVMA1Function <- function()
+{
   cat("\n Testing \'createTVMA1\' for length and being numeric \n")
 
   tParCount = 10
@@ -8,8 +9,7 @@ createTVMA1Function <- function() {
                            sd = 1)
   mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
                                               tParArray = mockTParArray)
-  mockTVMA1 <- createTVMA1(sampleSize = tParCount,
-                           tvMA1CoefArray = mockTVMA1CoeffArray,
+  mockTVMA1 <- createTVMA1(tvMA1CoefArray = mockTVMA1CoeffArray,
                            noise = mockNoise)
 
   cat ("mockTVMA1[1:5] =", mockTVMA1[1:5], "\n")
@@ -17,7 +17,8 @@ createTVMA1Function <- function() {
 }
 
 
-test_that("Testing createTVMA1", {
+test_that("Testing createTVMA1",
+  {
   createTVMA1Function()
   }
 )

@@ -1,5 +1,5 @@
 createTVMA1CoefArrayFunction <- function() {
-  cat("\n Testing \'tests_createTVMA1CoefArray\' for length and being numeric \n")
+  cat("\n Testing \'createTVMA1CoefArray\' for length and being numeric \n")
   tParCount = 10
   mockTParArray <- createTParArray(tParCount = tParCount)
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
