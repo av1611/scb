@@ -17,13 +17,13 @@
 #'              tvMA1CoefArray = seq(from = 0,
 #'                                   to = 1,
 #'                                   length.out = 10),
-#'              noise = rnorm(n = 10,
-#'                            mean = 0,
-#'                            sd = 1)))
+#'              ))
 
 createSample <- function(model = createMa1,
-                         tvMA1CoefArray,
-                         noise) {
+                         tvMA1CoefArray
+                         )
+{
+  noise = rnorm(n = 10,mean = 0, sd = 1)
   sampleSize <- length(tvMA1CoefArray)
   sample <- model(sampleSize,
                   tvMA1CoefArray,

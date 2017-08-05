@@ -22,15 +22,19 @@
 #' tvMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
 #' tvMA1 <- createTVMA1(sampleSize = tParCount, tvMA1CoefArray = tvMA1CoeffArray, noise = noise)
 
-createTVMA1 <- function(sampleSize,
+createTVMA1 <- function(
                       tvMA1CoefArray,
-                      noise) {
-  X = array(0, dim = sampleSize)
-  X[1] <- noise[1]
+                      noise)
+{
+  # we may have one off problem here
+  sampleSize = length (noise)
+  mySample = array(0, dim = sampleSize)
+  mySample [1] <- noise[1]
 
-  for (i in 2:sampleSize) {
-    X[i] <- noise[i] + tvMA1CoefArray[i] * noise[i - 1]
+  for (i in 2:sampleSize)
+  {
+    mySample [i] <- noise[i] + tvMA1CoefArray[i] * noise[i - 1]
   }
 
-  X
+  mySample
 }

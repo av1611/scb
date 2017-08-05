@@ -18,9 +18,11 @@
 #' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
 
 createBand <- function(lag,
-                       sample,
+                       sampleSize,
                        bandwidth = 1,
-                       nonCoverageProbability = 0.05) {
+                       nonCoverageProbability = 0.05)
+{
+  # createSampe
   # get the real correlation computeCor
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
