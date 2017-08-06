@@ -21,9 +21,9 @@
 createSample <- function(model = createMa1,
                          tvMA1CoefArray)
 {
-  noise = rnorm(n = 10, mean = 0, sd = 1)
-  sampleSize <- length(tvMA1CoefArray)
 
+  sampleSize <- length(tvMA1CoefArray)
+  noise = createNoise(sampleSize, mean = 0, sd = 1)
   sample <- model(tvMA1CoefArray,
                   noise)
 }

@@ -1,3 +1,5 @@
+rm (list = ls())
+
 if (! require ("Ryacas"))
   install.packages("Ryacas")
 library(Ryacas)

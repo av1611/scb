@@ -24,7 +24,9 @@
 createTVMA1 <- function(tvMA1CoefArray,
                         noise)
 {
+  # define size
   sampleSize = length (noise)
+  # reserve the space
   mySample = array(0, dim = sampleSize)
   mySample [1] <- noise[1]
 

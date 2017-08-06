@@ -18,9 +18,10 @@
 createTVMA1CoefArray <- function(coefFunction,
                                  tParArray)
 {
-  # ma1CoefArray <- array(0, dim = length(tParArray))
+  ma1CoefArray <- array(0, dim = length(tParArray))
   if (missing(coefFunction))
   {
+    # it may be some other function of noise
     ma1CoefArray <- tParArray
   }
   ma1CoefArray <- coefFunction(tParArray)
