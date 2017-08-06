@@ -16,7 +16,7 @@
 
 
 
-computeNonCoverageFreqByCorBands  <- function(sampleSize,
+computeNonCoverageFreq  <- function(sampleSize,
                                               tPar,
                                               corArray)
 {

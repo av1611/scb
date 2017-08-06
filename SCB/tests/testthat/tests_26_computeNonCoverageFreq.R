@@ -1,7 +1,7 @@
-computeNonCoverageFreqByCorHatsfunction=function()
+computeNonCoverageFreqFunction = function()
 {
   cat ("\n Testing \'computeNonCoverageFreqByCorHats\'\n")
-  myLag=2
+  myLag = 2
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
@@ -11,24 +11,27 @@ computeNonCoverageFreqByCorHatsfunction=function()
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
                                          tParArray = mockTParArray)
   mockSample <- createSample(model = createTVMA1,
-                             tvMA1CoefArray = mockTVMA1Array,
-                             noise = mockNoise)
+                             tvMA1CoefArray = mockTVMA1Array)
 
 
- cat ("mockSample[1:5] =", mockSample[1:5], "\n")
+  cat ("mockSample[1:5] =", mockSample[1:5], "\n")
   expect_that(mockSample, is_a("array"))
 
-  Cor=computeCor(lag=myLag,tvMa1CoefArray = mockTVMA1Array)
-mySampleSize=length(mockSample)
-cat("sampleSize:",mySampleSize,"\n")
+  trueCorrelationArray = computeCor(lag = myLag, tvMa1CoefArray = mockTVMA1Array)
+  mySampleSize = length(mockSample)
+  cat("sampleSize:", mySampleSize, "\n")
 
-BandsArrray=createBandsBrick(replicationCount = 10,sampleSize = mySampleSize,tParArray = mockTParArray)
-NonCov=computeNonCoverageFreqByCorBands(bandsArray = BandsArrray,
-                                       corArray = Cor)
-at("NonCoverageFreqByCorBands:",NonCov,"\n")
+  bandsArrray = createBandsBrick(
+    replicationCount = 10,
+    sampleSize = mySampleSize,
+    tParArray = mockTParArray
+  )
+
+  nonCoverageFreq = computeNonCoverageFreq()
+
+  cat("NonCoverageFreqByCorBands:", nonCoverageFreq, "\n")
 
 }
 test_that("computeNonCoverageFreqByCorHats", {
-  computeNonCoverageFreqByCorHatsfunction()
-}
-)
+  computeNonCoverageFreqFunction()
+})
