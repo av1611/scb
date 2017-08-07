@@ -22,18 +22,6 @@ createBandsBrick <- function(replicationCount,
   # for each sample, create a band
   # pack those bands together into a brick
   # return that brick
-  myLag=2
-  myTParCount = 10
-  mockTParArray <- createTParArray(tParCount = myTParCount)
-  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
-                                         tParArray = mockTParArray)
-  mockNoise <- createNoise(sampleSize = myTParCount,
-                           mean = 0,
-                           sd = 1)
-  mockSample <- createSample(model = createTVMA1,
-                             tvMA1CoefArray = mockTVMA1Array)
-  cat("mockSample",mockSample,"\n")
-  sampleSize = length(mockSample)
 
  bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
 
