@@ -23,39 +23,40 @@
 #' nonCoverageProbability <- 0.05
 #' meByCovHat <- computeMEbyCovHats(lag = lag, sample = sample, bandwith = bandwidth, nonCoverageProbability = nonCoverageProbability
 
-
-
-computeMEbyCovHat <- function (lag,
+computeMEbyCovHat <- function (tParArray,
+                               lag,
+                               lagCount,
                                sample,
+                               kernel = normalDifferenceKernel,
                                bandwidth,
-                               nonCoverageProbability)
-{
+                               nonCoverageProbability,
+                               ck = -1.978325,
+                               # int_sq_der = 0.306951,
+                               phi_k_normal_diff = 0.4065)
+  {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
   # horizontal ACF of a sleepers process
   #lengthSleeper <- length(sleeper)
   # do we need this?
   # rhoHI <- rep(0, 10)
-  CK = -1.978325
-  INT_SQ_DER = 0.306951
-  PHI_K_NORMAL_DIF = 0.4065
   # mylag=2
-  tParCount = 10
-  mytParArray = createTParArray(tParCount)
-  mykernel = normalDifferenceKernel
-  myLagCount = tParCount - 1
 
-  mockAllCorHats <- computeAllCorHats(tParArray = mytParArray,
-                                      lagCount = myLagCount,
-                                      sample = sample,
-                                      kernel = mykernel,
-                                      bandwidth = bandwidth)
+  allCorHats <- computeAllCorHats(tParArray = tParArray,
+                                  lagCount = lagCount,
+                                  sample = sample,
+                                  kernel = kernel,
+                                  bandwidth = bandwidth)
 
-  myBetaLRVHat = computeBetaLRVHat(tParArray = mytParArray,lag=lag,sample=sample,kernel = mykernel,allCorHats = mockAllCorHats)
-  sampleSize = 8
-  MySqrt = sqrt (-2 * log (bandwidth))
-  CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - nonCoverageProbability)))) / MySqrt
+  betaLRVHat = computeBetaLRVHat(tParArray = tParArray,
+                                 lag = lag,
+                                 sample = sample,
+                                 kernel = kernel,
+                                 allCorHats = allCorHats)
+  logSqrt <-  sqrt (-2 * log (bandwidth))
+  cFactor <- logSqrt  + (ck - log (log (1 / sqrt (1 - nonCoverageProbability)))) / logSqrt
 
-  ME = CFactor * myBetaLRVHat * sqrt (PHI_K_NORMAL_DIF / (sampleSize * bandwidth))
-
-}
+  meByCovHat <- cFactor *
+                myBetaLRVHat *
+                sqrt(phi_k_normal_diff / (sampleSize * bandwidth))
+  }

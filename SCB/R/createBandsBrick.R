@@ -14,10 +14,11 @@
 #' @examples
 #' createBandsBrick(replicationCount = 10, sample, corArray, bandwidth = 1, nonCoverageProbability = 0.5))
 
-createBandsBrick <- function(replicationCount,
+createBandsBrick <- function(sampleSize,
+                             replicationCount,
                              bandwidth = 1,
                              nonCoverageProbability = 0.05)
-{
+  {
   # generate replicationCount of samples
   # for each sample, create a band
   # pack those bands together into a brick
@@ -26,11 +27,12 @@ createBandsBrick <- function(replicationCount,
  bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
 
  for(repCountIndex in 1:replicationCount)
-  {
-    bandsArray[repCountIndex, ,  ] <- createBand(lag=myLag,sample = mockSample,
-                                                bandwidth,
-                                                 nonCoverageProbability=0.05)
+   {
+    bandsArray[repCountIndex, , ] <- createBand(lag = lag,
+                                                sample = sample,
+                                                bandwidth = bandwidth,
+                                                nonCoverageProbability = nonCoverageProbability)
+   }
 
+ bandsArray
  }
-  bandsArray
-}
