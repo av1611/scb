@@ -26,29 +26,29 @@ createBand <- function(lag,
   # upper = corArray + ME
 
 
-  myLag = 0
-
-
-  myTParCount = 10
-  mockTParArray <- createTParArray(tParCount = myTParCount)
-  # may be different
+  tParCount = 10
+  mockTParArray <- createTParArray(tParCount = tParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+                                             tParArray = mockTParArray)
+  mockNoise <- createNoise(sampleSize = 10,
+                           mean = 0,
+                           sd = 1)
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
                                          tParArray = mockTParArray)
   mockSample <- createSample(model = createTVMA1,
                              tvMA1CoefArray = mockTVMA1Array)
+  myKernel = normalDifferenceKernel
 
-
-  mockTParArray <- createTParArray(tParCount = myTParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             tParArray = mockTParArray)
-  mockComputeCor <- computeCorHat(tParArray = mockTParArray,lag=lag,sample = sample,kernel = normalDifferenceKernel)
-
-
-  meByCovHat <- computeMEbyCovHat(lag=myLag,
+  mockCorHat <- computeCorHat(tParArray = mockTParArray,
+                              lag,
+                              sample = mockSample,
+                              kernel = myKernel,
+                              bandwidth )
+  meByCovHat <- computeMEbyCovHat(lag,
                                   sample=mockSample,
-                                  bandwidth=1,
+                                  bandwidth,
                                   nonCoverageProbability=0.05)
-  lowerBound <- mockComputeCor - meByCovHat
-  upperBound <- mockComputeCor + meByCovHat
+  lowerBound <- mockCorHat - meByCovHat
+  upperBound <- mockCorHat + meByCovHat
   band <- rbind(lowerBound, upperBound)
 }
