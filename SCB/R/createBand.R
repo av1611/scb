@@ -18,7 +18,6 @@
 #' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
 
 createBand <- function(tParArray,
-                       sampleSize,
                        lag,
                        bandwidth = 1,
                        kernel = normalDifferenceKernel,
@@ -28,17 +27,17 @@ createBand <- function(tParArray,
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
-  sample = createSample (sampleSize, tParArray)
+  sample <- createSample(tParArray)
   corHat <- computeCorHat(tParArray = tParArray,
-                              lag = lag,
-                              sample = sample,
-                              kernel = kernel,
-                              bandwidth = bandwidth)
+                          lag    = lag,
+                          sample = sample,
+                          kernel = kernel,
+                          bandwidth = bandwidth)
   meByCovHat <- computeMEbyCovHat(lag = lag,
                                   sample = sample,
                                   bandwidth = bandwidth,
                                   nonCoverageProbability = nonCoverageProbability)
   lowerBound <- corHat - meByCovHat
   upperBound <- corHat + meByCovHat
-  band <- rbind(lowerBound, upperBound)
+  band <- cbind(lowerBound, upperBound)
 }

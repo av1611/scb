@@ -17,9 +17,9 @@
 
 
 computeNonCoverageFreq  <- function(sampleSize,
-                                              tPar,
-                                              corArray)
-{
+                                    tParArray,
+                                    corArray)
+  {
   # What it does
   # Takes a model.
   # For this model it calculates the rho
@@ -28,19 +28,19 @@ computeNonCoverageFreq  <- function(sampleSize,
   # Creates an array of zeros and ones (1 if a true rho is covered by a band)
   # Calculates alpha hat or
   # nonCoverageProbabilityHat = number of zeros / superReplication
-  # nonCoverageProbabilityHat <-
   bandsArrayRepCount <- dim(bandsArray)[1]
+
   for(bandsArrayRepCountIndex in 1:bandsArrayRepCount)
-  {
-    isCoveredArray <- computeIsCoveredArray (bandsArray[bandsArrayRepCountIndex, , ],
-                                       corArray)
-    for(i in 1:length(isCoveredArray))
     {
-      if (isCoveredArray[i] == 0)
+    isCoveredArray <- computeIsCoveredArray(bandsArray[bandsArrayRepCountIndex, , ],
+                                            corArray)
+    for(i in 1:length(isCoveredArray))
       {
+      if (isCoveredArray[i] == 0)
+        {
         zeroCount <- zeroCount + 1
       }
-    }
+      }
 
     nonCoverageProbability <- zeroCount / bandsArrayRepCount
   }
