@@ -26,6 +26,7 @@ createBand <- function(lag,
   # upper = corArray + ME
 
 
+<<<<<<< HEAD
   tParCount = 10
   mockTParArray <- createTParArray(tParCount = tParCount)
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
@@ -33,10 +34,20 @@ createBand <- function(lag,
   mockNoise <- createNoise(sampleSize = 10,
                            mean = 0,
                            sd = 1)
+=======
+  myLag = 0
+
+
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+
+>>>>>>> bf58bf26474cf8b7ed2e7528d7c0400458bb93bd
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
                                          tParArray = mockTParArray)
   mockSample <- createSample(model = createTVMA1,
                              tvMA1CoefArray = mockTVMA1Array)
+<<<<<<< HEAD
   myKernel = normalDifferenceKernel
 
   mockCorHat <- computeCorHat(tParArray = mockTParArray,
@@ -44,6 +55,16 @@ createBand <- function(lag,
                               sample = mockSample,
                               kernel = myKernel,
                               bandwidth )
+=======
+
+
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+                                             tParArray = mockTParArray)
+  mockComputeCor <- computeCorHat(tParArray = mockTParArray,lag=lag,sample = sample,kernel = normalDifferenceKernel)
+
+
+>>>>>>> bf58bf26474cf8b7ed2e7528d7c0400458bb93bd
   meByCovHat <- computeMEbyCovHat(lag,
                                   sample=mockSample,
                                   bandwidth,
