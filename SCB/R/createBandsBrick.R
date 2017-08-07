@@ -15,8 +15,6 @@
 #' createBandsBrick(replicationCount = 10, sample, corArray, bandwidth = 1, nonCoverageProbability = 0.5))
 
 createBandsBrick <- function(replicationCount,
-                             sampleSize,
-                             tParArray,
                              bandwidth = 1,
                              nonCoverageProbability = 0.05)
 {
@@ -33,17 +31,18 @@ createBandsBrick <- function(replicationCount,
                            mean = 0,
                            sd = 1)
   mockSample <- createSample(model = createTVMA1,
-                             tvMA1CoefArray = mockTVMA1Array,
-                             noise = mockNoise)
+                             tvMA1CoefArray = mockTVMA1Array)
+  cat("mockSample",mockSample,"\n")
   sampleSize = length(mockSample)
 
-  bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
+ bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
 
-  for(repCountIndex in 1:replicationCount)
+ for(repCountIndex in 1:replicationCount)
   {
     bandsArray[repCountIndex, ,  ] <- createBand(lag=myLag,sample = mockSample,
-                                                  bandwidth=1,
-                                                  nonCoverageProbability=0.05)
-    bandsArray
-    }
+                                                bandwidth,
+                                                 nonCoverageProbability=0.05)
+
+ }
+  bandsArray
 }

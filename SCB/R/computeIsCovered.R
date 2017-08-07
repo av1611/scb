@@ -42,7 +42,7 @@ computeIsCovered <- function(band,
     isCoveredArrayByT [tParIndex ] <- isBetween
   }
 
-  isCoverd = prod (isCoveredArrayByT)
+  isCovered = prod (isCoveredArrayByT)
   return (isCovered)
 }
 

@@ -50,14 +50,10 @@ computeMEbyCovHat <- function (lag,
                                       sample = sample,
                                       kernel = mykernel,
                                       bandwidth = bandwidth)
- cat("mockAllCorHats",str(mockAllCorHats),"\n")
 
   myBetaLRVHat = computeBetaLRVHat(tParArray = mytParArray,lag=lag,sample=sample,kernel = mykernel,allCorHats = mockAllCorHats)
-  cat("myBetaLRVHat",myBetaLRVHat, "\n")
   sampleSize = 8
-  cat("bandwidth",bandwidth)
   MySqrt = sqrt (-2 * log (bandwidth))
-  cat("mySqrt",MySqrt,"\n")
   CFactor = MySqrt  + (CK - log (log (1 / sqrt (1 - nonCoverageProbability)))) / MySqrt
 
   ME = CFactor * myBetaLRVHat * sqrt (PHI_K_NORMAL_DIF / (sampleSize * bandwidth))
