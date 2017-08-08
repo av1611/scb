@@ -7,7 +7,7 @@
 #' @description
 #'
 #' @param band band
-#' @param rho rho
+#' @param corArray corArray
 #'
 #' @return Vector of {0, 1 values}.
 #'
@@ -42,6 +42,6 @@ computeIsCovered <- function(band,
     isCoveredArrayByT[tParIndex ] <- isBetween
   }
 
-  isCovered <- prod (isCoveredArrayByT)
+  isCovered <- prod(isCoveredArrayByT)
 }
 
