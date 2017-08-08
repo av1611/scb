@@ -4,14 +4,7 @@ computeCovHatFunction = function () {
   mockTParArray <- createTParArray(tParCount = tParCount)
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
                                              tParArray = mockTParArray)
-  mockNoise <- createNoise(sampleSize = tParCount,
-                           mean = 0,
-                           sd = 1)
-  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
-                                         tParArray = mockTParArray)
-  mockSample <- createSample(model = createTVMA1,
-                             tvMA1CoefArray = mockTVMA1Array,
-                             noise = mockNoise)
+  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
 
   myLag = 1
   myKernel = normalDifferenceKernel

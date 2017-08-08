@@ -15,10 +15,11 @@
 #' @return A two dimensional vector representing the lower and the upper bound of CI.
 #'
 #' @examples
-#' createBand(X = rnorm(n = 10, mean = 0, sd = 1), alpha = 0.05))
+#'
 
 createBand <- function(tParArray,
                        lag,
+                       lagCount,
                        bandwidth = 1,
                        kernel = normalDifferenceKernel,
                        nonCoverageProbability = 0.05)
@@ -27,16 +28,20 @@ createBand <- function(tParArray,
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
-  sample <- createSample(tParArray)
+  sample <- createSample(tvMA1CoefArray = tParArray)
   corHat <- computeCorHat(tParArray = tParArray,
                           lag    = lag,
                           sample = sample,
                           kernel = kernel,
                           bandwidth = bandwidth)
-  meByCovHat <- computeMEbyCovHat(lag = lag,
+  meByCovHat <- computeMEbyCovHat(tParArray = tParArray,
+                                  lag = lag,
+                                  lagCount = lagCount,
                                   sample = sample,
                                   bandwidth = bandwidth,
-                                  nonCoverageProbability = nonCoverageProbability)
+                                  nonCoverageProbability = nonCoverageProbability,
+                                  ck = -1.978325,
+                                  phi_k_normal_diff = 0.4065)
   lowerBound <- corHat - meByCovHat
   upperBound <- corHat + meByCovHat
   band <- cbind(lowerBound, upperBound)

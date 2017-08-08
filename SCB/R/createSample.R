@@ -15,9 +15,19 @@
 
 createSample <- function(tvMA1CoefArray)
   {
-
   sampleSize <- length(tvMA1CoefArray)
-  noise = createNoise(sampleSize, mean = 0, sd = 1)
-  sample <- model(tvMA1CoefArray,
-                  noise)
+  noise <- createNoise(sampleSize = sampleSize,
+                       mean = 0,
+                       sd = 1)
+  # reserve the space
+  sample <- array(0, dim = sampleSize)
+  sample[1] <- noise[1]
+
+  for (i in 2:sampleSize)
+  {
+    sample [i] <- noise[i] + tvMA1CoefArray[i] * noise[i - 1]
+  }
+
+  sample
+
   }

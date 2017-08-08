@@ -6,15 +6,15 @@
 #'
 #' @description Create a three-dimensional array of confidence intervals bands of size c(replicationCount, sampleSize, 2).
 #'
-
-#' @param coverageProbability the probability of non-covering the real values with the estimated ones. \code{alpha = 0.05} by default.
+#' @param nonCoverageProbability the probability of non-covering the real values with the estimated ones. \code{alpha = 0.05} by default.
 #'
 #' @return A two dimensional vector representing the lower and the upper bound of CI.
 #'
 #' @examples
-#' createBandsBrick(replicationCount = 10, sample, corArray, bandwidth = 1, nonCoverageProbability = 0.5))
+#'
 
-createBandsBrick <- function(sampleSize,
+createBandsBrick <- function(lag,
+                             sampleSize,
                              replicationCount,
                              bandwidth = 1,
                              nonCoverageProbability = 0.05)

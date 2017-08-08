@@ -1,27 +1,34 @@
 computeMEfunction=function()
 {
   cat ("\n Testing \'computeME\'\n")
-  myLag=2
-  Mynoise = rnorm(n = 10,
-                  mean = 0,
-                  sd = 1)
-tParCount=10
-mockTParArray <- createTParArray(tParCount = tParCount)
+  myLag <- 2
+  myLagCount <- 10
+  myNoise <- rnorm(n = 10,
+                   mean = 0,
+                   sd = 1)
+  myTParCount <- 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
 
-  mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
                                               tParArray = mockTParArray)
 
-  mysample=createSample(model = createTVMA1,tvMA1CoefArray = seq(from = 0,to = 1,
-                                                               length.out = 10),
-                        noise = Mynoise)
-  Ck=computeMEbyCovHat(lag=myLag,sample=mysample,bandwidth = 0.5,nonCoverageProbability = 0.05)
+  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
 
-  cat("ME",Ck,"\n")
+  ck <- computeMEbyCovHat(tParArray = mockTParArray,
+                          lag = myLag,
+                          lagCount = myLagCount,
+                          sample = mockSample,
+                          kernel = normalDifferenceKernel,
+                          bandwidth = 1,
+                          nonCoverageProbability = 0.05,
+                          ck = -1.978325,
+                          # int_sq_der = 0.306951,
+                          phi_k_normal_diff = 0.4065)
 
-
+  cat("ME", ck, "\n")
 }
+
 test_that("Testing \'computeME\' ", {
   computeMEfunction()
-
-}
+  }
 )

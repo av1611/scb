@@ -53,8 +53,8 @@ computeMEbyCovHat <- function (tParArray,
                                  sample = sample,
                                  kernel = kernel,
                                  allCorHats = allCorHats)
-  logSqrt <-  sqrt (-2 * log (bandwidth))
-  cFactor <- logSqrt  + (ck - log (log (1 / sqrt (1 - nonCoverageProbability)))) / logSqrt
+  logSqrt <-  sqrt(-2 * log (bandwidth))
+  cFactor <- logSqrt + (ck - log (log (1 / sqrt (1 - nonCoverageProbability)))) / logSqrt
 
   meByCovHat <- cFactor *
                 myBetaLRVHat *

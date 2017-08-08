@@ -33,15 +33,15 @@ computeCorHat <- function(tParArray,
                           bandwidth = 1)
 {
   numerator = computeCovHat(tParArray,
-                               lag = lag,
-                               sample,
-                               kernel,
-                               bandwidth)
-  denominator = computeCovHat (tParArray,
-                                lag = 1,
-                                sample,
-                                kernel,
-                                bandwidth)
+                            lag = lag,
+                            sample,
+                            kernel,
+                            bandwidth)
+  denominator = computeCovHat(tParArray,
+                              lag = 1,
+                              sample,
+                              kernel,
+                              bandwidth)
 
   corHat = numerator / denominator
 
