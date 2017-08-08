@@ -36,9 +36,9 @@ computeIsCovered <- function(band,
   {
     upper <- band [, 2]
     lower <- band [, 1]
-    isUnder <- (corArray[tParIndex] <= upper [tParIndex])
-    isAbove <- (corArray[tParIndex] >= lower [tParIndex])
-    isBetween <- isUnder  & isAbove
+    isUnder <- corArray[tParIndex] <= upper[tParIndex]
+    isAbove <- corArray[tParIndex] >= lower[tParIndex]
+    isBetween <- isUnder & isAbove
     isCoveredArrayByT[tParIndex ] <- isBetween
   }
 

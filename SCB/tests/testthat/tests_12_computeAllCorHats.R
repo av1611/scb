@@ -5,13 +5,7 @@ computeAllCorHatsTestFunction = function () {
   mockTParArray <- createTParArray(tParCount = tParCount)
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
                                              tParArray = mockTParArray)
-  mockNoise <- createNoise(sampleSize = tParCount,
-                           mean = 0,
-                           sd = 1)
-  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
-                                         tParArray = mockTParArray)
-  mockSample <- createSample(model = createTVMA1,
-                             tvMA1CoefArray = mockTVMA1Array)
+  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
 
 
   myLagCount = tParCount - 1
