@@ -4,7 +4,7 @@
 #'
 #' @aliases createBands
 #'
-#' @description Create a three-dimensional array of confidence intervals bands of size c(replicationCount, 2, sampleSize).
+#' @description Create a three-dimensional array of confidence intervals bands of size c(replicationCount, sampleSize, 2).
 #'
 
 #' @param coverageProbability the probability of non-covering the real values with the estimated ones. \code{alpha = 0.05} by default.
