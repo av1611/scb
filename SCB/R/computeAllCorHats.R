@@ -49,10 +49,10 @@ computeAllCorHats <- function(tParArray,
 
       # lagIndexToRefer <- eval(parse(text = paste0("allCorHats$`", lagIndex + 1, "`")))
       allCorHats[tParIndex, lagIndex + 1] <- computeCorHat(tParArray = tParPoint,
-                                                       lag = lagIndex,
-                                                       sample = sample,
-                                                       kernel = kernel,
-                                                       bandwidth = bandwidth)
+                                                           lag = lagIndex,
+                                                           sample = sample,
+                                                           kernel = kernel,
+                                                           bandwidth = bandwidth)
     }
   }
 

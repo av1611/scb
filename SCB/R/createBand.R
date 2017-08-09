@@ -40,8 +40,8 @@ createBand <- function(tParArray,
                                   sample = sample,
                                   bandwidth = bandwidth,
                                   nonCoverageProbability = nonCoverageProbability,
-                                  ck = -1.978325,
-                                  phi_k_normal_diff = 0.4065)
+                                  C_K = -1.978325,
+                                  PHI_K_NORMAL_DIFF = 0.4065)
   lowerBound <- corHat - meByCovHat
   upperBound <- corHat + meByCovHat
   band <- cbind(lowerBound, upperBound)

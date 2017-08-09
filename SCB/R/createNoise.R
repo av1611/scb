@@ -17,8 +17,8 @@
 #' createNoise(sampleSize = 20, mean = 5, sd =  10)
 
 createNoise <- function(sampleSize,
-                    mean,
-                    sd) {
+                        mean,
+                        sd) {
   noise <- rnorm(n = sampleSize,
                  mean = mean,
                  sd = sd)

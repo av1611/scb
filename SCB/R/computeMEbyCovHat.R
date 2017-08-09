@@ -23,15 +23,15 @@
 #' nonCoverageProbability <- 0.05
 #' meByCovHat <- computeMEbyCovHats(lag = lag, sample = sample, bandwith = bandwidth, nonCoverageProbability = nonCoverageProbability
 
-computeMEbyCovHat <- function (tParArray,
-                               lag,
-                               lagCount,
-                               sample,
-                               kernel = normalDifferenceKernel,
-                               bandwidth,
-                               nonCoverageProbability,
-                               C_K = -1.978325,
-                               PHI_K_NORMAL_DIFF = 0.4065)
+computeMEbyCovHat <- function(tParArray,
+                              lag,
+                              lagCount,
+                              sample,
+                              kernel = normalDifferenceKernel,
+                              bandwidth = 1,
+                              nonCoverageProbability,
+                              C_K = -1.978325,
+                              PHI_K_NORMAL_DIFF = 0.4065)
   {
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
@@ -57,6 +57,6 @@ computeMEbyCovHat <- function (tParArray,
   cFactor <- logSqrt + (C_K - log (log (1 / sqrt (1 - nonCoverageProbability)))) / logSqrt
 
   meByCovHat <- cFactor *
-                myBetaLRVHat *
+                betaLRVHat *
                 sqrt(PHI_K_NORMAL_DIFF / (sampleSize * bandwidth))
   }

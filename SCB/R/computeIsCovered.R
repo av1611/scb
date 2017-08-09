@@ -34,8 +34,8 @@ computeIsCovered <- function(band,
   isCoveredArrayByT <- array (0, dim = tParCount)
   for (tParIndex in 1 : tParCount)
   {
-    upper <- band [, 2]
-    lower <- band [, 1]
+    upper <- band[, 2]
+    lower <- band[, 1]
     isUnder <- corArray[tParIndex] <= upper[tParIndex]
     isAbove <- corArray[tParIndex] >= lower[tParIndex]
     isBetween <- isUnder & isAbove

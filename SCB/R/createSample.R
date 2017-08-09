@@ -30,4 +30,4 @@ createSample <- function(tvMA1CoefArray)
 
   sample
 
-  }
+}
