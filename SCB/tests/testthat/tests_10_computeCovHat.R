@@ -6,7 +6,7 @@ computeCovHatFunction = function () {
                                              tParArray = mockTParArray)
   mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
 
-  myLag = 1
+  myLag = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 1
 
