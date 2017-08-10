@@ -22,18 +22,14 @@ createBand <- function(tParArray,
                        lagCount,
                        bandwidth = 1,
                        kernel = normalDifferenceKernel,
-                       nonCoverageProbability = 0.05)
+                       nonCoverageProbability = 0.05,
+                       allCorHats)
 {
   # get the real correlation computeCor
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
   sample <- createSample(tvMA1CoefArray = tParArray)
-  corHat <- computeCorHat(tParArray = tParArray,
-                          lag    = lag,
-                          sample = sample,
-                          kernel = kernel,
-                          bandwidth = bandwidth)
   meByCovHat <- computeMEbyCovHat(tParArray = tParArray,
                                   lag = lag,
                                   lagCount = lagCount,

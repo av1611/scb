@@ -28,8 +28,9 @@ computeMEbyCovHat <- function(tParArray,
                               lagCount,
                               sample,
                               kernel = normalDifferenceKernel,
-                              bandwidth = 1,
+                              bandwidth,
                               nonCoverageProbability,
+                              allCorHats,
                               C_K = -1.978325,
                               PHI_K_NORMAL_DIFF = 0.4065)
   {
@@ -42,11 +43,6 @@ computeMEbyCovHat <- function(tParArray,
   # mylag=2
   # int_sq_der = 0.306951 is now hidden in C_K
 
-  allCorHats <- computeAllCorHats(tParArray = tParArray,
-                                  lagCount = lagCount,
-                                  sample = sample,
-                                  kernel = kernel,
-                                  bandwidth = bandwidth)
 
   betaLRVHat = computeBetaLRVHat(tParArray = tParArray,
                                  lag = lag,
