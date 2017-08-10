@@ -16,8 +16,6 @@
 #' lag <- 0
 #' tParArray <- createTParArray(tParCount = tParCount)
 #' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
-#' corArray <- computeCor(lag = lag, tvMa1CoefArray = tvMA1CoefArray)
-
 computeCor <- function(lag,
                        tvMa1CoefArray) {
   tvMa1CoefArrayCount <- length(tvMa1CoefArray)
