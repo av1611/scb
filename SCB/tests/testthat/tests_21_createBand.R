@@ -1,9 +1,16 @@
 createBandFunction <- function() {
   cat("\n Testing \'createBand\' \n ")
   tParCount = 12
-  lagCount = tParCount - 1
+  myLagCount = tParCount - 1
   lag = 2
-  mockTParArray <- createTParArray(tParCount = tParCount)
+
+  TParArray <- createTParArray(tParCount = tParCount)
+  sample=createSample(tvMA1CoefArray = TParArray)
+  mockCorHats = computeAllCorHats(tParArray = TParArray,
+                                  lagCount = myLagCount,
+                                  sample = sample,
+                                  kernel = kernel,
+                                  bandwidth = 1)
   mockBand <- createBand(tParArray = mockTParArray,
                          lag = lag,
                          lagCount = lagCount,
