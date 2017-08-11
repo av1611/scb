@@ -16,14 +16,15 @@ computeMEbyCovHatFunction <- function () {
                                   lagCount = myLagCount,
                                   sample = mockSample,
                                   kernel = kernel,
-                                  bandwidth = 1)
+                                  bandwidth = 0.5)
   me <- computeMEbyCovHat(tParArray = mockTParArray,
                           lag = lag,
                           lagCount = myLagCount,
                           sample = mockSample,
                           kernel = normalDifferenceKernel,
-                          bandwidth = 1,
+                          bandwidth = 0.5,
                           nonCoverageProbability = 0.05,
+                          allCorHats = mockCorHats,
                           C_K = -1.978325,
                           # int_sq_der = 0.306951,
                           PHI_K_NORMAL_DIFF = 0.4065)

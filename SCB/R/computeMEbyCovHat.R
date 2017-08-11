@@ -51,7 +51,7 @@ computeMEbyCovHat <- function(tParArray,
                                  allCorHats = allCorHats)
   logSqrt <-  sqrt(-2 * log (bandwidth))
   cFactor <- logSqrt + (C_K - log (log (1 / sqrt (1 - nonCoverageProbability)))) / logSqrt
-
+sampleSize=length(sample)
   meByCovHat <- cFactor *
                 betaLRVHat *
                 sqrt(PHI_K_NORMAL_DIFF / (sampleSize * bandwidth))

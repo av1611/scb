@@ -1,22 +1,32 @@
-createBandFunction <- function() {
+createBandFunction <- function()
+{
   cat("\n Testing \'createBand\' \n ")
-  tParCount = 12
-  myLagCount = tParCount - 1
-  lag = 2
+  lag=1
 
-  TParArray <- createTParArray(tParCount = tParCount)
-  sample=createSample(tvMA1CoefArray = TParArray)
-  mockCorHats = computeAllCorHats(tParArray = TParArray,
+  tParCount = 10
+  tParArray <- createTParArray(tParCount = tParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+                                             tParArray = tParArray)
+  mySample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
+
+
+  myLagCount = tParCount - 1
+  kernel = normalDifferenceKernel
+  bandwidth = 1
+  mockCorHats = computeAllCorHats(tParArray = tParArray,
                                   lagCount = myLagCount,
-                                  sample = sample,
+                                  sample = mySample,
                                   kernel = kernel,
-                                  bandwidth = 1)
-  mockBand <- createBand(tParArray = mockTParArray,
+                                  bandwidth = 0.5)
+  mockBand <- createBand(tParArray =tParArray,
                          lag = lag,
-                         lagCount = lagCount,
-                         bandwidth = 1,
+                         lagCount =myLagCount,
+                         bandwidth = 0.5,
                          kernel = normalDifferenceKernel,
-                         nonCoverageProbability = 0.05)
+                         nonCoverageProbability = 0.05,
+                         allCorHats = mockCorHats)
+
+
 
   cat("Band", mockBand,"\n")
   # # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
@@ -25,3 +35,4 @@ createBandFunction <- function() {
 
 test_that("Testing \'createBand\'",
           createBandFunction())
+

@@ -37,6 +37,7 @@ createBand <- function(tParArray,
                                   sample = sample,
                                   bandwidth = bandwidth,
                                   nonCoverageProbability = nonCoverageProbability,
+                                  allCorHats = allCorHats,
                                   C_K = -1.978325,
                                   PHI_K_NORMAL_DIFF = 0.4065)
   lowerBound <- corHat - meByCovHat
