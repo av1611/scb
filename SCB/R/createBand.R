@@ -30,7 +30,7 @@ createBand <- function(tParArray,
   # upper = corArray + ME
   # upper = corArray + ME
 
-  sample <- createSample(tvMA1CoefArray = tParArray)
+  mySample <- createSample(tvMA1CoefArray = tParArray)
   meByCovHat <- computeMEbyCovHat(tParArray = tParArray,
                                   lag = lag,
                                   lagCount = lagCount,
@@ -40,7 +40,9 @@ createBand <- function(tParArray,
                                   allCorHats = allCorHats,
                                   C_K = -1.978325,
                                   PHI_K_NORMAL_DIFF = 0.4065)
-  lowerBound <- corHat - meByCovHat
-  upperBound <- corHat + meByCovHat
-  band <- cbind(lowerBound, upperBound)
+  corHat=computeCorHat(tParArray = tParArray,lag=lag,sample = mySample,kernel = kernel,bandwidth = 1)
+  cat("corHAt",corHat)
+  #lowerBound <- corHat - meByCovHat
+ # upperBound <- corHat + meByCovHat
+  #band <- cbind(lowerBound, upperBound)
 }
