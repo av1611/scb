@@ -1,0 +1,7 @@
+
+
+myCoefFunction = function (tPar)
+{
+  tPar
+
+}

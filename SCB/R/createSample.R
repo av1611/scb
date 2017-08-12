@@ -13,9 +13,12 @@
 #' @examples
 #' createSample(tvMA1CoefArray = seq(from = 0, to = 1, length.out = 10))
 
-createSample <- function(tvMA1CoefArray)
+createSample <- function(sampleSize
+                         )
   {
-  sampleSize <- length(tvMA1CoefArray)
+
+  tvMA1CoefArray = createTVMA1CoefArray (coefFunction = myCoefFunction,
+                                         sampleSize)
   noise <- createNoise(sampleSize = sampleSize,
                        mean = 0,
                        sd = 1)

@@ -5,9 +5,11 @@ createBandFunction <- function()
 
   tParCount = 10
   tParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
                                              tParArray = tParArray)
-  mySample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
+  mySample <- createSample(
+    sampleSize,
+    tParArray)
 
 
   myLagCount = tParCount - 1

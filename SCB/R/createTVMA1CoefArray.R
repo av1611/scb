@@ -17,13 +17,13 @@
 #' createMA1CoefArray(coefFunction = sin, tParArray =  seq(from = 0, to = 1, by = 0.1))
 
 createTVMA1CoefArray <- function(coefFunction,
-                                 tParArray)
+                                 sampleSize
+                                 )
 {
-  ma1CoefArray <- array(0, dim = length(tParArray))
-  if (missing(coefFunction))
+  ma1CoefArray <- array(0, dim = sampleSize)
+
+  for (sampleIndex in 1 : sampleSize)
   {
-    # it may be some other function of noise
-    ma1CoefArray <- tParArray
+    ma1CoefArray [sampleIndex] <- coefFunction ( sampleIndex / sampleSize)
   }
-  ma1CoefArray <- coefFunction(tParArray)
 }
