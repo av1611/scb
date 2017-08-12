@@ -1,7 +1,7 @@
 createBandFunction <- function()
 {
   cat("\n Testing \'createBand\' \n ")
-  lag=1
+  lag=0
 
   tParCount = 10
   tParArray <- createTParArray(tParCount = tParCount)
@@ -28,7 +28,7 @@ createBandFunction <- function()
 
 
 
-  cat("Band", mockBand,"\n")
+
   # # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 }
