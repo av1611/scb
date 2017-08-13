@@ -6,7 +6,8 @@ computeBetaLRVHatFunction = function () {
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,
                                          tParArray = mockTParArray)
-  mockSample <- createSample(tvMA1CoefArray = mockTVMA1Array)
+
+  mockSample <- createSample(sampleSize = myTParCount)
 
   myLag = 3
   myLagCount = myTParCount - 1

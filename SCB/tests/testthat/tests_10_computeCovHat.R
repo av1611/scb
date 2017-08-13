@@ -4,7 +4,7 @@ computeCovHatFunction = function () {
   mockTParArray <- createTParArray(tParCount = tParCount)
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
                                              tParArray = mockTParArray)
-  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
+  mockSample <- createSample(sampleSize = 10)
 
   myLag = 4
   myKernel = normalDifferenceKernel
