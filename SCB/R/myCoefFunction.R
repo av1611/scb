@@ -2,6 +2,6 @@
 
 myCoefFunction = function (tPar)
 {
-  tPar
+  sin (tPar)
 
 }
