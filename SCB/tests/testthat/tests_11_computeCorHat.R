@@ -2,10 +2,11 @@ computeCorHatFunction = function () {
   cat("\n Testing \'computeCorHat\' \n")
 
   tParCount = 10
+  mySampleSize=5
   mockTParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             tParArray = mockTParArray)
-  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
+
+  mockSample <- createSample(sampleSize = mySampleSize)
 
   myLag = 2
   myKernel = normalDifferenceKernel
