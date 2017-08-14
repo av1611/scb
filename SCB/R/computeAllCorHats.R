@@ -23,17 +23,19 @@
 #' sample <- createSample(model = createTVMA1, tvMA1CoefArray = tvMA1Array, noise = noise)
 #' lagCount = tParCount - 1
 #' kernel = normalDifferenceKernel
-#' bandwidth = 1
 #' allCorHats = computeAllCorHats(tParArray = tParArray, lagCount = lagCount, sample = sample, kernel = kernel,  bandwidth = 1)
 
 computeAllCorHats <- function(tParArray,
                               lagCount,
                               sample,
                               kernel,
-                              bandwidth = 1) {
+                              bandwidth)
+
+{
   # Double array of sizes sleeperCount and lagCount
   # Inner counter -  tPar
   # Outer counter - lag
+
   tParCount <- length(tParArray)
   allCorHats <- array(0, dim = c(tParCount, lagCount + 1))
   colNamesForAllCorHats <- as.character(c(0, seq_len(lagCount)))

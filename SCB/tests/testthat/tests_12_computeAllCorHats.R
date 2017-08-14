@@ -10,16 +10,16 @@ mySampleSize=5
 
   myLagCount = tParCount - 1
   kernel = normalDifferenceKernel
-  bandwidth = 1
 
   # this should return double array
   # lag is the first dimension
   # t or tPar is the second dimension
+  myBandwidth = 0.5
   mockCorHats = computeAllCorHats(tParArray = mockTParArray,
                                   lagCount = myLagCount,
                                   sample = mockSample,
                                   kernel = kernel,
-                                  bandwidth = 1)
+                                  bandwidth = myBandwidth)
 
 
   # print the first 9 elements. Hope, sizes are greater than 3.

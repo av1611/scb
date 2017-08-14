@@ -21,7 +21,6 @@
 #' tvMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, tParArray = tParArray)
 #' sample <- createSample(model = createMa1, tvMA1CoefArray = tvMA1CoefArray, noise = noise)
 #' kernel = normalDiferencekernel
-#' bandwith = 1
 #' lag = 2
 #' corHat = computeCorHat(tParArray = tParArray, lag = lag, sample = sample, kernel = kernel, bandwidth = bandwith)
 
@@ -30,19 +29,18 @@ computeCorHat <- function(tParArray,
                           lag,
                           sample,
                           kernel,
-                          bandwidth = 1)
+                          bandwidth)
 {
-  numerator = computeCovHat(tParArray,
+  myCovariance = computeCovHat(tParArray,
                             lag = lag,
                             sample,
                             kernel,
                             bandwidth)
-  denominator = computeCovHat(tParArray,
-                              lag = 1,
+  myVariance = computeCovHat(tParArray,
+                              lag = 0,
                               sample,
                               kernel,
                               bandwidth)
-
-  corHat = numerator / denominator
+  corHat = myCovariance / myVariance
 
 }
