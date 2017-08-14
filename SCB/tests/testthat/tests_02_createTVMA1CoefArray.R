@@ -7,9 +7,8 @@ createTVMA1CoefArrayFunction <- function() {
 
   cat ("mockTVMA1CoefArray =", mockTVMA1CoefArray[1:mySampleSize], "\n",
        "length(mockTVMA1CoefArray) =", length(mockTVMA1CoefArray), "\n")
-  cat ("\n here 3 \n")
-  expect_that(mockTVMA1CoefArray, is_a("numeric"))
-  cat ("\n here 4 \n")
+ #expect_that(mockTVMA1CoefArray, is_a("numeric"))
+
 }
 
 
