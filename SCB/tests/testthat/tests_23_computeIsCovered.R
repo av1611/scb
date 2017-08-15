@@ -1,28 +1,38 @@
-computeIsCoveredfunction=function()
+computeIsCoveredFunction = function()
 {
   cat ("\n Testing \'computeIsCovered\'\n")
-  tParCount = 10
-  lagCount = 10
-  lag = 2
-  mockTParArray <- createTParArray(tParCount = tParCount)
-  mockBand <- createBand(tParArray = mockTParArray,
-                         lag = lag,
-                         lagCount = lagCount,
-                         bandwidth = 1,
-                         kernel = normalDifferenceKernel,
-                         nonCoverageProbability = 0.05)
-  mockTParArray <- createTParArray(tParCount = tParCount)
-  mockNoise <- createNoise(sampleSize = tParCount,
-                           mean = 0,
-                           sd = 1)
-  mockTVMA1CoeffArray <- createTVMA1CoefArray(coefFunction = sin,
-                                              tParArray = mockTParArray)
-  correlation <- computeCor(lag = lag,
-                            tvMa1CoefArray = mockTVMA1CoeffArray)
-  covered <- computeIsCovered(band, correlation)
-  cat("IsCovered:", covered, "\n")
-}
-test_that("Testing computeIsCovered", {
-  computeIsCoveredfunction()
-})
 
+  tParCount = 10
+  # lagCount = 10
+  myLag = 1
+  mySampleSize = 10
+
+  myCoefFunction = sin
+  mockTParArray <- createTParArray(tParCount = tParCount)
+
+  # mockBand <- createBand(tParArray = mockTParArray,
+  #                        lag = myLag,
+  #                        lagCount = lagCount,
+  #                        bandwidth = 1,
+  #                        kernel = normalDifferenceKernel,
+  #                        nonCoverageProbability = 0.05)
+  lowerBound <- seq(from = 0, to = 1, by = 0.1)
+  upperBound <- seq(from = 1, to = 2, by = 0.1)
+
+  mockBand <- cbind(lowerBound, upperBound)
+
+  mockTParArray <- createTParArray(tParCount = tParCount)
+
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
+                                              sampleSize = mySampleSize)
+
+  mockCor <- computeCor(lag = myLag,
+                        tvMa1CoefArray = mockTVMA1CoefArray)
+
+  isCovered <- computeIsCovered(mockBand,
+                                mockCor)
+
+  cat("IsCovered:", isCovered, "\n")
+}
+
+test_that("Testing computeIsCovered", {computeIsCoveredFunction()})
