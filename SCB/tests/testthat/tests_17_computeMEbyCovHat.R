@@ -1,10 +1,10 @@
 computeMEbyCovHatFunction <- function () {
-  tParCount = 12
-  lag = 2
+  tParCount = 10
+  lag = 5
+  mySampleSize=5
   mockTParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             tParArray = mockTParArray)
-  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
+  mockSample <- createSample(sampleSize = mySampleSize)
   myLagCount = tParCount - 1
   kernel = normalDifferenceKernel
   bandwidth = 1
