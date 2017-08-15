@@ -39,6 +39,9 @@ computeBetaLRVHat  <- function(tParArray,
   # check sizes
   if (lag > sampleSize - 1 - termCount) {
     cat ("\n after if with stop \n")
+    cat ("\n  sampleSize = ",sampleSize, "\n")
+    cat ("\n  termCount = ",termCount, "\n")
+    cat ("\n  lag = ",lag, "\n")
     stop("wrong relation between sampleSize, termCount, lag!")
   }
 
