@@ -19,21 +19,28 @@ createBandFunction <- function()
                                       lagCount = myLagCount,
                                       sample = mockSample,
                                       kernel = myKernel,
-                                      bandwidth = myBandwidth)
+                                      bandwidth = 0.5)
+cat("\n allCorHats",str(mockAllCorHats))
 
+meByCovHat <- computeMEbyCovHat(tParArray = mockTParArray,
+                                lag = myLag,
+                                lagCount = myLagCount,
+                                sample = mockSample,
+                                bandwidth = 0.5,
+                                nonCoverageProbability = 0.05,
+                                allCorHats = mockAllCorHats,
+                                C_K = -1.978325,
+                                PHI_K_NORMAL_DIFF = 0.4065)
+cat("\n ME",meByCovHat)
 
+corHat=computeCorHat(tParArray = mockTParArray,lag = myLag,sample = mockSample,kernel = myKernel,bandwidth = 0.5)
 
-  mockBand <- createBand(tParArray =mockTParArray,
-                         lag = lag,
-                         lagCount =myLagCount,
-                         bandwidth = 0.5,
-                         kernel = normalDifferenceKernel,
-                         nonCoverageProbability = 0.05,
-                         allCorHats = mockAllCorHats)
+cat("\n corHat",corHat)
 
-
-
-
+lowerBound <- corHat - meByCovHat
+upperBound <- corHat + meByCovHat
+band <- cbind(lowerBound, upperBound)
+cat("\n band ",band)
   # # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 }
