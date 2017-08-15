@@ -3,10 +3,10 @@ computeCorTestFunction = function () {
 
   myTParCount = 10
   myLag = 0
+  mySampleSize=5
 
   mockTParArray <- createTParArray(tParCount = myTParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             tParArray = mockTParArray)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
   mockComputeCor <- computeCor(lag = myLag,
                                tvMa1CoefArray = mockTVMA1CoefArray)
   cat ("lag = 0; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")

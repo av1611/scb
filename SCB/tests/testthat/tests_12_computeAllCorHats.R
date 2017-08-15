@@ -1,31 +1,29 @@
 computeAllCorHatsTestFunction = function () {
   cat("\n Testing \'computeAllCorHats\' \n")
-mySampleSize=5
-  tParCount = 10
-  mockTParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             sampleSize = mySampleSize)
-  mockSample <- createSample(sampleSize = mySampleSize)
+  mySampleSize=5
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
 
+  mockSample <- createSample(sampleSize = myTParCount)
 
-  myLagCount = tParCount - 1
-  kernel = normalDifferenceKernel
-
-  # this should return double array
-  # lag is the first dimension
-  # t or tPar is the second dimension
-  myBandwidth = 0.5
-  mockCorHats = computeAllCorHats(tParArray = mockTParArray,
-                                  lagCount = myLagCount,
-                                  sample = mockSample,
-                                  kernel = kernel,
-                                  bandwidth = myBandwidth)
-
+  myLag = 3
+  myLagCount = myTParCount - 1
+  myKernel = normalDifferenceKernel
+  myBandwidth = 1
+  # form all rho hats
+  # first try fakes
+  mockAllCorHats <- computeAllCorHats(tParArray = mockTParArray,
+                                      lagCount = myLagCount,
+                                      sample = mockSample,
+                                      kernel = myKernel,
+                                      bandwidth = myBandwidth)
 
   # print the first 9 elements. Hope, sizes are greater than 3.
-  cat("str(mockCorHats) = ", str(mockCorHats), "\n")
+  cat("str(mockAllCorHats) = ", str(mockAllCorHats), "\n")
   lag = 1
-  mockCorHatsSecCol <- eval(parse(text = paste0("mockCorHats$`", lag, "`")))
+  mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
   cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")
   # same but by steps does not work
   # colRefName = paste0("mockCorHats$`", lag, "`")

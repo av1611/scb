@@ -1,32 +1,35 @@
 createBandFunction <- function()
 {
   cat("\n Testing \'createBand\' \n ")
-  lag=0
+  mySampleSize=5
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
 
-  tParCount = 10
-  tParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
-                                             tParArray = tParArray)
-  mySample <- createSample(
-    sampleSize,
-    tParArray)
+  mockSample <- createSample(sampleSize = myTParCount)
+
+  myLag = 3
+  myLagCount = myTParCount - 1
+  myKernel = normalDifferenceKernel
+  myBandwidth = 1
+  # form all rho hats
+  # first try fakes
+  mockAllCorHats <- computeAllCorHats(tParArray = mockTParArray,
+                                      lagCount = myLagCount,
+                                      sample = mockSample,
+                                      kernel = myKernel,
+                                      bandwidth = myBandwidth)
 
 
-  myLagCount = tParCount - 1
-  kernel = normalDifferenceKernel
-  bandwidth = 1
-  mockCorHats = computeAllCorHats(tParArray = tParArray,
-                                  lagCount = myLagCount,
-                                  sample = mySample,
-                                  kernel = kernel,
-                                  bandwidth = 0.5)
-  mockBand <- createBand(tParArray =tParArray,
+
+  mockBand <- createBand(tParArray =mockTParArray,
                          lag = lag,
                          lagCount =myLagCount,
                          bandwidth = 0.5,
                          kernel = normalDifferenceKernel,
                          nonCoverageProbability = 0.05,
-                         allCorHats = mockCorHats)
+                         allCorHats = mockAllCorHats)
 
 
 

@@ -1,30 +1,31 @@
 computeMEbyCovHatFunction <- function () {
-  tParCount = 12
-  lag = 2
-  mockTParArray <- createTParArray(tParCount = tParCount)
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             tParArray = mockTParArray)
-  mockSample <- createSample(tvMA1CoefArray = mockTVMA1CoefArray)
-  myLagCount = tParCount - 1
-  kernel = normalDifferenceKernel
-  bandwidth = 1
+  mySampleSize=5
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
 
-  # this should return double array
-  # lag is the first dimension
-  # t or tPar is the second dimension
-  mockCorHats <- computeAllCorHats(tParArray = mockTParArray,
-                                  lagCount = myLagCount,
-                                  sample = mockSample,
-                                  kernel = kernel,
-                                  bandwidth = 0.5)
+  mockSample <- createSample(sampleSize = myTParCount)
+
+  myLag = 3
+  myLagCount = myTParCount - 1
+  myKernel = normalDifferenceKernel
+  myBandwidth = 1
+  # form all rho hats
+  # first try fakes
+  mockAllCorHats <- computeAllCorHats(tParArray = mockTParArray,
+                                      lagCount = myLagCount,
+                                      sample = mockSample,
+                                      kernel = myKernel,
+                                      bandwidth = myBandwidth)
   me <- computeMEbyCovHat(tParArray = mockTParArray,
-                          lag = lag,
+                          lag = myLag,
                           lagCount = myLagCount,
                           sample = mockSample,
                           kernel = normalDifferenceKernel,
                           bandwidth = 0.5,
                           nonCoverageProbability = 0.05,
-                          allCorHats = mockCorHats,
+                          allCorHats = mockAllCorHats,
                           C_K = -1.978325,
                           # int_sq_der = 0.306951,
                           PHI_K_NORMAL_DIFF = 0.4065)
