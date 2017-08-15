@@ -29,12 +29,12 @@ createBand <- function(tParArray,
   # call ME (sample, bandwidth, nonCoverageProbability)
   # upper = corArray + ME
   # upper = corArray + ME
-
-  mySample <- createSample(tvMA1CoefArray = tParArray)
+mySampleSize=5
+  mySample <- createSample(sampleSize = mySampleSize)
   meByCovHat <- computeMEbyCovHat(tParArray = tParArray,
                                   lag = lag,
                                   lagCount = lagCount,
-                                  sample = sample,
+                                  sample = mySample,
                                   bandwidth = bandwidth,
                                   nonCoverageProbability = nonCoverageProbability,
                                   allCorHats = allCorHats,

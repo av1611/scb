@@ -55,7 +55,9 @@ computeAllCorHats <- function(tParArray,
                                                            sample = sample,
                                                            kernel = kernel,
                                                            bandwidth = bandwidth)
+
     }
+
   }
 
   allCorHats
