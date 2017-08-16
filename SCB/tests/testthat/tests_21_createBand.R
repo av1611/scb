@@ -10,21 +10,13 @@ createBandFunction <- function()
 
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 3
+  myLag = 0
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05
   # form all rho hats
   # first try fakes
-  mockAllCorHats <- computeAllCorHats(
-    tParArray = mockTParArray,
-    lagCount = myLagCount,
-    sample = mockSample,
-    kernel = myKernel,
-    bandwidth = myBandwidth
-  )
-
   band1 = createBand(
     tParArray = mockTParArray,
     lag = myLag,
@@ -32,9 +24,8 @@ createBandFunction <- function()
     bandwidth = myBandwidth,
     kernel = myKernel,
     sampleSize = mySampleSize,
-    nonCoverageProbability = myNonCoverageProbability,
-    allCorHats = mockAllCorHats
-  )
+    nonCoverageProbability = myNonCoverageProbability )
+
   cat("\n band1",band1)
 }
 

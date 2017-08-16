@@ -13,23 +13,36 @@
 #' @examples
 #'
 
-createBandsBrick <- function(lag,
+createBandsBrick <- function(tParArray,
+                             lag,
+                             lagCount,
+                             bandwidth,
+                             kernel = normalDifferenceKernel,
                              sampleSize,
-                             replicationCount,
-                             bandwidth = 1,
-                             nonCoverageProbability = 0.05)
-  {
+                             nonCoverageProbability = 0.05,
+                             replicationCount)
+{
   # generate replicationCount of samples
   # for each sample, create a band
   # pack those bands together into a brick
   # return that brick
-
- bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
-
- for(repCountIndex in 1:replicationCount)
-   {
-    bandsArray[repCountIndex, , ] <- createBandFunctionNoCall()
-   }
-
- bandsArray
- }
+  bandsArray <- array(0, dim = c(replicationCount, sampleSize, 2))
+  cat("\n before for")
+  for (repCountIndex in 1:replicationCount)
+  {
+    cat("\n in for")
+    bandsArray[repCountIndex, ,] <-
+      createBand(
+        tParArray = myTParArray,
+        lag = lag,
+        lagCount = lagCount,
+        bandwidth = bandwidth,
+        kernel = kernel,
+        sampleSize = sampleSize,
+        nonCoverageProbability = nonCoverageProbability,
+        allCorHats = allCorHats
+      )
+  }
+  cat("\n after for")
+  bandsArray
+}

@@ -23,8 +23,7 @@ createBand <- function(tParArray,
                        bandwidth,
                        kernel = normalDifferenceKernel,
                        sampleSize,
-                       nonCoverageProbability = 0.05,
-                       allCorHats)
+                       nonCoverageProbability)
 {
   # get the real correlation computeCor
   # call ME (sample, bandwidth, nonCoverageProbability)
@@ -33,20 +32,32 @@ createBand <- function(tParArray,
 
   mySample <- createSample(sampleSize = sampleSize)
 
+  allCorHat = computeAllCorHats(
+    tParArray = tParArray,
+    lagCount = lagCount,
+    sample = sample,
+    kernel = kernel,
+    bandwidth = bandwidth
+  )
+  meByCovHat <- computeMEbyCovHat(
+    tParArray = tParArray,
+    lag = lag,
+    lagCount = lagCount,
+    sample = mySample,
+    bandwidth = bandwidth,
+    nonCoverageProbability = nonCoverageProbability,
+    allCorHats = allCorHats,
+    C_K = -1.978325,
+    PHI_K_NORMAL_DIFF = 0.4065)
+cat("\n ME:",meByCovHat)
 
-
-  meByCovHat <- computeMEbyCovHat(tParArray = tParArray,
-                                  lag = lag,
-                                  lagCount = lagCount,
-                                  sample = mySample,
-                                  bandwidth = 0.5,
-                                  nonCoverageProbability = 0.05,
-                                  allCorHats = allCorHats,
-                                  C_K = -1.978325,
-                                  PHI_K_NORMAL_DIFF = 0.4065)
-
-
-  corHat=computeCorHat(tParArray = tParArray,lag = lag,sample = mySample,kernel = kernel,bandwidth = 0.5)
+  corHat = computeCorHat(
+    tParArray = tParArray,
+    lag = lag,
+    sample = mySample,
+    kernel = kernel,
+    bandwidth = bandwidth
+  )
 
 
   lowerBound <- corHat - meByCovHat
