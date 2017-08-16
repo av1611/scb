@@ -1,6 +1,5 @@
 createBandFunctionNoCall <- function()
 {
-  cat("\n Testing \'createBand No Call, the function\' \n ")
   mySampleSize=5
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
@@ -45,6 +44,4 @@ cat("\n band ",band)
   # # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 }
 
-test_that("Testing \'createBand NoCall\'",
-          createBandFunctionNoCall())
 
