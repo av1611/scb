@@ -28,10 +28,7 @@ createBandsBrick <- function(lag,
 
  for(repCountIndex in 1:replicationCount)
    {
-    bandsArray[repCountIndex, , ] <- createBand(lag = lag,
-                                                sample = sample,
-                                                bandwidth = bandwidth,
-                                                nonCoverageProbability = nonCoverageProbability)
+    bandsArray[repCountIndex, , ] <- createBandFunctionNoCall()
    }
 
  bandsArray

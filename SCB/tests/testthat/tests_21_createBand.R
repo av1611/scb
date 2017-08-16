@@ -8,7 +8,7 @@ createBandFunction <- function()
   mockTVMA1Array <-
     createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
 
-  mockSample <- createSample(sampleSize = myTParCount)
+  mockSample <- createSample(sampleSize = mySampleSize)
 
   myLag = 3
   myLagCount = myTParCount - 1
@@ -25,19 +25,17 @@ createBandFunction <- function()
     bandwidth = myBandwidth
   )
 
-  # # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
-  # # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
-  band = createBand(
+  band1 = createBand(
     tParArray = mockTParArray,
     lag = myLag,
     lagCount = myLagCount,
-    bandwidth = 0.5,
+    bandwidth = myBandwidth,
     kernel = myKernel,
-    sampleSize = 10,
-    nonCoverageProbability = 0.05,
-    allCorHats = mockAllCorHat)
-
-cat("band \n",band)
+    sampleSize = mySampleSize,
+    nonCoverageProbability = myNonCoverageProbability,
+    allCorHats = mockAllCorHats
+  )
+  cat("\n band1",band1)
 }
 
 test_that("Testing \'createBand\'",
