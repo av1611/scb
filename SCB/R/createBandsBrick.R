@@ -33,7 +33,7 @@ createBandsBrick <- function(tParArray,
     cat("\n in for")
     bandsArray[repCountIndex, ,] <-
       createBand(
-        tParArray = myTParArray,
+        tParArray = tParArray,
         lag = lag,
         lagCount = lagCount,
         bandwidth = bandwidth,
