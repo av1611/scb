@@ -31,7 +31,6 @@ computeIsCovered <- function(band,
   # horizontal ACF of a sleepers process
 
   tParCount <- length (corArray)
-  cat("\n tParCount",tParCount)
   isCoveredArrayByT <- array (0, dim = tParCount)
 
   for (tParIndex in 1 : tParCount)

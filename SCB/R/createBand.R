@@ -32,13 +32,15 @@ createBand <- function(tParArray,
 
   mySample <- createSample(sampleSize = sampleSize)
 
-  allCorHat = computeAllCorHats(
+  mockallCorHat = computeAllCorHats(
     tParArray = tParArray,
     lagCount = lagCount,
-    sample = sample,
+    sample = mySample,
     kernel = kernel,
     bandwidth = bandwidth
+
   )
+
   meByCovHat <- computeMEbyCovHat(
     tParArray = tParArray,
     lag = lag,
@@ -46,10 +48,9 @@ createBand <- function(tParArray,
     sample = mySample,
     bandwidth = bandwidth,
     nonCoverageProbability = nonCoverageProbability,
-    allCorHats = allCorHats,
+    allCorHats = mockallCorHat,
     C_K = -1.978325,
     PHI_K_NORMAL_DIFF = 0.4065)
-cat("\n ME:",meByCovHat)
 
   corHat = computeCorHat(
     tParArray = tParArray,

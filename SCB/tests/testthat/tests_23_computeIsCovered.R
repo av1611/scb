@@ -9,7 +9,7 @@ computeIsCoveredFunction = function()
     createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
   mockSample <- createSample(sampleSize = myTParCount)
 
-  myLag =3
+  myLag =2
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
@@ -27,12 +27,11 @@ computeIsCoveredFunction = function()
     createBand(
       tParArray = mockTParArray,
       lag = myLag,
-      lagCount = lagCount,
-      bandwidth = 1,
+      lagCount = myLagCount,
+      bandwidth = 0.5,
       kernel = normalDifferenceKernel,
       sampleSize = 10,
-      nonCoverageProbability = 0.05,
-      allCorHats = mockAllCorHat
+      nonCoverageProbability = 0.05
     )
 
   mockTVMA1CoefArray <-
@@ -41,7 +40,7 @@ computeIsCoveredFunction = function()
 
   mockCor <-
     computeCor(lag = myLag, tvMa1CoefArray = mockTVMA1CoefArray)
-  cat("\n mockCor\n", mockCor)
+
 
   isCovered <- computeIsCovered(mockBand,
                                 mockCor)
