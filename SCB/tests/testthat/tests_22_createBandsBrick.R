@@ -15,7 +15,7 @@ mockAllCorHats=computeAllCorHats(tParArray = mockTParArray,)
 mockAllCorHats=computeAllCorHats(t)
 bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             lag=myLag,
-                            lagCount=lagCount,
+                            lagCount=0,
                             bandwidth= myBandwidth,
                             kernel = normalDifferenceKernel,
                             sampleSize=mySampleSize,

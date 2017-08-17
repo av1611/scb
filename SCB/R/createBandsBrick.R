@@ -39,8 +39,7 @@ createBandsBrick <- function(tParArray,
         bandwidth = bandwidth,
         kernel = kernel,
         sampleSize = sampleSize,
-        nonCoverageProbability = nonCoverageProbability,
-        allCorHats = allCorHats
+        nonCoverageProbability = nonCoverageProbability
       )
   }
   cat("\n after for")
