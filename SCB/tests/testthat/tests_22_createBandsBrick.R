@@ -1,26 +1,29 @@
 createBandsBrickFunction <- function()
 {
   cat ("\n Testing \'createBandsBrick\'\n")
-  myLag <- 2
-  myTParCount <- 3
-  myReplicationCount <- 4
-  mySampleSize = 10
-  myLagCount = myTParCount - 1
-  myBandwidth = 0.5
-  nonCoverageProbability = 0.05
+  mySampleSize=10
+  myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
+  myReplicationCount=4
+  myLag = 3
+  myLagCount = myTParCount - 1
+  myKernel = normalDifferenceKernel
+  myBandwidth = 0.5
+  myNonCoverageProbability=0.05
 
 
 bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             lag=myLag,
-                            lagCount=0,
+                            lagCount=myLagCount,
                             bandwidth= myBandwidth,
                             kernel = normalDifferenceKernel,
                             sampleSize=mySampleSize,
-                            nonCoverageProbability = nonCoverageProbability,
+                            nonCoverageProbability = myNonCoverageProbability,
                             replicationCount=myReplicationCount)
 
-cat("bandsArray", mockBandsBrick[1:5])
+cat("\n bandsArray", bandsBrick[1:5])
 }
 test_that("createBandsBrick", {
   createBandsBrickFunction()

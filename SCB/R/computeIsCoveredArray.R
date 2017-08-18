@@ -23,14 +23,16 @@ computeIsCoveredArray <- function(bandsBrick,
   isCoveredArray <- array(0, dim = mySampleSize)
 
   isCoveredBrick <- array(0, dim = c(tParCount, mySampleSize, replicationCount))
-cat("\n before for")
+cat("\n for ComuteIsCov")
   for (replicationIndex in 1:replicationCount)
   {
     band <- bandsBrick[, , replicationIndex]
+cat("\n band ",band)
     isCoveredArray[replicationIndex] <- computeIsCovered(band, corArray)
-
+cat("\niscoveredArray",isCoveredArray[replicationIndex])
     isCoveredBrick[, , replicationIndex] <- isCoveredArray[replicationIndex]
   }
+cat("\n before for isCovArray")
 
   return(isCoveredBrick)
 }
