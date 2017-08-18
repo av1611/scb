@@ -9,7 +9,7 @@ computeIsCoveredFunction = function()
     createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
   mockSample <- createSample(sampleSize = myTParCount)
 
-  myLag =2
+  myLag =1
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
