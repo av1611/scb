@@ -25,10 +25,10 @@ computeNonCoverageFreqFunction <- function()
     nonCoverageProbability = myNonCoverageProbability,
     replicationCount = myReplicationCount
   )
-
+cat("\n bandsBrick ",bandsBrick)
   trueCorrelationArray = computeCor(lag = myLag, tvMa1CoefArray = mockTVMA1Array)
+cat("\n CorArray",trueCorrelationArray)
 
-  cat("sampleSize:", mySampleSize, "\n")
 
 
   nonCoverageFreq = computeNonCoverageFreq(

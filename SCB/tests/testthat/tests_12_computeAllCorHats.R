@@ -8,7 +8,7 @@ computeAllCorHatsTestFunction = function () {
 
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 3
+  myLag = 1
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1

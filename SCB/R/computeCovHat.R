@@ -21,23 +21,42 @@
 #' bandwith <- 1
 #' lag <- 2
 
-
 computeCovHat <- function(tParArray,
                           lag,
                           sample,
                           kernel,
                           bandwidth) {
   sampleSize <- length(sample)
-  summation <- 0
-  for (i in 1  : sampleSize) {
-    for (j in seq_len(sampleSize - lag)) {
-      sumTmp1 <- sample[j] *
-                sample[j + lag] *
-                kernel((j/sampleSize) - tParArray) / bandwidth
+  partialSum <- 0
+  termCountSequence =seq_len(sampleSize-lag)
+
+cat("\n before for computeCovHat")
+    for (termIndex in termCountSequence)
+    {
+      cat("\n in for before term computeCovHat")
+      term <- sample[termIndex] *
+                sample[termIndex + lag] *
+                kernel((termIndex/sampleSize) - tParArray) / bandwidth
+
+      partialSum <- partialSum + term
     }
+cat("\n after for computeCovHat")
 
-    summation <- summation + sumTmp1
-  }
 
-  covHat <- summation / (sampleSize * bandwidth)
+
+
+  covHat <- partialSum / (sampleSize * bandwidth)
+  return (covHat)
 }
+
+
+# for (i in 1  : sampleSize) {
+#   sumTmp1 = 0
+#   for (j in seq_len(sampleSize - lag)) {
+#
+#     sumTmp1 <- sample[j] *
+#       sample[j + lag] *
+#       kernel((j/sampleSize) - tParArray) / bandwidth
+#     cat("\n sum",sumTmp1)
+#
+
