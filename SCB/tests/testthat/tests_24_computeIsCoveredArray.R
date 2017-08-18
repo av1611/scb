@@ -16,24 +16,34 @@ computeIsCoveredArrayFunction <- function()
 
   mockCorArray <- computeCor(lag = myLag,
                              tvMa1CoefArray = mockTVMA1CoefArray)
-
-  lowerBound <- seq(from = 0, to = 1, by = 0.1)
-  upperBound <- seq(from = 1, to = 2, by = 0.1)
-  mockBand <- cbind(lowerBound, upperBound)
+  cat("\n mockCorAr", mockCorArray)
+  #
+  #   lowerBound <- seq(from = 0, to = 1, by = 0.1)
+  #   upperBound <- seq(from = 1, to = 2, by = 0.1)
+  #   mockBand <- cbind(lowerBound, upperBound)
+  #
+  #   mockBandsBrick <-
+  #     array(mockBand, dim = c(tParCount, mySampleSize, replicationCount))
 
   mockBandsBrick <-
-    array(mockBand, dim = c(tParCount, mySampleSize, replicationCount))
+    createBandsBrick(
+      tParArray = mockTParArray,
+      lag = myLag,
+      lagCount = 9,
+      bandwidth = 1,
+      kernel = normalDifferenceKernel,
+      sampleSize = mySampleSize,
+      nonCoverageProbability = 0.05,
+      replicationCount = replicationCount
+    )
+      isCoveredArray <-
+        computeIsCoveredArray(bandsBrick = mockBandsBrick,
+                              corArray = mockCorArray)
 
-  # mockBandsBrick <- createBandsBrick(sampleSize = tParCount,
-  #                                    replicationCount = tParCount)
-
-  isCoveredArray <-
-    computeIsCoveredArray(bandsBrick = mockBandsBrick,
-                          corArray = mockCorArray)
-
-  cat("isCoveredArray:", isCoveredArray, "\n")
+      cat("isCoveredArray:", isCoveredArray, "\n")
 }
 
 test_that("Testing \'isCoveredArray\'", {
   computeIsCoveredArrayFunction()
 })
+
