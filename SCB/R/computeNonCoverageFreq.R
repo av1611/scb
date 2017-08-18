@@ -18,7 +18,8 @@
 
 computeNonCoverageFreq  <- function(sampleSize,
                                     tParArray,
-                                    corArray)
+                                    corArray,
+                                    bandsArray)
   {
   # What it does
   # Takes a model.
