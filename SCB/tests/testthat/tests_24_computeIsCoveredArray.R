@@ -2,38 +2,52 @@ computeIsCoveredArrayFunction <- function()
 {
   cat("\n Testing \'computeIsCoveredArray\'\n")
 
-  myLag = 1
-  tParCount = 2
-  mySampleSize = 2
-  replicationCount = 3
-  myCoefFunction = sin
+  mySampleSize = 10
+  myTParCount = 10
+  mockTParArray <- createTParArray(tParCount = myTParCount)
+  # may be different
+  mockTVMA1Array <-
+    createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
 
-  mockTParArray <- createTParArray(tParCount = tParCount)
+  myCoefFunction=sin
 
-  mockTVMA1CoefArray <-
-    createTVMA1CoefArray(coefFunction = myCoefFunction,
-                         sampleSize = mySampleSize)
+  myLag = 3
+
+  myLagCount = myTParCount - 1
+  myKernel = normalDifferenceKernel
+  myBandwidth = 0.5
+  myNonCoverageProbability = 0.05
 
   mockCorArray <- computeCor(lag = myLag,
-                             tvMa1CoefArray = mockTVMA1CoefArray)
-
-  lowerBound <- seq(from = 0, to = 1, by = 0.1)
-  upperBound <- seq(from = 1, to = 2, by = 0.1)
-  mockBand <- cbind(lowerBound, upperBound)
+                             tvMa1CoefArray = mockTVMA1Array)
+  cat("\n mockCorAr", mockCorArray)
+  #
+  #   lowerBound <- seq(from = 0, to = 1, by = 0.1)
+  #   upperBound <- seq(from = 1, to = 2, by = 0.1)
+  #   mockBand <- cbind(lowerBound, upperBound)
+  #
+  #   mockBandsBrick <-
+  #     array(mockBand, dim = c(tParCount, mySampleSize, replicationCount))
 
   mockBandsBrick <-
-    array(mockBand, dim = c(tParCount, mySampleSize, replicationCount))
+    createBandsBrick(
+      tParArray = mockTParArray,
+      lag = myLag,
+      lagCount = myLagCount,
+      bandwidth = myBandwidth,
+      kernel = myKernel,
+      sampleSize = mySampleSize,
+      nonCoverageProbability = 0.05,
+      replicationCount = 4
+    )
+      isCoveredArray <-
+        computeIsCoveredArray(bandsBrick = mockBandsBrick,
+                              corArray = mockCorArray)
 
-  # mockBandsBrick <- createBandsBrick(sampleSize = tParCount,
-  #                                    replicationCount = tParCount)
-
-  isCoveredArray <-
-    computeIsCoveredArray(bandsBrick = mockBandsBrick,
-                          corArray = mockCorArray)
-
-  cat("isCoveredArray:", isCoveredArray, "\n")
+      cat("isCoveredArray:", mockBandsBrick, "\n")
 }
 
 test_that("Testing \'isCoveredArray\'", {
   computeIsCoveredArrayFunction()
 })
+

@@ -6,7 +6,7 @@ computeAllCorHatsTestFunction = function () {
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
 
-  mockSample <- createSample(sampleSize = myTParCount)
+  mockSample <- createSample(sampleSize = mySampleSize)
 
   myLag = 3
   myLagCount = myTParCount - 1

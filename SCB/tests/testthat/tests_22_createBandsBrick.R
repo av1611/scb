@@ -4,15 +4,12 @@ createBandsBrickFunction <- function()
   myLag <- 2
   myTParCount <- 3
   myReplicationCount <- 4
-  mySampleSize = 5
+  mySampleSize = 10
   myLagCount = myTParCount - 1
   myBandwidth = 0.5
   nonCoverageProbability = 0.05
-  mySample = createSample(sampleSize = mySampleSize)
   mockTParArray <- createTParArray(tParCount = myTParCount)
 
-mockSample <- createSample(sampleSize = mySampleSize)
-mockSampleSize = length(mockSample)
 
 bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             lag=myLag,
