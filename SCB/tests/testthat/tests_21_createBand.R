@@ -9,7 +9,7 @@ createBandFunction <- function()
 
 
 
-  myLag = 3
+  myLag = 2
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
