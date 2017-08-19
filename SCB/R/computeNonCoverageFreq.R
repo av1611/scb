@@ -31,10 +31,14 @@ computeNonCoverageFreq  <- function(sampleSize,
   # nonCoverageProbabilityHat = number of zeros / superReplication
   bandsArrayRepCount <- dim(bandsArray)[1]
 
-  for(bandsArrayRepCountIndex in 1:bandsArrayRepCount)
+    for(bandsArrayRepCountIndex in 1:bandsArrayRepCount)
     {
-    isCoveredArray <- computeIsCoveredArray(bandsArray[bandsArrayRepCountIndex, , ],
+
+    band = bandsArray[bandsArrayRepCountIndex, , ]
+    cat("\n band= ",band)
+    isCoveredArray <- computeIsCoveredArray(band,
                                             corArray)
+    cat("\n isCovered array:",isCoveredArray)
     for(i in 1:length(isCoveredArray))
       {
       if (isCoveredArray[i] == 0)
