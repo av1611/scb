@@ -11,9 +11,9 @@ computeIsCoveredArrayFunction <- function()
 
   myCoefFunction=sin
 
-  myLag = 3
+  myLag = 1
 
-  myLagCount = myTParCount - 1
+  myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05

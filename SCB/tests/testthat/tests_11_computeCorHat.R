@@ -8,7 +8,7 @@ computeCorHatFunction = function () {
 
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 2
+  myLag = 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
 

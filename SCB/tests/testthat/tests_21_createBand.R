@@ -10,7 +10,7 @@ createBandFunction <- function()
 
 
   myLag = 3
-  myLagCount = myTParCount - 1
+  myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability=0.05

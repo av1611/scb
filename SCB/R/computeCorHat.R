@@ -49,4 +49,5 @@ computeCorHat <- function(tParArray,
   # cat("\n myVar= ",myVariance)
   corHat = myCovariance / myVariance
 
+
 }

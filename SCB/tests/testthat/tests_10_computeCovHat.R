@@ -8,7 +8,7 @@ computeCovHatFunction = function () {
                                              sampleSize = mySampleSize)
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 4
+  myLag = 0
   myKernel = normalDifferenceKernel
   myBandwidth = 1
 

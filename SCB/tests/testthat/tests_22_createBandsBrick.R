@@ -6,9 +6,9 @@ createBandsBrickFunction <- function()
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
-  myReplicationCount=4
+  myReplicationCount=5
   myLag = 3
-  myLagCount = myTParCount - 1
+  myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability=0.05
