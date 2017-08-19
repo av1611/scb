@@ -30,17 +30,15 @@ computeCovHat <- function(tParArray,
   partialSum <- 0
   termCountSequence =seq_len(sampleSize-lag)
 
-cat("\n before for computeCovHat")
     for (termIndex in termCountSequence)
     {
-      cat("\n in for before term computeCovHat")
+
       term <- sample[termIndex] *
                 sample[termIndex + lag] *
                 kernel((termIndex/sampleSize) - tParArray) / bandwidth
 
       partialSum <- partialSum + term
     }
-cat("\n after for computeCovHat")
 
 
 

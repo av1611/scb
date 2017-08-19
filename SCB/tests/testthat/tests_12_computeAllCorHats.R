@@ -9,7 +9,7 @@ computeAllCorHatsTestFunction = function () {
   mockSample <- createSample(sampleSize = mySampleSize)
 
   myLag = 1
-  myLagCount = myTParCount - 1
+  myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 1
   # form all rho hats

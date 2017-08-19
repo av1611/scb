@@ -41,7 +41,8 @@ createBandsBrick <- function(tParArray,
         sampleSize = sampleSize,
         nonCoverageProbability = nonCoverageProbability
       )
+    cat("\n bandsbrick[repCounr, ,]",bandsArray[replicationCount, ,])
   }
-  cat("\n after for")
+
   bandsArray
 }
