@@ -2,49 +2,37 @@ computeIsCoveredArrayFunction <- function()
 {
   cat("\n Testing \'computeIsCoveredArray\'\n")
 
-  mySampleSize = 10
+  mySampleSize=10
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
-  mockTVMA1Array <-
-    createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
-
-  myCoefFunction=sin
-
-  myLag = 1
-
+  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
+  myReplicationCount=5
+  myLag = 3
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
-  myNonCoverageProbability = 0.05
+  myNonCoverageProbability=0.05
 
+
+  bandsBrick=createBandsBrick(tParArray=mockTParArray,
+                              lag=myLag,
+                              lagCount=myLagCount,
+                              bandwidth= myBandwidth,
+                              kernel = normalDifferenceKernel,
+                              sampleSize=mySampleSize,
+                              nonCoverageProbability = myNonCoverageProbability,
+                              replicationCount=myReplicationCount)
   mockCorArray <- computeCor(lag = myLag,
                              tvMa1CoefArray = mockTVMA1Array)
   cat("\n mockCorAr", mockCorArray)
-  #
-  #   lowerBound <- seq(from = 0, to = 1, by = 0.1)
-  #   upperBound <- seq(from = 1, to = 2, by = 0.1)
-  #   mockBand <- cbind(lowerBound, upperBound)
-  #
-  #   mockBandsBrick <-
-  #     array(mockBand, dim = c(tParCount, mySampleSize, replicationCount))
 
-  mockBandsBrick <-
-    createBandsBrick(
-      tParArray = mockTParArray,
-      lag = myLag,
-      lagCount = myLagCount,
-      bandwidth = myBandwidth,
-      kernel = myKernel,
-      sampleSize = mySampleSize,
-      nonCoverageProbability = 0.05,
-      replicationCount = 4
-    )
+
       isCoveredArray <-
-        computeIsCoveredArray(bandsBrick = mockBandsBrick,
+        computeIsCoveredArray(bandsBrick = bandsBrick,
                               corArray = mockCorArray)
 
-      cat("isCoveredArray:", mockBandsBrick, "\n")
+      cat("\nisCoveredArray:", isCoveredArray, "\n")
 }
 
 test_that("Testing \'isCoveredArray\'", {
