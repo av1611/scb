@@ -29,24 +29,20 @@ computeNonCoverageFreq  <- function(sampleSize,
   # Creates an array of zeros and ones (1 if a true rho is covered by a band)
   # Calculates alpha hat or
   # nonCoverageProbabilityHat = number of zeros / superReplication
-  bandsArrayRepCount <- dim(bandsArray)[1]
 
-    for(bandsArrayRepCountIndex in 1:bandsArrayRepCount)
-    {
 
-    band = bandsArray[bandsArrayRepCountIndex, , ]
-    cat("\n band= ",band)
-    isCoveredArray <- computeIsCoveredArray(band,
-                                            corArray)
-    cat("\n isCovered array:",isCoveredArray)
+    isCoveredArray <- computeIsCoveredArray(bandsArray,corArray)
+    zeroCount=0
+    replicationCount = dim(bandsArray)[1]
     for(i in 1:length(isCoveredArray))
       {
       if (isCoveredArray[i] == 0)
         {
         zeroCount <- zeroCount + 1
       }
-      }
+    }
 
-    nonCoverageProbability <- zeroCount / bandsArrayRepCount
-  }
+
+    nonCoverageProbability <- zeroCount / replicationCount
+
 }
