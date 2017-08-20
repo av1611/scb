@@ -27,8 +27,6 @@ computeNonCoverageFreqFunction <- function()
   )
 
   trueCorrelationArray = computeCor(lag = myLag, tvMa1CoefArray = mockTVMA1Array)
-cat("\n CorArray",trueCorrelationArray)
-
 
 
   nonCoverageFreq = computeNonCoverageFreq(
