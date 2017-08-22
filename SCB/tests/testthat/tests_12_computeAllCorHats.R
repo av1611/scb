@@ -8,7 +8,7 @@ computeAllCorHatsTestFunction = function () {
 
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 1
+  myLag = 0
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 1
@@ -21,7 +21,6 @@ computeAllCorHatsTestFunction = function () {
                                       bandwidth = myBandwidth)
 
   # print the first 9 elements. Hope, sizes are greater than 3.
-  cat("str(mockAllCorHats) = ", str(mockAllCorHats), "\n")
   lag = 1
   mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
   cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")

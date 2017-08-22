@@ -8,23 +8,14 @@ computeNonCoverageFreqFunction <- function()
   mockTVMA1Array <-
     createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
   myReplicationCount = 5
-  myLag = 3
+  myLag = 1
   myLagCount =4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05
 
 
-  bandsBrick = createBandsBrick(
-    tParArray = mockTParArray,
-    lag = myLag,
-    lagCount = myLagCount,
-    bandwidth = myBandwidth,
-    kernel = normalDifferenceKernel,
-    sampleSize = mySampleSize,
-    nonCoverageProbability = myNonCoverageProbability,
-    replicationCount = myReplicationCount
-  )
+
 
   trueCorrelationArray = computeCor(lag = myLag, tvMa1CoefArray = mockTVMA1Array)
 
@@ -32,10 +23,8 @@ computeNonCoverageFreqFunction <- function()
   nonCoverageFreq = computeNonCoverageFreq(
     sampleSize = mySampleSize,
     tParArray = mockTParArray,
-    corArray = trueCorrelationArray,
-    bandsArray = bandsBrick
+    corArray = trueCorrelationArray
   )
-
   cat("NonCoverageFreqByCorBands:", nonCoverageFreq, "\n")
 
 }
