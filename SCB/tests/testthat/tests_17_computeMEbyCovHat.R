@@ -9,7 +9,7 @@ computeMEbyCovHatFunction <- function () {
 
   mockSample <- createSample(sampleSize = myTParCount)
 
-  myLag = 3
+  myLag = 0
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
