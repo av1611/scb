@@ -21,9 +21,17 @@ computeAllCorHatsTestFunction = function () {
                                       bandwidth = myBandwidth)
 
   # print the first 9 elements. Hope, sizes are greater than 3.
-  lag = 1
-  mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
+  lag = 1 # actual or real lag = 0
+  # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
+  mockCorHatsFirstCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
+  cat("The first col of mockCorHats = ", mockCorHatsFirstCol, "\n")
+
+  lag = 2 # actual or real lag = 1
+  # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
+  mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
   cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")
+
+
   # same but by steps does not work
   # colRefName = paste0("mockCorHats$`", lag, "`")
   # parsedColRefName = parse (text = colRefName)
@@ -33,8 +41,6 @@ computeAllCorHatsTestFunction = function () {
   # cat("parsedColRefName = ", parsedColRefName, "\n")
   # cat("evaluatedColumn = ", evaluatedColumn, "\n")
 
-
-  cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")
 }
 
 test_that("Testing \'computeAllCorHats\'",

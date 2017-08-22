@@ -38,10 +38,10 @@ computeAllCorHats <- function(tParArray,
 
   tParCount <- length(tParArray)
   allCorHats <- array(0, dim = c(tParCount, lagCount + 1))
-  colNamesForAllCorHats <- as.character(c(0, seq_len(lagCount)))
-  colnames(allCorHats) <- colNamesForAllCorHats
-  allCorHats <- as.data.frame(allCorHats)
-  allCorHats$`0` <- 1 # replicating 1
+  # colNamesForAllCorHats <- as.character(c(0, seq_len(lagCount)))
+  # colnames(allCorHats) <- colNamesForAllCorHats
+  # allCorHats <- as.data.frame(allCorHats)
+  # allCorHats$`0` <- 1 # replicating 1
   # each tPar element is being called by its index,
   # each lag element is being called as it is
   # (index of each lag is the lag itself)
