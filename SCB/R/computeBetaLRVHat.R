@@ -34,15 +34,16 @@ computeBetaLRVHat  <- function(tParArray,
                                allCorHats) {
   tParCount = length(tParArray)
   sampleSize = length(sample)
-  termCount = 2 * sampleSize ^ (4/15) # aka L
+  termCount = floor(2 * sampleSize ^ (4/15)) # aka L
 
   # check sizes
   if (lag > sampleSize - 1 - termCount) {
-    cat ("\n after if with stop \n")
-    cat ("\n  sampleSize = ",sampleSize, "\n")
-    cat ("\n  termCount = ",termCount, "\n")
-    cat ("\n  lag = ",lag, "\n")
-    stop("wrong relation between sampleSize, termCount, lag!")
+    cat ("after if with stop \n")
+    cat ("sampleSize = ",sampleSize, "\n")
+    cat ("termCount = ",termCount, "\n")
+    cat ("lag = ",lag, "\n")
+    cat("wrong relation between sampleSize, termCount, lag! \n")
+    # stop("wrong relation between sampleSize, termCount, lag!")
   }
 
   # if (! lag > termCount) {
@@ -56,8 +57,8 @@ computeBetaLRVHat  <- function(tParArray,
   for (tParIndex in 1 : tParCount) {
     for (termIndex in 1 : (termCount - lag)) {
      term = (2 * allCorHats[tParIndex, lag] * allCorHats[tParIndex, termIndex] -
-        allCorHats[tParIndex, abs(lag - termIndex)] -
-        allCorHats[tParIndex, lag + termIndex]) ^ 2
+                                              allCorHats[tParIndex, abs(lag - termIndex)] -
+                                              allCorHats[tParIndex, lag + termIndex]) ^ 2
 
      betaLRVHat[tParIndex] = betaLRVHat[tParIndex] + term
     }
