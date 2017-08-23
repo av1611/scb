@@ -9,7 +9,7 @@ computeMEbyCovHatFunction <- function () {
 
   mockSample <- createSample(sampleSize = myTParCount)
 
-  myLag = 0
+  myLag = 1
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
@@ -35,10 +35,11 @@ computeMEbyCovHatFunction <- function () {
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 
-  cat("me = ", me)
+  cat("me = ", me, "\n")
 }
 
 test_that("Testing \'computeMEbyCovHat\'", {
   computeMEbyCovHatFunction()
 }
 )
+

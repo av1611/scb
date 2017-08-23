@@ -8,7 +8,7 @@ computeBetaLRVHatFunction = function () {
 
   mockSample <- createSample(sampleSize = myTParCount)
 
-  myLag = 5
+  myLag = 2
   myLagCount = myTParCount - 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
