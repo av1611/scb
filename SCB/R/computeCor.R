@@ -9,7 +9,7 @@
 #' @param lag the lag
 #' @param tvMa1CoefArray the tvMa1CoefArray
 #'
-#' @return Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}.
+#' @return Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}. length(tvMa1CoefArray) = sampleSize
 #'
 #' @examples
 #' tParCount <- 10
@@ -30,5 +30,4 @@ computeCor <- function(lag,
   }
 
   corArray
-
 }
