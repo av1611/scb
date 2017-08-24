@@ -35,11 +35,13 @@ computeMEbyCovHatFunction <- function () {
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 
-  cat("me = ", me, "\n")
+  cat(" me = ", me, "\n")
 }
 
 test_that("Testing \'computeMEbyCovHat\'", {
   computeMEbyCovHatFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 }
 )
 

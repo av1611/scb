@@ -43,4 +43,6 @@ myCoefFunction=sin
 
 test_that("Testing computeIsCovered", {
   computeIsCoveredFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 })

@@ -14,6 +14,7 @@ createTParArrayFunction <- function () {
 
 test_that("Testing \'createTParArray\' for being an array", {
   mockTParArray <- createTParArrayFunction()
-
+cat(" End of test ","\n")
+cat("=====================")
   }
 )

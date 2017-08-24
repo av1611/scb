@@ -27,6 +27,8 @@ computeCovHatFunction = function () {
 
 test_that("Testing \'computeCovHat\'", {
   computeCovHatFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 
 }
 

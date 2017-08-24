@@ -20,13 +20,12 @@ createNoiseFunction <- function () {
 
 test_that("Testing \'createNoise\' for length and being numeric\'", {
   mockRnorm <- createNoiseFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 
 }
 )
 
 
 
-test_that("Testing createNoise for length", {
 
-  }
-)

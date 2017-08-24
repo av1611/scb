@@ -25,7 +25,7 @@ computeIsCoveredArrayFunction <- function()
                               replicationCount=myReplicationCount)
   mockCorArray <- computeCor(lag = myLag,
                              tvMa1CoefArray = mockTVMA1Array)
-  cat("\n mockCorAr", mockCorArray)
+
 
 
       isCoveredArray <-
@@ -37,5 +37,7 @@ computeIsCoveredArrayFunction <- function()
 
 test_that("Testing \'isCoveredArray\'", {
   computeIsCoveredArrayFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 })
 

@@ -24,8 +24,11 @@ createBandFunction <- function()
   sampleSize = mySampleSize,
   nonCoverageProbability = myNonCoverageProbability )
 
-  cat("\n band1", band1)
+  cat("band1", band1)
 }
 
-test_that("Testing \'createBand\'",
-          createBandFunction())
+test_that("Testing \'createBand\'",{
+          createBandFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
+  })
