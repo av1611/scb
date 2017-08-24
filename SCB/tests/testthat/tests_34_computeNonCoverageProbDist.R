@@ -19,4 +19,6 @@ computeNonCoverageProbDistFunction <- function () {
 
 test_that("Testing \'computeNonCoverageProbDist\'", {
   computeNonCoverageProbDistFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 })

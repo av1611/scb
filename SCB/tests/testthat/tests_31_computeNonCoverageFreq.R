@@ -30,4 +30,6 @@ computeNonCoverageFreqFunction <- function()
 }
 test_that("computeNonCoverageFreqByCorHats", {
   computeNonCoverageFreqFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 })

@@ -36,6 +36,8 @@ computeBetaLRVHatFunction = function () {
 
 test_that("Testing \'computeBetaLRVHat\'", {
   computeBetaLRVHatFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
   }
 )
 

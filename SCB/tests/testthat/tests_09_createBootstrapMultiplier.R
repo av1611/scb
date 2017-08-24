@@ -16,7 +16,7 @@ createBootstrapMultiplierFunction <- function () {
 
 test_that("Testing \'createBootstrapMultiplier\'", {
   createBootstrapMultiplierFunction()
-
-
+  cat(" End of test ","\n")
+  cat("=====================")
 }
 )

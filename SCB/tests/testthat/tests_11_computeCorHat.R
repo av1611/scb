@@ -30,7 +30,8 @@ computeCorHatFunction = function () {
 
 test_that("Testing \'computeCorHat\'", {
   computeCorHatFunction()
-
+  cat(" End of test ","\n")
+  cat("=====================")
 }
 
 )

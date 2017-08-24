@@ -23,8 +23,10 @@ bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             nonCoverageProbability = myNonCoverageProbability,
                             replicationCount=myReplicationCount)
 
-cat("\n bandsArray", bandsBrick[1:5])
+cat("bandsArray", bandsBrick[1:5])
 }
 test_that("createBandsBrick", {
   createBandsBrickFunction()
+  cat(" End of test ","\n")
+  cat("=====================")
 })
