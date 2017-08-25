@@ -1,24 +1,17 @@
 computeNonCoverageFreqDistFunction <- function() {
   cat("\n Testing \'computeNonCoverageFreqDist\' \n")
 
-  myTParCount  <- 10
+  myTParCount  <- 3
   mockTParArray  <- createTParArray(tParCount = myTParCount)
-  mySuperReplicationCount <- 10
-  myReplicationCount <- 10
-  mySampleSize <- 10
-  myLag <- 3
-  myLagCount <- myReplicationCount - 1
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             sampleSize = mySampleSize)
-
-  trueCorArray <- computeCor(lag = lag,
-                             tvMa1CoefArray = mockTVMA1CoefArray)
+  mySuperReplicationCount <- 4
+  myReplicationCount <- 5
+  mySampleSize <- 8
+  myLag <- 1
+  myLagCount <- 4
   myKernel <- normalDifferenceKernel
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
 
-  trueCorrelationArray <- computeCor(lag = myLag,
-                                     tvMa1CoefArray = mockTVMA1Array)
 
 
   nonCoverageFreqDist <- computeNonCoverageFreqDist(superReplicationCount = mySuperReplicationCount,
@@ -35,6 +28,6 @@ computeNonCoverageFreqDistFunction <- function() {
 }
 
 test_that("Testing \'computeNonCoverageFreqDist\'", {
-#   computeNonCoverageFreqByRhoBandsFunction()
+  computeNonCoverageFreqDistFunction()
 }
 )
