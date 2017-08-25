@@ -23,7 +23,7 @@ computeNonCoverageProbDist <- function(superReplicationCount,
   alphaHatArray = array(0, dim = superReplicationCount)
   myTParCount = 10
   myTParArray = createTParArray(myTParCount)
-  mylag = 0
+  mylag = 2
   myTVMA1Coef = createTVMA1CoefArray(coefFunction = myCoefFunction, sampleSize = sampleSize)
   CorArray = computeCor(mylag, myTVMA1Coef)
   for (superIndex in 1:superReplicationCount)
