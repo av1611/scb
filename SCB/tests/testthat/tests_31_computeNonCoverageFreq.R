@@ -30,6 +30,7 @@ computeNonCoverageFreqFunction <- function()
 
    cat("NonCoverageFreq:", nonCoverageFreq, "\n")
    cat("End of test of \'computeNonCoverageFreq\' \n")
+   cat("=====================")
 }
 
 test_that("computeNonCoverageFreqDist", {
