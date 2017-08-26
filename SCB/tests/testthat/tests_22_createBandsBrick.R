@@ -7,7 +7,7 @@ createBandsBrickFunction <- function()
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
   myReplicationCount=5
-  myLag = 3
+  myLag = 1
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
@@ -27,6 +27,6 @@ cat("bandsArray", bandsBrick[1:5])
 }
 test_that("createBandsBrick", {
   createBandsBrickFunction()
-  cat(" End of test ","\n")
+  cat(" \nEnd of test ","\n")
   cat("=====================")
 })

@@ -37,7 +37,7 @@ computeNonCoverageFreqDist  <- function(superReplicationCount,
 
   for (superIndex in 1:superReplicationCount) {
     alphaHatArray[superIndex] <- computeNonCoverageFreq(replicationCount,
-                                                        sampleSize = sampleSize - superIndex,
+                                                        sampleSize = sampleSize,
                                                         lag = lag,
                                                         tParArray = tParArray,
                                                         corArray = corArray,
