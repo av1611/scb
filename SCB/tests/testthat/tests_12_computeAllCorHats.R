@@ -45,7 +45,7 @@ computeAllCorHatsTestFunction = function () {
 
 test_that("Testing \'computeAllCorHats\'",{
           computeAllCorHatsTestFunction()
-            cat(" End of test ","\n")
+            cat(" End of test computeAllCorHats","\n")
             cat("=====================")
           })
 # lagIndexToRefer <- eval(parse(text = paste0("allCorHats$`", lagIndex + 1, "`")))

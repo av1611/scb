@@ -12,7 +12,7 @@ createSampleFunction <- function ()
 test_that("Testing \'createSample\' for length and being numeric",
 {
   createSampleFunction()
-  cat(" End of test ","\n")
+  cat(" End of test createSample","\n")
   cat("=====================")
 }
 )

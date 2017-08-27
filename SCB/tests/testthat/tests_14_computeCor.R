@@ -29,7 +29,7 @@ computeCorTestFunction = function () {
 
 test_that("Testing \'computeCor\'", {
   computeCorTestFunction()
-  cat(" End of test ","\n")
+  cat(" End of test computeCor","\n")
   cat("=====================")
   }
 )

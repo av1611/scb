@@ -15,7 +15,7 @@ createMultiplierCovarianceByKernelFunction <- function () {
 
 test_that("Testing \'createMultiplierCovarianceByKernel\'", {
   createMultiplierCovarianceByKernelFunction()
-  cat(" End of test ","\n")
+  cat(" End of test createMultiplierCovarianceByKernel ","\n")
   cat("=====================")
 }
 )
