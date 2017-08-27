@@ -1,3 +1,5 @@
+rm(list = ls())
+
 myArray = 1 : 10
 plot (myArray)
 lines (myArray)
@@ -15,16 +17,27 @@ plot(x,y1,type="l",col="red")
 lines(x,y2,type="l",col="green")
 
 rm (list = ls())
+
 lag <- 1
 sampleSize <- 200
 
-MyMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, sampleSize = sampleSize)
-correlation <- computeCor(lag = lag, tvMa1CoefArray = MyMA1CoefArray)
-t <- createTParArray(tParCount = sampleSize)
-plot(x = t,y = correlation, type="l")
 
-jpeg("mygraph.jpg")
 
+dir.create("../lab/graphics/out")
+# create if it does not exist
+
+
+myMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, sampleSize = sampleSize)
+myMA1CoefArray
+plot (myMA1CoefArray)
+correlation <- computeCor(lag = lag, tvMa1CoefArray = myMA1CoefArray)
+correlation
+plot (correlation)
+myTParArray <- createTParArray(tParCount = sampleSize)
+plot(x = myTParArray, y = correlation, type="l")
+
+jpeg("../lab/graphics/out/mygraph.jpg")
+dev.off()
 
 rm (list = ls())
 mySampleSize=10
@@ -54,3 +67,5 @@ plot(x=c(-1:1),y=c(-1:1),type = "n" )
 lines(x=mockTParArray,y = band1[,1], type = "l", col="blue")
 lines(x=mockTParArray,y = band1[,2], type = "l", col="blue")
 lines(x=mockTParArray,y = correlation, type = "l", col="red")
+dev.off()
+
