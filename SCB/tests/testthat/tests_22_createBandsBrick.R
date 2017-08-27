@@ -27,6 +27,6 @@ cat("bandsArray", bandsBrick[1:5])
 }
 test_that("createBandsBrick", {
   createBandsBrickFunction()
-  cat(" \nEnd of test ","\n")
+  cat(" End of test createBandsBrick","\n")
   cat("=====================")
 })

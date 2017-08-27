@@ -40,7 +40,7 @@ computeMEbyCovHatFunction <- function () {
 
 test_that("Testing \'computeMEbyCovHat\'", {
   computeMEbyCovHatFunction()
-  cat(" End of test ","\n")
+  cat(" End of test computeMEbyCovHat","\n")
   cat("=====================")
 }
 )

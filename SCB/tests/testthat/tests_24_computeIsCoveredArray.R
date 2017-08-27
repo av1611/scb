@@ -8,8 +8,8 @@ computeIsCoveredArrayFunction <- function()
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
   myReplicationCount=5
-  myLag = 1
-  myLagCount = 4
+  myLag = 2
+  myLagCount = 3
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability=0.05
@@ -37,7 +37,7 @@ computeIsCoveredArrayFunction <- function()
 
 test_that("Testing \'isCoveredArray\'", {
   computeIsCoveredArrayFunction()
-  cat(" End of test ","\n")
+  cat(" End of test isCoveredArray","\n")
   cat("=====================")
 })
 

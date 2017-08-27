@@ -15,7 +15,7 @@ createTVMA1CoefArrayFunction <- function() {
 
 test_that("Testing tests_createTVMA1CoefArray for length and being numeric", {
   createTVMA1CoefArrayFunction()
-  cat(" End of test ","\n")
+  cat(" End of test createTVMA1CoefArray","\n")
   cat("=====================")
   }
 )
