@@ -7,7 +7,7 @@ createBFunction<-function()
 }
   test_that("Testing  \'createB\'", {
     createBFunction()
-    cat(" End of test ","\n")
+    cat(" End of test createB","\n")
     cat("=====================")
   }
   )

@@ -10,7 +10,7 @@ createBandFunction <- function()
 
 
   myLag = 1
-  myLagCount = 4
+  myLagCount = 3
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability=0.05
@@ -29,6 +29,6 @@ createBandFunction <- function()
 
 test_that("Testing \'createBand\'",{
           createBandFunction()
-  cat(" End of test ","\n")
+  cat("\nEnd of test createBand","\n")
   cat("=====================")
   })

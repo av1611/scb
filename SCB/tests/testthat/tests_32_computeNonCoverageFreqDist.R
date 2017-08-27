@@ -47,7 +47,8 @@ computeNonCoverageFreqDistFunction <- function() {
                                                   nonCoverageProbability = myNonCoverageProbability)
 
      cat("NonCoverageFreqDist:", nonCoverageFreqDist, "\n")
-    # cat("End of test of \'computeNonCoverageFreqDist\' \n")
+    cat("End of test of computeNonCoverageFreqDist", "\n")
+
 }
 
 test_that("Testing \'computeNonCoverageFreqDist\'", {

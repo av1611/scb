@@ -3,12 +3,12 @@ computeNonCoverageFreqFunction <- function()
 {
   cat ("\n Testing \'computeNonCoverageFreq\' \n")
 
-  myTParCount  <- 2
+  myTParCount  <- 10
   mockTParArray  <- createTParArray(tParCount = myTParCount)
   myReplicationCount <- 5
-  mySampleSize <- 8
+  mySampleSize <- 10
   myLag <- 1
-  myLagCount <- 4
+  myLagCount <- 3
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
                                              sampleSize = mySampleSize)
 
@@ -29,7 +29,7 @@ computeNonCoverageFreqFunction <- function()
                                           nonCoverageProbability = myNonCoverageProbability)
 
    cat("NonCoverageFreq:", nonCoverageFreq, "\n")
-   cat("End of test of \'computeNonCoverageFreq\' \n")
+   cat("End of test of computeNonCoverageFreq","\n")
    cat("=====================")
 }
 

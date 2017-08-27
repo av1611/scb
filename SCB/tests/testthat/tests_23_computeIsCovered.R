@@ -11,7 +11,7 @@ computeIsCoveredFunction = function()
 
 myCoefFunction=sin
 
-  myLag = 3
+  myLag = 2
 
   myLagCount =4
   myKernel = normalDifferenceKernel
@@ -43,6 +43,6 @@ myCoefFunction=sin
 
 test_that("Testing computeIsCovered", {
   computeIsCoveredFunction()
-  cat(" End of test ","\n")
+  cat(" End of test computeIsCovered","\n")
   cat("=====================")
 })
