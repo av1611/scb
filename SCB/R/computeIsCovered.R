@@ -32,11 +32,13 @@ computeIsCovered <- function(band,
 
   tParCount <- length (corArray)
   isCoveredArrayByT <- array (0, dim = tParCount)
-
+  ZeroCount=0
+  upper <- band[, 2]
+  lower <- band[, 1]
   for (tParIndex in 1 : tParCount)
   {
-    upper <- band[, 2]
-    lower <- band[, 1]
+
+
     if(corArray[tParIndex] <= upper[tParIndex])
     {
       if(corArray[tParIndex] >= lower[tParIndex])
@@ -48,12 +50,31 @@ computeIsCovered <- function(band,
         isCoveredArrayByT[tParIndex] <- 0
       }
     }
+    # else
+    # {
+    #   isCoveredArrayByT[tParIndex] <- 0
+    # }
+  }
+  for(tParIndex in 1:tParCount)
+  {
+   if(isCoveredArrayByT[tParIndex]==1)
+   {
+    return(1)
+     break()
+
+
+   }
     else
     {
-      isCoveredArrayByT[tParIndex] <- 0
+      return(0)
+      break()
     }
   }
 
-  return(isCoveredArrayByT)
+  cat("\nzeroCount:",ZeroCount,"\n")
+  cat("\n tparCount",tParCount,"\n")
+ return(isCoveredArrayByT)
+
+
 }
 
