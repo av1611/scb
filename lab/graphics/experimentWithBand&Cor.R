@@ -1,10 +1,11 @@
 
+rm (list = ls())
 if(!dir.exists("../lab/graphics/out"))
 {
   dir.create("../lab/graphics/out")
 }
 
-jpeg("../lab/graphics/out/mygraphWithBarn&Cor.jpg")
+jpeg("../lab/graphics/out/mygraphWithBand&Cor.jpg")
 mySampleSize=10
 myTParCount = 10
 mockTParArray <- createTParArray(tParCount = myTParCount)

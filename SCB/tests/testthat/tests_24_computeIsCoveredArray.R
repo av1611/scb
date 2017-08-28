@@ -32,7 +32,15 @@ computeIsCoveredArrayFunction <- function()
         computeIsCoveredArray(bandsBrick = bandsBrick,
                               corArray = mockCorArray)
 
-      cat("\nisCoveredArray:", isCoveredArray, "\n")
+
+      # expect(5 == 5)
+      cat("\n isCoveredArray: ", isCoveredArray, "\n")
+      cat("\n lenfth of isCoveredArray: ", length(isCoveredArray), "\n")
+      cat("\n myReplicationCount: ", myReplicationCount, "\n")
+      cat("\n should be eaual \n")
+
+
+
 }
 
 test_that("Testing \'isCoveredArray\'", {
