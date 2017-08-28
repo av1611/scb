@@ -21,7 +21,7 @@
 #'
 
 
-computeNonCoverageFreqDist  <- function(superReplicationCount,
+computeNonCoverageFreqArray  <- function(superReplicationCount,
                                         replicationCount,
                                         sampleSize,
                                         lag,
