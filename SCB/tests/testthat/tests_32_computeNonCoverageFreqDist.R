@@ -1,11 +1,11 @@
 computeNonCoverageFreqDistFunction <- function() {
   cat("\n Testing \'computeNonCoverageFreqDist\' \n")
 
-  myTParCount  <- 2
+  myTParCount  <- 4
   mockTParArray  <- createTParArray(tParCount = myTParCount)
   mySuperReplicationCount <- 4
   myReplicationCount <- 5
-  mySampleSize <- 8
+  mySampleSize <- 5
   myLag <- 1
   myLagCount <- 4
   myKernel <- normalDifferenceKernel
