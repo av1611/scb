@@ -5,7 +5,7 @@ computeNonCoverageFreqFunction <- function()
 
   myTParCount  <- 10
   mockTParArray  <- createTParArray(tParCount = myTParCount)
-  myReplicationCount <- 5
+  myReplicationCount <- 8
   mySampleSize <- 10
   myLag <- 1
   myLagCount <- 3
