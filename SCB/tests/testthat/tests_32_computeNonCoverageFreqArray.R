@@ -1,11 +1,11 @@
 
 computeNonCoverageFreqArrayFunction <- function() {
-  cat("\n Testing \'computeNonCoverageFreqDist\' \n")
+  cat("\n Testing \'computeNonCoverageFreqArray\' \n")
 
-  myTParCount  <- 4
+  myTParCount  <- 2
   mockTParArray  <- createTParArray(tParCount = myTParCount)
   mySuperReplicationCount <- 4
-  myReplicationCount <- 5
+  myReplicationCount <- 4
   mySampleSize <- 5
   myLag <- 1
   myLagCount <- 4
@@ -35,6 +35,6 @@ computeNonCoverageFreqArrayFunction <- function() {
 
 }
 
-test_that("Testing \'computeNonCoverageFreqDist\'", {
+test_that("Testing \'computeNonCoverageFreqArray\'", {
   computeNonCoverageFreqArrayFunction()
 })

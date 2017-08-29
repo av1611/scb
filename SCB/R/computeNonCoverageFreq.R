@@ -39,7 +39,7 @@ computeNonCoverageFreq  <- function(replicationCount,
                                 kernel     = normalDifferenceKernel,
                                 nonCoverageProbability = nonCoverageProbability,
                                 replicationCount       = replicationCount)
-  isCoveredArray <- computeIsCoveredArray(bandsBrick,
+  isCoveredArray <- computeIsCovered(bandsBrick,
                                           corArray)
   zeroCount = 0
   replicationCount = dim(bandsBrick)[1]
