@@ -1,11 +1,13 @@
 
 rm (list = ls())
-if(!dir.exists("../lab/graphics/out"))
+myPath <- "../lab/graphics/out"
+if(!dir.exists(myPath))
 {
-  dir.create("../lab/graphics/out")
+  dir.create(myPath)
 }
-
-jpeg("../lab/graphics/out/mygraphWithBand&Cor.jpg")
+myFileName <- gsub(" ","_",paste("myGraphWithBand&Cor_",Sys.time(),".jpg",sep = ""))
+myFileName <- gsub(":","_",myFileName)
+jpeg(paste(myPath,"/",myFileName,sep=""))
 mySampleSize=10
 myTParCount = 10
 mockTParArray <- createTParArray(tParCount = myTParCount)
