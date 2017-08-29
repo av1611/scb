@@ -2,13 +2,13 @@ computeIsCoveredArrayFunction <- function()
 {
   cat("\n Testing \'computeIsCoveredArray\'\n")
 
-  mySampleSize=10
-  myTParCount = 10
+  mySampleSize=5
+  myTParCount = 5
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
   myReplicationCount=2
-  myLag = 2
+  myLag = 1
   myLagCount = 3
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
