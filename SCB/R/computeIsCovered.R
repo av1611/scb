@@ -72,8 +72,7 @@ computeIsCovered <- function(band,
   }
 
 
-  cat("\n tparCount",tParCount,"\n")
- return(isCoveredArrayByT)
+
 
 
 }

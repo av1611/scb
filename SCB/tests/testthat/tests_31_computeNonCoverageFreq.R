@@ -6,7 +6,7 @@ computeNonCoverageFreqFunction <- function()
   myTParCount  <-2
   mockTParArray  <- createTParArray(tParCount = myTParCount)
   myReplicationCount <- 4
-  mySampleSize <-
+  mySampleSize <-8
   myLag <- 1
   myLagCount <- 4
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
@@ -27,17 +27,18 @@ computeNonCoverageFreqFunction <- function()
                                 kernel     = normalDifferenceKernel,
                                 nonCoverageProbability = myNonCoverageProbability,
                                 replicationCount       = myReplicationCount)
-  isCoveredArray <- computeIsCoveredArray(bandsBrick,
-                                     corArray)
+   isCoveredArray <- computeIsCoveredArray(bandsBrick,
+                                      trueCorArray)
+   cat("\ncompute is covered array",isCoveredArray)
   zeroCount = 0
   replicationCount = dim(bandsBrick)[1]
   cat("replication Count",replicationCount)
-  # for (i in 1:length(isCoveredArray)) {
-  #   if (isCoveredArray[i] == 0) {
-  #     zeroCount <- zeroCount + 1
-  #   }
-  # }
-
+  for (i in 1:length(isCoveredArray)) {
+    if (isCoveredArray[i] == 0) {
+      zeroCount <- zeroCount + 1
+    }
+  }
+cat("zeroCount",zeroCount)
   nonCoverageFreq <- zeroCount / replicationCount
  # nonCoverageFreq <- computeNonCoverageFreq(replicationCount = myReplicationCount,
  #                                          sampleSize = mySampleSize,
@@ -47,8 +48,8 @@ computeNonCoverageFreqFunction <- function()
  #                                          kernel = myKernel,
  #                                          bandwidth = myBandwidth,
  #                                          nonCoverageProbability = myNonCoverageProbability)
- #
- #   cat("NonCoverageFreq:", nonCoverageFreq, "\n")
+
+ cat("NonCoverageFreq:", nonCoverageFreq, "\n")
    cat("End of test of computeNonCoverageFreq","\n")
    cat("=====================")
 }
@@ -56,3 +57,4 @@ computeNonCoverageFreqFunction <- function()
 test_that("computeNonCoverageFreqDist", {
   computeNonCoverageFreqFunction()
 })
+
