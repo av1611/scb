@@ -20,7 +20,7 @@ computeIsCoveredArray <- function(bandsBrick,
   mySampleSize = dim(bandsBrick)[2]
   tParCount = dim(bandsBrick)[3]
 
-  isCoveredArray <- array(0, dim = mySampleSize)
+  isCoveredArray <- array(0, dim = replicationCount)
 
   isCoveredBrick <-
     array(0, dim = c(tParCount, mySampleSize, replicationCount))
@@ -31,10 +31,10 @@ computeIsCoveredArray <- function(bandsBrick,
 
     isCoveredArray[replicationIndex] <-
       computeIsCovered(band, corArray)
-    isCoveredBrick[, , replicationIndex] <-
-      isCoveredArray[replicationIndex]
+    # isCoveredBrick[, , replicationIndex] <-
+    #   isCoveredArray[replicationIndex]
   }
 
 
-  return(isCoveredBrick)
+  return(isCoveredArray)
 }
