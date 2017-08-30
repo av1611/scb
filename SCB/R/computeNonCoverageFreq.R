@@ -27,10 +27,11 @@ computeNonCoverageFreq  <- function(replicationCount,
                                     lag,
                                     tParArray,
                                     corArray,
+                                    lagCount,
                                     kernel = normalDifferenceKernel,
                                     bandwidth = 0.5,
                                     nonCoverageProbability = 0.05) {
- lagCount=4
+
   bandsBrick = createBandsBrick(sampleSize = sampleSize,
                                 tParArray  = tParArray,
                                 lag        = lag,
@@ -39,16 +40,18 @@ computeNonCoverageFreq  <- function(replicationCount,
                                 kernel     = normalDifferenceKernel,
                                 nonCoverageProbability = nonCoverageProbability,
                                 replicationCount       = replicationCount)
-  isCoveredArray <- computeIsCovered(bandsBrick,
+  isCoveredArray <- computeIsCoveredArray(bandsBrick,
                                           corArray)
+  cat("\ncompute is covered array",isCoveredArray)
   zeroCount = 0
   replicationCount = dim(bandsBrick)[1]
+  cat("\nreplication Count",replicationCount)
   for (i in 1:length(isCoveredArray)) {
     if (isCoveredArray[i] == 0) {
       zeroCount <- zeroCount + 1
     }
   }
-
+  cat("\nzeroCount",zeroCount)
   nonCoverageFreq <- zeroCount / replicationCount
 
 }
