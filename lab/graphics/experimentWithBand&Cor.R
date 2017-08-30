@@ -46,12 +46,12 @@ while(T)
     }
     else
     {
-      yMax = yMax + 1
+      yMax = yMax + 0.01
     }
   }
   else
   {
-    yMin = yMin - 1
+    yMin = yMin - 0.01
   }
 }
 middle = (band1[,1] + band1[,2])/2
