@@ -5,8 +5,8 @@
 
     myTParCount  <-2
     mockTParArray  <- createTParArray(tParCount = myTParCount)
-    myReplicationCount <- 10
-    mySampleSize <-30
+    myReplicationCount <- 3
+    mySampleSize <-31
     myLag <- 2
     myLagCount <- 4
     mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
