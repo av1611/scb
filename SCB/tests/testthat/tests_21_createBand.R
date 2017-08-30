@@ -1,7 +1,7 @@
 createBandFunction <- function()
 {
   cat("\n Testing \'createBand\' \n ")
-  mySampleSize=10
+  mySampleSize=40
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
