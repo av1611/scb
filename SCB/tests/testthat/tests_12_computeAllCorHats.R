@@ -1,14 +1,14 @@
 computeAllCorHatsTestFunction = function () {
   cat("\n Testing \'computeAllCorHats\' \n")
   mySampleSize=40
-  myTParCount = 3
+  myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
   mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
 
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 0
+  myLag = 1
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 1
@@ -19,17 +19,17 @@ computeAllCorHatsTestFunction = function () {
                                       sample = mockSample,
                                       kernel = myKernel,
                                       bandwidth = myBandwidth)
-
-  # print the first 9 elements. Hope, sizes are greater than 3.
-  lag = 1 # actual or real lag = 0
-  # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
-  mockCorHatsFirstCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
-  cat("The first col of mockCorHats = ", mockCorHatsFirstCol, "\n")
-
-  lag = 2 # actual or real lag = 1
-  # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
-  mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
-  cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")
+cat("\nAllCorHats",mockAllCorHats)
+  # # print the first 9 elements. Hope, sizes are greater than 3.
+  # lag = 1 # actual or real lag = 0
+  # # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
+  # mockCorHatsFirstCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
+  # cat("The first col of mockCorHats = ", mockCorHatsFirstCol, "\n")
+  #
+  # lag = 2 # actual or real lag = 1
+  # # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))
+  # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats[ , ", lag, "]")))
+  # cat("The second col of mockCorHats = ", mockCorHatsSecCol, "\n")
 
 
   # same but by steps does not work

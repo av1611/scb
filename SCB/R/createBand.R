@@ -60,7 +60,6 @@ createBand <- function(tParArray,
     bandwidth = bandwidth
   )
 
-
   lowerBound <- corHat - meByCovHat
   upperBound <- corHat + meByCovHat
   band <- cbind(lowerBound, upperBound)

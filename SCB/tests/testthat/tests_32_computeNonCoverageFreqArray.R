@@ -1,4 +1,5 @@
 
+
 computeNonCoverageFreqArrayFunction <- function() {
   cat("\n Testing \'computeNonCoverageFreqArray\' \n")
 
@@ -14,24 +15,28 @@ computeNonCoverageFreqArrayFunction <- function() {
   myNonCoverageProbability <- 0.05
 
 
-  tvMa1CoefArray <-
-    createTVMA1CoefArray(coefFunction = myCoefFunction,
-                         sampleSize = mySampleSize)
-  corArray <- computeCor(lag = myLag,
-                         tvMa1CoefArray = tvMa1CoefArray)
+
+  corArray <-
+    computeCor(lag = myLag,
+               coefFunction = sin,
+               tParArray = mockTParArray)
 
 
-    nonCoverageFreqArray <- computeNonCoverageFreqArray(superReplicationCount = mySuperReplicationCount,
-                                                  replicationCount = myReplicationCount,
-                                                  sampleSize = mySampleSize,
-                                                  lag = myLag,
-                                                  tParArray = mockTParArray,
-                                                  kernel = myKernel,
-                                                  bandwidth = myBandwidth,
-                                                  nonCoverageProbability = myNonCoverageProbability)
+  nonCoverageFreqArray <-
+    computeNonCoverageFreqArray(
+      superReplicationCount = mySuperReplicationCount,
+      replicationCount = myReplicationCount,
+      sampleSize = mySampleSize,
+      lag = myLag,
+      lagCount = myLagCount,
+      tParArray = mockTParArray,
+      kernel = myKernel,
+      bandwidth = myBandwidth,
+      nonCoverageProbability = myNonCoverageProbability
+    )
 
-     cat("NonCoverageFreqArray:", nonCoverageFreqDist, "\n")
-    cat("End of test of computeNonCoverageFreqDist", "\n")
+  cat("NonCoverageFreqArray:", nonCoverageFreqDist, "\n")
+  cat("End of test of computeNonCoverageFreqDist", "\n")
 
 }
 
