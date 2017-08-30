@@ -1,34 +1,38 @@
 createBandFunction <- function()
 {
   cat("\n Testing \'createBand\' \n ")
-  mySampleSize=40
+  mySampleSize = 50
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
-  mockTVMA1Array <- createTVMA1CoefArray(coefFunction = sin,sampleSize = mySampleSize)
+  mockTVMA1Array <-
+    createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
 
 
 
-  myLag = 1
-  myLagCount = 3
+  myLag = 2
+  myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
-  myNonCoverageProbability=0.05
+  myNonCoverageProbability = 0.05
 
-   band1 = createBand(
+  band = createBand(
     tParArray = mockTParArray,
     lag = myLag,
-   lagCount = myLagCount,
-  bandwidth = myBandwidth,
-   kernel = myKernel,
-  sampleSize = mySampleSize,
-  nonCoverageProbability = myNonCoverageProbability )
+    lagCount = myLagCount,
+    bandwidth = myBandwidth,
+    kernel = myKernel,
+    sampleSize = mySampleSize,
+    nonCoverageProbability = myNonCoverageProbability
+  )
 
-  cat("band1", band1)
+cat("\nsize of band",length(band))
+  cat("\nband1", band)
+
 }
 
-test_that("Testing \'createBand\'",{
-          createBandFunction()
-  cat("\nEnd of test createBand","\n")
+test_that("Testing \'createBand\'", {
+  createBandFunction()
+  cat("\nEnd of test createBand", "\n")
   cat("=====================")
-  })
+})

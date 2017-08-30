@@ -22,29 +22,33 @@
 
 
 computeNonCoverageFreqArray  <- function(superReplicationCount,
-                                        replicationCount,
-                                        sampleSize,
-                                        lag,
-                                        lagCount,
-                                        tParArray,
-                                        kernel = normalDifferenceKernel,
-                                        bandwidth = 0.5,
-                                        nonCoverageProbability = 0.05) {
+                                         replicationCount,
+                                         sampleSize,
+                                         lag,
+                                         lagCount,
+                                         tParArray,
+                                         kernel = normalDifferenceKernel,
+                                         bandwidth = 0.5,
+                                         nonCoverageProbability = 0.05) {
   alphaHatArray <- array(0, dim = superReplicationCount)
-  tvMa1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
-                                         sampleSize = sampleSize)
-  corArray <- computeCor(lag = lag,
-                         tvMa1CoefArray = tvMa1CoefArray)
+  corArray <-
+    computeCor(lag = lag,
+               coefFunction = sin,
+               tParArray = tParArray)
 
   for (superIndex in 1:superReplicationCount) {
-    alphaHatArray[superIndex] <- computeNonCoverageFreq(replicationCount,
-                                                        sampleSize = sampleSize,
-                                                        lag = lag,
-                                                        tParArray = tParArray,
-                                                        corArray = corArray,
-                                                        kernel = kernel,
-                                                        bandwidth = bandwidth,
-                                                        nonCoverageProbability = nonCoverageProbability)
+    alphaHatArray[superIndex] <-
+      computeNonCoverageFreq(
+        replicationCount,
+        sampleSize = sampleSize,
+        lag = lag,
+        lagCount = lagCount,
+        tParArray = tParArray,
+        corArray = corArray,
+        kernel = kernel,
+        bandwidth = bandwidth,
+        nonCoverageProbability = nonCoverageProbability
+      )
 
   }
 

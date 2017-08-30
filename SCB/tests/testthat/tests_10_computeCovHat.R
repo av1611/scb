@@ -2,12 +2,12 @@ computeCovHatFunction = function () {
   cat("\n Testing \'computeCovHat\' \n")
   tParCount=10
   tParArray=createTParArray(tParCount = tParCount)
-  mySampleSize=5
+  mySampleSize=40
 
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,tParCount = tParCount)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,sampleSize = mySampleSize)
   mockSample <- createSample(sampleSize = mySampleSize)
 
-  myLag = 0
+  myLag = 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
 
