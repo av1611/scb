@@ -4,8 +4,7 @@ computeCovHatFunction = function () {
   tParArray=createTParArray(tParCount = tParCount)
   mySampleSize=5
 
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
-                                             sampleSize = mySampleSize)
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,tParCount = tParCount)
   mockSample <- createSample(sampleSize = mySampleSize)
 
   myLag = 0

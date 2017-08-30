@@ -1,11 +1,10 @@
 createTVMA1CoefArrayFunction <- function() {
   cat("\n Testing \'createTVMA1CoefArray\' for length and being numeric \n")
 
-  mySampleSize = 5
-  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,
-                                             sampleSize = mySampleSize)
+  tParCount = 10
+  mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin,tParCount=tParCount)
 
-  cat ("mockTVMA1CoefArray =", mockTVMA1CoefArray[1:mySampleSize], "\n",
+  cat ("mockTVMA1CoefArray =", mockTVMA1CoefArray[1:tParCount], "\n",
        "length(mockTVMA1CoefArray) =", length(mockTVMA1CoefArray), "\n")
  #expect_that(mockTVMA1CoefArray, is_a("numeric"))
 
