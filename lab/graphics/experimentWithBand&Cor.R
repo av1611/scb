@@ -8,6 +8,8 @@ if(!dir.exists(myPath))
 myFileName <- gsub(" ","_",paste("myGraphWithBand&Cor_",Sys.time(),".jpg",sep = ""))
 myFileName <- gsub(":","_",myFileName)
 jpeg(paste(myPath,"/",myFileName,sep=""))
+
+
 mySampleSize=10
 myTParCount = 10
 mockTParArray <- createTParArray(tParCount = myTParCount)
@@ -30,12 +32,38 @@ band1 <- createBand(
   sampleSize = mySampleSize,
   nonCoverageProbability = myNonCoverageProbability )
 
+minBand <- min(band1)
+maxBand <- max(band1)
+yMin = -1
+yMax = 1
+while(T)
+{
+  if(yMin < minBand)
+  {
+    if(yMax > maxBand)
+    {
+      break();
+    }
+    else
+    {
+      yMax = yMax + 1
+    }
+  }
+  else
+  {
+    yMin = yMin - 1
+  }
+}
+middle = (band1[,1] + band1[,2])/2
 
-plot(x=c(-1:1),y=c(-1:1),type = "n", xlim=c(0:1))
+saveData <- data.frame(band1,middle,correlation)
+myFileName <- gsub(" ","_",paste("myGraphWithBand&Cor_",Sys.time(),".csv",sep = ""))
+myFileName <- gsub(":","_",myFileName)
+write.csv(saveData, paste(myPath,"/",myFileName,sep=""))
 
+plot(x=c(yMax:yMin),y=c(yMax:yMin),type = "n", xlim=c(0:1),main= "Band and Correlation")
 lines(x=mockTParArray,y = band1[,1], type = "l", col="green")
 lines(x=mockTParArray,y = band1[,2], type = "l", col="blue")
-middle = (band1[,1] + band1[,2])/2
 lines(x=mockTParArray,y = middle, type = "l", col = "brown")
 lines(x=mockTParArray,y = correlation, type = "l", col="red")
 lineArray <- c("Upper", "Middle", "Lower", "Correlation")
