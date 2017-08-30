@@ -1,7 +1,7 @@
 computeMEbyCovHatFunction <- function () {
   cat("\n Testing \'computeMEbyCovHatFunction\' \n")
 
-  mySampleSize=5
+  mySampleSize=40
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different

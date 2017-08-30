@@ -1,7 +1,7 @@
 createBandsBrickFunction <- function()
 {
   cat ("\n Testing \'createBandsBrick\'\n")
-  mySampleSize=8
+  mySampleSize=40
   myTParCount = 2
   mockTParArray <- createTParArray(tParCount = myTParCount)
   # may be different
