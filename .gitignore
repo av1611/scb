@@ -36,3 +36,5 @@ vignettes/*.pdf
 SCB/tests/testthat/Rplots.pdf
 SCB/tests/testthat/tests_17_computeMEbyCovHat.R
 SCB/tests/testthat/tests_17_computeMEbyCovHat.R
+# Generated plots
+/lab/graphics/out*.jpg
