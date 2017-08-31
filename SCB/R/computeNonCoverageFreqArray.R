@@ -25,27 +25,36 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
                                         replicationCount,
                                         sampleSize,
                                         lag,
+                                        lagCount,
                                         tParArray,
                                         kernel = normalDifferenceKernel,
                                         bandwidth,
                                         nonCoverageProbability) {
-  alphaHatArray <- array(0, dim = superReplicationCount)
-  tvMa1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
-                                         sampleSize = sampleSize)
-  corArray <- computeCor(lag = lag,
-                         tvMa1CoefArray = tvMa1CoefArray)
+  corArray <-
+    computeCor(lag = myLag,
+               coefFunction = sin,
+               tParArray = mockTParArray)
+
+  alphaHatArray <- array(0, dim = mySuperReplicationCount)
+
+  corArray <- computeCor(lag = lag,coefFunction = sin,tParArray = mockTParArray)
 
   for (superIndex in 1:superReplicationCount) {
-    alphaHatArray[superIndex] <- computeNonCoverageFreq(replicationCount,
+    alphaHatArray[superIndex] <- computeNonCoverageFreq(replicationCount=replicationCount,
                                                         sampleSize = sampleSize,
                                                         lag = lag,
                                                         tParArray = tParArray,
                                                         corArray = corArray,
                                                         kernel = kernel,
+                                                        lagCount = lagCount,
                                                         bandwidth = bandwidth,
                                                         nonCoverageProbability = nonCoverageProbability)
 
   }
 
   alphaHatArray
+
+
+
 }
+
