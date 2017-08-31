@@ -30,12 +30,7 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
                                         kernel = normalDifferenceKernel,
                                         bandwidth,
                                         nonCoverageProbability) {
-  corArray <-
-    computeCor(lag = myLag,
-               coefFunction = sin,
-               tParArray = mockTParArray)
-
-  alphaHatArray <- array(0, dim = mySuperReplicationCount)
+  alphaHatArray <- array(0, dim = superReplicationCount)
 
   corArray <- computeCor(lag = lag,coefFunction = sin,tParArray = tParArray)
 
