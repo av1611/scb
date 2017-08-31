@@ -42,16 +42,16 @@ computeNonCoverageFreq  <- function(replicationCount,
                                 replicationCount       = replicationCount)
   isCoveredArray <- computeIsCoveredArray(bandsBrick,
                                           corArray)
-  cat("\ncompute is covered array",isCoveredArray)
+
   zeroCount = 0
   replicationCount = dim(bandsBrick)[1]
-  cat("\nreplication Count",replicationCount)
+
   for (i in 1:length(isCoveredArray)) {
     if (isCoveredArray[i] == 0) {
       zeroCount <- zeroCount + 1
     }
   }
-  cat("\nzeroCount",zeroCount)
+
   nonCoverageFreq <- zeroCount / replicationCount
 
 }
