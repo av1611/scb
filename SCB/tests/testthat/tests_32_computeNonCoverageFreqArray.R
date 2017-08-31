@@ -6,7 +6,7 @@ computeNonCoverageFreqArrayFunction <- function() {
   cat("\n Testing \'computeNonCoverageFreqArray\' \n")
 
   myTParCount  <- 2
-  mockTParArray  <- createTParArray(tParCount = myTParCount)
+  TParArray  <- createTParArray(tParCount = myTParCount)
   mySuperReplicationCount <- 4
   myReplicationCount <- 4
   mySampleSize <- 50
@@ -22,7 +22,7 @@ computeNonCoverageFreqArrayFunction <- function() {
     sampleSize = mySampleSize,
     lag = myLag,
     lagCount = myLagCount,
-    tParArray = mockTParArray,
+    tParArray = TParArray,
     kernel = myKernel,
     bandwidth = myBandwidth,
     nonCoverageProbability = myNonCoverageProbability
