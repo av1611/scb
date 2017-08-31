@@ -20,8 +20,7 @@ myKernel = normalDifferenceKernel
 myBandwidth = 0.5
 myNonCoverageProbability=0.05
 
-myMA1CoefArray <- createTVMA1CoefArray(coefFunction = sin, sampleSize = mySampleSize)
-correlation <- computeCor(lag = myLag, tvMa1CoefArray = myMA1CoefArray)
+correlation <- computeCor(lag = myLag, coefFunction = sin, tParArray = mockTParArray)
 
 band1 <- createBand(
   tParArray = mockTParArray,
