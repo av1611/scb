@@ -23,8 +23,7 @@ computeIsCoveredArrayFunction <- function()
                               sampleSize=mySampleSize,
                               nonCoverageProbability = myNonCoverageProbability,
                               replicationCount=myReplicationCount)
-  mockCorArray <- computeCor(lag = myLag,
-                             tvMa1CoefArray = mockTVMA1Array)
+  mockCorArray <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
 
 
 

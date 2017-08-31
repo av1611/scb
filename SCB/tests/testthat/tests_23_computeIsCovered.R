@@ -31,8 +31,7 @@ myCoefFunction=sin
   mockTVMA1CoefArray <- createTVMA1CoefArray(coefFunction = myCoefFunction,
                                              sampleSize = mySampleSize)
 
-  mockCor <- computeCor(lag = myLag,
-                        tvMa1CoefArray = mockTVMA1CoefArray)
+  mockCor <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
 
 
   isCovered <- computeIsCovered(mockBand,
