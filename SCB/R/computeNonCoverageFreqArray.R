@@ -47,6 +47,9 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
 
   }
 
+  #saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
+  #                         alphaHatArray = alphaHatArray)
+
   alphaHatArray
 
 

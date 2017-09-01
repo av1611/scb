@@ -1,5 +1,5 @@
 rm (list = ls())
-myPath <- "../lab/graphics/out"
+myPath <- "out"
 if(!dir.exists(myPath))
 {
   dir.create(myPath)
