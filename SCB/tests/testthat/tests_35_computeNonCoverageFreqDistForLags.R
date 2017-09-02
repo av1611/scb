@@ -1,13 +1,36 @@
-computeNonCoverageFreqDistForLagsFunction <- function () {
-  cat("\n Testing \'computeNonCoverageFreqDistForLags\' \n")
-
+createDoubleAlphaArrayFunction <- function () {
+  cat("\n Testing \'createDoubleAlphaArray\' \n")
+  myAlphaCount = 5
+  myTParCount  <- 2
+  myTParArray  <- createTParArray(tParCount = myTParCount)
+  mySuperReplicationCount <- 4
+  myReplicationCount <- 4
+  mySampleSize <- 50
+  myLag <- 1
+  myLagCount <- 4
+  myKernel <- normalDifferenceKernel
+  myBandwidth <- 0.5
+  myNonCoverageProbability <- 0.05
+  doubleAlphaArray = createDoubleAlphaArray(
+    alphaCount = myAlphaCount,
+    superReplicationCount = mySuperReplicationCount,
+    replicationCount = myReplicationCount,
+    sampleSize = mySampleSize,
+    lag = myLag,
+    lagCount = myLagCount,
+    tParArray = myTParArray,
+    kernel = myKernel,
+    bandwidth = myBandwidth,
+    nonCoverageProbability = myNonCoverageProbability
+  )
+  cat("DoubleAlphaHatArray= ",doubleAlphaArray)
+  cat("\n size of double array= ",length(doubleAlphaArray))
   # expect_that(mockBand, is_a("matrix"))
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
 
 }
 
-test_that("Testing \'computeNonCoverageFreqDistForLags\'", {
-#   computeNonCoverageFreqDistForLagsFunction()
-}
-)
+test_that("Testing \'creatteDoubleAlphaArray\'", {
+  createDoubleAlphaArrayFunction()
+})
