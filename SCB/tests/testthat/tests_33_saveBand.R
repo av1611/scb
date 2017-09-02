@@ -21,7 +21,7 @@ saveBandFuction <- function()
     kernel = myKernel,
     sampleSize = mySampleSize,
     nonCoverageProbability = myNonCoverageProbability )
-  fileName <- paste("ss", mySampleSize, "l", myLag, "tPar", length(mockTParArray), "alpha"
+  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                     , myNonCoverageProbability, sep = "_")
   saveBand(band = band, corArray = corArray, fileName = fileName)
 }

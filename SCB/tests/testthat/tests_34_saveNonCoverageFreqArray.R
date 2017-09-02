@@ -28,7 +28,7 @@ saveNonCoverageFreqArrayFunction <- function()
   nonCoverageProbability <- myNonCoverageProbability
   alphaHatArray <- nonCoverageFreqArray
 
-  fileName <- paste("ss", mySampleSize, "l", myLag, "tPar", length(myTParArray), "alpha"
+  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                     , myNonCoverageProbability, sep = "_")
   fileName <- paste(fileName, "repC", myReplicationCount, sep = "_")
 

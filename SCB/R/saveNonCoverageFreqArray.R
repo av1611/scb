@@ -8,6 +8,7 @@ saveNonCoverageFreqArray <- function(nonCoverageProbability,
   }
   myFileName <- gsub(" ","_",paste(fileName, Sys.time(), ".jpg",sep = ""))
   myFileName <- gsub(":","_",myFileName)
+  myFileName <- gsub(".","",myFileName)
   jpeg(paste(myPath,"/",myFileName,sep=""))
 
   arrayOfXAplphaHat <- array(nonCoverageProbability,dim = (length(alphaHatArray)))
