@@ -30,7 +30,7 @@ computeIsCovered <- function(band,
   # Array rho_h(i),
   # counter i corresponds to t_i = 0, 1/n, …., 1 - 1/n,
   # horizontal ACF of a sleepers process
-  saveBand(band = band, corArray = corArray, fileName)
+  # saveBand(band = band, corArray = corArray, fileName)
   tParCount <- length (corArray)
   isCoveredArrayByT <- array (0, dim = tParCount)
   ZeroCount=0

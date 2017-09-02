@@ -1,5 +1,5 @@
-createDoubleAlphaArrayFunction <- function () {
-  cat("\n Testing \'createDoubleAlphaArray\' \n")
+createNonCoverageFreqDoubleArrayFunction <- function () {
+  cat("\n Testing \'createNonCoverageFreqDoubleArray\' \n")
   myAlphaCount = 5
   myTParCount  <- 2
   myTParArray  <- createTParArray(tParCount = myTParCount)
@@ -31,6 +31,6 @@ createDoubleAlphaArrayFunction <- function () {
 
 }
 
-test_that("Testing \'creatteDoubleAlphaArray\'", {
-  createDoubleAlphaArrayFunction()
+test_that("Testing \' createNonCoverageFreqDoubleArray\'", {
+  createNonCoverageFreqDoubleArrayFunction()
 })

@@ -50,10 +50,10 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
 
   }
 
-  fileName <- paste(fileName, "repC", replicationCount, sep = "_")
-
-  saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
-                           alphaHatArray = alphaHatArray, fileName)
+  # fileName <- paste(fileName, "repC", replicationCount, sep = "_")
+  #
+  # saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
+  #                          alphaHatArray = alphaHatArray, fileName)
 
   alphaHatArray
 
