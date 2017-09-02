@@ -28,8 +28,12 @@ saveNonCoverageFreqArrayFunction <- function()
   nonCoverageProbability <- myNonCoverageProbability
   alphaHatArray <- nonCoverageFreqArray
 
+  fileName <- paste("ss", mySampleSize, "l", myLag, "tPar", length(myTParArray), "alpha"
+                    , myNonCoverageProbability, sep = "_")
+  fileName <- paste(fileName, "repC", myReplicationCount, sep = "_")
+
   saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
-                                   alphaHatArray = alphaHatArray)
+                                   alphaHatArray = alphaHatArray, fileName = fileName)
 }
 
 test_that("Testing \'saveNonCoverageFreqArray\'", {

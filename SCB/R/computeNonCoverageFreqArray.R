@@ -33,6 +33,8 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
   alphaHatArray <- array(0, dim = superReplicationCount)
 
   corArray <- computeCor(lag = lag,coefFunction = sin,tParArray = tParArray)
+  fileName <- paste("ss", sampleSize, "l", lag, "tPar", length(tParArray), "alpha"
+                    , nonCoverageProbability, sep = "_")
 
   for (superIndex in 1:superReplicationCount) {
     alphaHatArray[superIndex] <- computeNonCoverageFreq(replicationCount=replicationCount,
@@ -43,12 +45,15 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
                                                         kernel = kernel,
                                                         lagCount = lagCount,
                                                         bandwidth = bandwidth,
-                                                        nonCoverageProbability = nonCoverageProbability)
+                                                        nonCoverageProbability = nonCoverageProbability,
+                                                        fileName = fileName)
 
   }
 
-  #saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
-  #                         alphaHatArray = alphaHatArray)
+  fileName <- paste(fileName, "repC", replicationCount, sep = "_")
+
+  saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
+                           alphaHatArray = alphaHatArray, fileName)
 
   alphaHatArray
 

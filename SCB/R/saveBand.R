@@ -1,4 +1,4 @@
-saveBand <- function(band, corArray)
+saveBand <- function(band, corArray, fileName)
 {
   rm (list = ls())
   myPath <- "out"
@@ -6,7 +6,7 @@ saveBand <- function(band, corArray)
   {
     dir.create(myPath)
   }
-  myFileName <- gsub(" ","_",paste("myGraphWithBand&Cor_",Sys.time(),".jpg",sep = ""))
+  myFileName <- gsub(" ","_",paste(fileName ,Sys.time(),".jpg",sep = ""))
   myFileName <- gsub(":","_",myFileName)
   jpeg(paste(myPath,"/",myFileName,sep=""))
 
@@ -36,7 +36,7 @@ saveBand <- function(band, corArray)
   middle = (band[,1] + band[,2])/2
 
   saveData <- data.frame(band,middle,corArray)
-  myFileName <- gsub(" ","_",paste("myGraphWithBand&Cor_",Sys.time(),".csv",sep = ""))
+  myFileName <- gsub(" ","_",paste(fileName, Sys.time(),".csv",sep = ""))
   myFileName <- gsub(":","_",myFileName)
   write.csv(saveData, paste(myPath,"/",myFileName,sep=""))
 

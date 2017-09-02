@@ -1,12 +1,12 @@
 saveNonCoverageFreqArray <- function(nonCoverageProbability,
-                                     alphaHatArray)
+                                     alphaHatArray, fileName)
 {
   myPath <- "out"
   if(!dir.exists(myPath))
   {
     dir.create(myPath)
   }
-  myFileName <- gsub(" ","_",paste("myGraphWithAlpha&AlphaHat_",Sys.time(),".jpg",sep = ""))
+  myFileName <- gsub(" ","_",paste(fileName, Sys.time(), ".jpg",sep = ""))
   myFileName <- gsub(":","_",myFileName)
   jpeg(paste(myPath,"/",myFileName,sep=""))
 
