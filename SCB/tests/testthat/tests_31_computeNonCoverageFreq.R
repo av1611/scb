@@ -16,39 +16,43 @@
     myKernel <- normalDifferenceKernel
     myBandwidth <- 0.5
     myNonCoverageProbability <- 0.05
-    bandsBrick = createBandsBrick(sampleSize = mySampleSize,
-                                  tParArray  = mockTParArray,
-                                  lag        = myLag,
-                                  lagCount   = myLagCount,
-                                  bandwidth  = myBandwidth,
-                                  kernel     = normalDifferenceKernel,
-                                  nonCoverageProbability = myNonCoverageProbability,
-                                  replicationCount       = myReplicationCount)
-     isCoveredArray <- computeIsCoveredArray(bandsBrick,
-                                        trueCorArray)
-     cat("\ncompute is covered array",isCoveredArray)
-    zeroCount = 0
-    replicationCount = dim(bandsBrick)[1]
-    cat("\nreplication Count",replicationCount)
-    for (i in 1:length(isCoveredArray)) {
-      if (isCoveredArray[i] == 0) {
-        zeroCount <- zeroCount + 1
-      }
-    }
-  cat("\nzeroCount",zeroCount)
-    nonCoverageFreq <- zeroCount / replicationCount
-   # nonCoverageFreq <- computeNonCoverageFreq(replicationCount = myReplicationCount,
-   #                                          sampleSize = mySampleSize,
-   #                                          lagCount = myLagCount,
-   #                                          lag = myLag,
-   #                                         tParArray = mockTParArray,
-   #                                          corArray = trueCorArray,
-   #                                          kernel = myKernel,
-   #                                          bandwidth = myBandwidth,
-   #                                          nonCoverageProbability = myNonCoverageProbability)
+  #   bandsBrick = createBandsBrick(sampleSize = mySampleSize,
+  #                                 tParArray  = mockTParArray,
+  #                                 lag        = myLag,
+  #                                 lagCount   = myLagCount,
+  #                                 bandwidth  = myBandwidth,
+  #                                 kernel     = normalDifferenceKernel,
+  #                                 nonCoverageProbability = myNonCoverageProbability,
+  #                                 replicationCount       = myReplicationCount)
+  #    isCoveredArray <- computeIsCoveredArray(bandsBrick,
+  #                                       trueCorArray)
+  #    cat("\ncompute is covered array",isCoveredArray)
+  #   zeroCount = 0
+  #   replicationCount = dim(bandsBrick)[1]
+  #   cat("\nreplication Count",replicationCount)
+  #   for (i in 1:length(isCoveredArray)) {
+  #     if (isCoveredArray[i] == 0) {
+  #       zeroCount <- zeroCount + 1
+  #     }
+  #   }
+  # cat("\nzeroCount",zeroCount)
+  #   nonCoverageFreq <- zeroCount / replicationCount
+    Start=Sys.time()
+   nonCoverageFreq <- computeNonCoverageFreq(replicationCount = myReplicationCount,
+                                            sampleSize = mySampleSize,
+                                            lagCount = myLagCount,
+                                            lag = myLag,
+                                           tParArray = mockTParArray,
+                                            corArray = trueCorArray,
+                                            kernel = myKernel,
+                                            bandwidth = myBandwidth,
+                                            nonCoverageProbability = myNonCoverageProbability)
+End=Sys.time()
+Duration=End-Start
 
-   cat("\nNonCoverageFreq:", nonCoverageFreq, "\n")
-     cat("End of test of computeNonCoverageFreq","\n")
+   cat("NonCoverageFreq:", nonCoverageFreq)
+   cat("\nDuration= ",Duration)
+     cat("\nEnd of test of computeNonCoverageFreq","\n")
      cat("=====================")
   }
 

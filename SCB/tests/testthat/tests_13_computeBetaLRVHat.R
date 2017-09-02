@@ -19,15 +19,18 @@ computeBetaLRVHatFunction = function () {
                                     sample = mockSample,
                                     kernel = myKernel,
                                     bandwidth = myBandwidth)
-
+Start=Sys.time()
   mockBetaLRVHat <- computeBetaLRVHat(tParArray = mockTParArray,
                                       lag = myLag,
                                       sample = mockSample,
                                       kernel = myKernel,
                                       bandwidth = myBandwidth,
                                       allCorHats = mockAllCorHats)
+End=Sys.time()
+Duration=End-Start
 
   cat("mockBetaLRVHat[1:5] =", mockBetaLRVHat[1:5], "\n")
+  cat("Duration= ",Duration,"\n")
   # expect_that(betaLRVHat, is_a("matrix"))
   # expect_that(dim(betaLRVHat)[1], equals(2))  # the number of rows
   # expect_that(dim(betaLRVHat)[2], equals(10)) # the number of cols

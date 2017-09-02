@@ -22,7 +22,7 @@ createDoubleAlphaArray = function(alphaCount,
       tParArray = tParArray,
       kernel = kernel,
       bandwidth = bandwidth,
-      nonCoverageProbability = nonCoverageProbability)
+      nonCoverageProbability = nonCoverageProbability+0.05)
 }
   return(doubleAlphaArra)
 

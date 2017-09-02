@@ -15,7 +15,7 @@ createBandFunction <- function()
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05
-
+Start=Sys.time()
   band = createBand(
     tParArray = mockTParArray,
     lag = myLag,
@@ -25,10 +25,13 @@ createBandFunction <- function()
     sampleSize = mySampleSize,
     nonCoverageProbability = myNonCoverageProbability
   )
+End=Sys.time()
+Duration=End-Start
 
 
 cat("\nsize of band",length(band))
   cat("\nband1", band)
+  cat("\nDuration= ",Duration)
 
 }
 

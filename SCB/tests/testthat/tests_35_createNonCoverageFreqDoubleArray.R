@@ -11,6 +11,7 @@ createNonCoverageFreqDoubleArrayFunction <- function () {
   myKernel <- normalDifferenceKernel
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
+  Start=Sys.time()
   doubleAlphaArray = createDoubleAlphaArray(
     alphaCount = myAlphaCount,
     superReplicationCount = mySuperReplicationCount,
@@ -23,8 +24,11 @@ createNonCoverageFreqDoubleArrayFunction <- function () {
     bandwidth = myBandwidth,
     nonCoverageProbability = myNonCoverageProbability
   )
+  End=Sys.time()
+  duration=End-Start
   cat("DoubleAlphaHatArray= ",doubleAlphaArray)
   cat("\n size of double array= ",length(doubleAlphaArray))
+  cat("\n Duration= ",duration)
   # expect_that(mockBand, is_a("matrix"))
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows
   # expect_that(dim(mockBand)[2], equals(10)) # the number of cols
