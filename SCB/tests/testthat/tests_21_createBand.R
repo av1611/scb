@@ -25,7 +25,7 @@ createBandFunction <- function()
     sampleSize = mySampleSize,
     nonCoverageProbability = myNonCoverageProbability
   )
-saveBand()
+
 
 cat("\nsize of band",length(band))
   cat("\nband1", band)
