@@ -13,7 +13,7 @@ createBandsBrickFunction <- function()
   myBandwidth = 0.5
   myNonCoverageProbability=0.05
 
-
+Start=Sys.time()
 bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             lag=myLag,
                             lagCount=myLagCount,
@@ -22,11 +22,13 @@ bandsBrick=createBandsBrick(tParArray=mockTParArray,
                             sampleSize=mySampleSize,
                             nonCoverageProbability = myNonCoverageProbability,
                             replicationCount=myReplicationCount)
-
+End=Sys.time()
+Duration=End-Start
 cat("bandsArray", bandsBrick[1:5])
+cat("\nDuration",Duration,"\n")
 }
 test_that("createBandsBrick", {
   createBandsBrickFunction()
-  cat(" End of test createBandsBrick","\n")
+  cat("End of test createBandsBrick","\n")
   cat("=====================")
 })

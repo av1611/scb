@@ -14,12 +14,16 @@ computeAllCorHatsTestFunction = function () {
   myBandwidth = 1
   # form all rho hats
   # first try fakes
+  Start=Sys.time()
   mockAllCorHats <- computeAllCorHats(tParArray = mockTParArray,
                                       lagCount = myLagCount,
                                       sample = mockSample,
                                       kernel = myKernel,
                                       bandwidth = myBandwidth)
+  End=Sys.time()
+  Duration=End-Start
 cat("\nAllCorHats",mockAllCorHats)
+cat("\nDuration",Duration,"\n")
   # # print the first 9 elements. Hope, sizes are greater than 3.
   # lag = 1 # actual or real lag = 0
   # # mockCorHatsSecCol <- eval(parse(text = paste0("mockAllCorHats$`", lag, "`")))

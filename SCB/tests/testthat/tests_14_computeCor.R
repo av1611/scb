@@ -10,7 +10,7 @@ computeCorTestFunction = function () {
   mockComputeCor <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
 
   cat ("lag = 0; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
-
+Start=Sys.time()
   myLag = 1
   mockComputeCor <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
   cat ("lag = 1; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
@@ -18,8 +18,9 @@ computeCorTestFunction = function () {
   myLag = 2
   mockComputeCor <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
   cat ("lag = 2; mockComputeCor[1:5] =", mockComputeCor[1:5], "\n")
-
-
+End=Sys.time()
+Duration=End-Start
+cat("Duration= ",Duration,"\n")
   cat ("length(mockComputeCor) =", length(mockComputeCor), "\n")
 
   # expect_that(mockComputeCor, is_a("numeric"))

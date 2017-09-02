@@ -11,7 +11,7 @@ computeNonCoverageFreqArrayFunction <- function() {
   myKernel <- normalDifferenceKernel
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
-
+Start=Sys.time()
   nonCoverageFreqArray = computeNonCoverageFreqArray(
     superReplicationCount = mySuperReplicationCount,
     replicationCount = myReplicationCount,
@@ -23,8 +23,11 @@ computeNonCoverageFreqArrayFunction <- function() {
     bandwidth = myBandwidth,
     nonCoverageProbability = myNonCoverageProbability
   )
+  End=Sys.time()
+  Duration=End-Start
 
   cat("nonCoverageArray= ",nonCoverageFreqArray)
+  cat("\nDuration= ",Duration)
 
 }
 

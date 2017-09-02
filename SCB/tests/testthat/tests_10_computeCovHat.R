@@ -10,13 +10,17 @@ computeCovHatFunction = function () {
   myLag = 1
   myKernel = normalDifferenceKernel
   myBandwidth = 1
-
+Start=Sys.time()
   mockCovHat <- computeCovHat(tParArray = tParArray,
                               lag = myLag,
                               sample = mockSample,
                               kernel = myKernel,
                               bandwidth = myBandwidth)
+  End=Sys.time()
+  Duration=End-Start
+
   cat ("mockCovHat[1:5] = ", mockCovHat[1:5], "\n")
+  cat("Duration= ",Duration,"\n")
   cat ("length(mockCovHat) = ", length(mockCovHat), "\n")
   expect_that(mockCovHat, is_a("numeric"))
   # expect_that(dim(mockBand)[1], equals(2))  # the number of rows

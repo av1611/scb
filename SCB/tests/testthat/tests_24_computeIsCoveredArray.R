@@ -26,17 +26,17 @@ computeIsCoveredArrayFunction <- function()
   mockCorArray <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
 
 
-
+Start=Sys.time()
       isCoveredArray <-
         computeIsCoveredArray(bandsBrick = bandsBrick,
                               corArray = mockCorArray)
-
+End=Sys.time()
+Duration=End-Start
 
       # expect(5 == 5)
-      cat("\n isCoveredArray: ", isCoveredArray, "\n")
-      cat("\n lenfth of isCoveredArray: ", length(isCoveredArray), "\n")
-      cat("\n myReplicationCount: ", myReplicationCount, "\n")
-      cat("\n should be eaual \n")
+      cat("isCoveredArray: ", isCoveredArray)
+      cat("\nDuration= ",Duration,"\n")
+
 
 
 
@@ -44,7 +44,7 @@ computeIsCoveredArrayFunction <- function()
 
 test_that("Testing \'isCoveredArray\'", {
   computeIsCoveredArrayFunction()
-  cat(" End of test isCoveredArray","\n")
+  cat("End of test isCoveredArray","\n")
   cat("=====================")
 })
 

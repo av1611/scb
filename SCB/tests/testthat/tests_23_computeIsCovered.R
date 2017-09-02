@@ -33,15 +33,19 @@ myCoefFunction=sin
 
   mockCor <- computeCor(lag = myLag,coefFunction = sin,tParArray = mockTParArray)
 
-
+Start=Sys.time()
   isCovered <- computeIsCovered(mockBand,
                                 mockCor)
+  End=Sys.time()
+  Duration=End-Start
 
-  cat("IsCovered:",isCovered, "\n")
+
+  cat("\nIsCovered:",isCovered, "\n")
+  cat("Duration",Duration,"\n")
 }
 
 test_that("Testing computeIsCovered", {
   computeIsCoveredFunction()
-  cat(" End of test computeIsCovered","\n")
+  cat("End of test computeIsCovered","\n")
   cat("=====================")
 })

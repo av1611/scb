@@ -2,9 +2,13 @@ createNoiseFunction <- function () {
   cat("\n Testing \'createNoise\' for length and being numeric \n")
   set.seed(100)
   mySampleSize = 10
+  Start=Sys.time()
   mockNoise <- createNoise(sampleSize = mySampleSize,
                            mean = 0,
                            sd = 1)
+  End=Sys.time()
+  Duration=End-Start
+
   set.seed(100)
   mockRnorm <- rnorm(n = mySampleSize,
                      mean = 0,
@@ -13,6 +17,7 @@ createNoiseFunction <- function () {
 
   cat ("mockNoise[1:5] =", mockRnorm[1:5], "\n")
   cat ("length(mockNoise) =", length(mockNoise), "\n")
+  cat("Duration =",Duration,"\n")
 
 
   expect_that(mockRnorm, is_a("numeric"))
