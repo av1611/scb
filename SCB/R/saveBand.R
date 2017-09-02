@@ -6,7 +6,7 @@ saveBand <- function(band, corArray, fileName)
   {
     dir.create(myPath)
   }
-  #fileName <- gsub(".","", fileName)
+  fileName <- gsub("\\.","", fileName)
   myFileName <- gsub(" ","_",paste(fileName ,Sys.time(),".jpg",sep = ""))
   myFileName <- gsub(":","_", myFileName)
 

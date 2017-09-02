@@ -5,7 +5,7 @@
 \alias{computeRho}
 \title{computeCor}
 \usage{
-computeCor(lag, tvMa1CoefArray)
+computeCor(lag, coefFunction, tParArray)
 }
 \arguments{
 \item{lag}{the lag}
@@ -13,7 +13,7 @@ computeCor(lag, tvMa1CoefArray)
 \item{tvMa1CoefArray}{the tvMa1CoefArray}
 }
 \value{
-Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}.
+Array \code{cor_lag(i)}, counter \code{i} corresponds to \code{tvMa1CoefArray_i = 0, 1, ..., length(tvMa1CoefArray)}. length(tvMa1CoefArray) = sampleSize
 }
 \description{
 Computing correlation: \code{cor} (\eqn{\rho}) given \code{tvMa1CoefArray}.

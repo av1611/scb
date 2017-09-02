@@ -5,7 +5,7 @@
 \alias{}
 \title{computeIsCovered}
 \usage{
-computeIsCovered(band, corArray)
+computeIsCovered(band, corArray, fileName)
 }
 \arguments{
 \item{band}{band}

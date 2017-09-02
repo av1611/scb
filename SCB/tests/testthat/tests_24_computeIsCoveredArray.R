@@ -14,7 +14,8 @@ computeIsCoveredArrayFunction <- function()
   myBandwidth = 0.5
   myNonCoverageProbability=0.05
 
-
+  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
+                    , myNonCoverageProbability, sep = "_")
   bandsBrick=createBandsBrick(tParArray=mockTParArray,
                               lag=myLag,
                               lagCount=myLagCount,
@@ -29,7 +30,8 @@ computeIsCoveredArrayFunction <- function()
 Start=Sys.time()
       isCoveredArray <-
         computeIsCoveredArray(bandsBrick = bandsBrick,
-                              corArray = mockCorArray)
+                              corArray = mockCorArray,
+                              fileName = fileName)
 End=Sys.time()
 Duration=End-Start
 

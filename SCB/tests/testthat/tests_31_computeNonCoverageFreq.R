@@ -37,16 +37,20 @@
   #   }
   # cat("\nzeroCount",zeroCount)
   #   nonCoverageFreq <- zeroCount / replicationCount
+    fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
+                      , myNonCoverageProbability, sep = "_")
     Start=Sys.time()
+
    nonCoverageFreq <- computeNonCoverageFreq(replicationCount = myReplicationCount,
                                             sampleSize = mySampleSize,
                                             lagCount = myLagCount,
                                             lag = myLag,
-                                           tParArray = mockTParArray,
+                                            tParArray = mockTParArray,
                                             corArray = trueCorArray,
                                             kernel = myKernel,
                                             bandwidth = myBandwidth,
-                                            nonCoverageProbability = myNonCoverageProbability)
+                                            nonCoverageProbability = myNonCoverageProbability,
+                                            fileName = fileName)
 End=Sys.time()
 Duration=End-Start
 

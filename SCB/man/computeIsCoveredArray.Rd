@@ -5,7 +5,7 @@
 \alias{}
 \title{computeIsCoveredArray}
 \usage{
-computeIsCoveredArray(bandsBrick, corArray)
+computeIsCoveredArray(bandsBrick, corArray, fileName)
 }
 \arguments{
 \item{bandsBrick}{bandsBrick}

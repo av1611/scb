@@ -5,12 +5,26 @@
 \alias{}
 \title{computeNonCoverageFreq}
 \usage{
-computeNonCoverageFreq(sampleSize, tParArray, corArray)
+computeNonCoverageFreq(replicationCount, sampleSize, lag, tParArray, corArray,
+  lagCount, kernel = normalDifferenceKernel, bandwidth = 0.5,
+  nonCoverageProbability = 0.05, fileName)
 }
 \arguments{
-\item{corArray}{a tru correlation array}
+\item{replicationCount}{a replication count.}
 
-\item{bandsArray}{a 3-dimensional array of confidence bands, size c(replicationCount, sampleSize, 2).}
+\item{sampleSize}{a sample size.}
+
+\item{lag}{a lag value, true lag is lag - 1.}
+
+\item{tParArray}{a T parameter array}
+
+\item{corArray}{a true correlation array}
+
+\item{kernel}{the Epanechnikov kernel.}
+
+\item{bandwidth}{a bandwidth value.}
+
+\item{nonCoverageProbability}{probability of non-coverage.}
 }
 \description{
 For each band in bandsArray it computes isCovered and ads up all those zeros and ones. Divides this sum by replicationCount = length or dim of bandsArray

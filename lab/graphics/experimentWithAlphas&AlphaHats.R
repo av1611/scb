@@ -16,10 +16,7 @@
   {
     dir.create(myPath)
   }
-  myFileName <- gsub(" ","_",paste("myGraphWithAlpha&AlphaHat_",
-                                   Sys.time(),
-                                   ".jpg",
-                                   sep = ""))
+  myFileName <- gsub(" ","_",paste("myGraphWithAlpha&AlphaHat_",Sys.time(),".jpg", sep = ""))
   myFileName <- gsub(":","_",myFileName)
   jpeg(paste(myPath,"/",myFileName,sep=""))
 

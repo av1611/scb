@@ -17,7 +17,8 @@ myCoefFunction=sin
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05
-
+  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
+                    , myNonCoverageProbability, sep = "_")
   mockBand = createBand(
     tParArray = mockTParArray,
     lag = myLag,
@@ -35,7 +36,8 @@ myCoefFunction=sin
 
 Start=Sys.time()
   isCovered <- computeIsCovered(mockBand,
-                                mockCor)
+                                mockCor,
+                                fileName = fileName)
   End=Sys.time()
   Duration=End-Start
 

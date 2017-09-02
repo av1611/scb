@@ -6,7 +6,7 @@ saveNonCoverageFreqArray <- function(nonCoverageProbability,
   {
     dir.create(myPath)
   }
-  #fileName <- gsub(".","",fileName)
+  fileName <- gsub("\\.","",fileName)
   myFileName <- gsub(" ","_",paste(fileName, Sys.time(), ".jpg",sep = ""))
   myFileName <- gsub(":","_",myFileName)
   jpeg(paste(myPath,"/",myFileName,sep=""))
