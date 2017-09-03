@@ -34,7 +34,7 @@ devtools::document()
 
 # Loading the functions
 
-<<<<<<< HEAD
+
 noiseMean = 0
 noiseSd = 1
 sampleSize = 100
@@ -86,8 +86,6 @@ corrupted_ma1 = data.frame(T*sampling_time, sample)
 colnames(corrupted_ma1) <- c('time','sample')
 
 pl_title = sprintf("Noise distribution N(%d,%.2f), corruption is sin, time steps %d", noise_mean, noise_sd, sampling_time)
-
->>>>>>> 4bfb282544601b59851f24cef9e00599c5b92b58
 if (! dir.exists ("Plots"))
   dir.create("Plots")
 setwd ("Plots")

@@ -30,10 +30,13 @@ Start=Sys.time()
 
   myfileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                     , myNonCoverageProbability, sep = "_")
+
   fileName1 <- paste(myfileName, "repC", myReplicationCount, sep = "_")
 cat("fileName: ",fileName1)
-  # saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
-  #                                  alphaHatArray = alphaHatArray, fileName = fileName1)
+  saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
+                                   alphaHatArray = alphaHatArray, fileName = fileName1)
+
+
   End=Sys.time()
   Duration=End-Start
   cat("\nDuration",Duration,"\n")

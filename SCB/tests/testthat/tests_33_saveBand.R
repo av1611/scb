@@ -2,16 +2,19 @@ saveBandFuction <- function()
 {
   cat ("\n Testing \'SaveBand\'\n")
 
-  mySampleSize=10
+  mySampleSize = 10
   myTParCount = 10
   mockTParArray <- createTParArray(tParCount = myTParCount)
   myLag = 1
   myLagCount = 4
   myKernel = normalDifferenceKernel
   myBandwidth = 0.5
-  myNonCoverageProbability=0.05
+  myNonCoverageProbability = 0.05
 
-  corArray <- computeCor(lag = myLag, coefFunction = sin, tParArray = mockTParArray)
+  corArray <-
+    computeCor(lag = myLag,
+               coefFunction = sin,
+               tParArray = mockTParArray)
   #samplesize,lag,bandwitdth,nonCoverageProbability - params for file name
   band <- createBand(
     tParArray = mockTParArray,
@@ -20,24 +23,39 @@ saveBandFuction <- function()
     bandwidth = myBandwidth,
     kernel = myKernel,
     sampleSize = mySampleSize,
-    nonCoverageProbability = myNonCoverageProbability )
-  myfileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
-                    , myNonCoverageProbability, sep = "_")
+    nonCoverageProbability = myNonCoverageProbability
+  )
+  myfileName <-
+    paste(
+      "ss",
+      mySampleSize,
+      "l",
+      myLag,
+      "bandW",
+      myBandwidth,
+      "alpha"
+      ,
+      myNonCoverageProbability,
+      sep = "_"
+    )
 
-  cat("\nFileName= ",myfileName)
-  Start=Sys.time()
-  saveBand(band = band, corArray = corArray,fileName = myfileName)
-  End=Sys.time()
-  Duration=End-Start
-  cat("\nDuration= ",Duration,"\n")
+
+  cat("\nFileName= ", myfileName)
+  Start = Sys.time()
+  saveBand(band = band,
+           corArray = corArray,
+           fileName = myfileName)
+  End = Sys.time()
+  Duration = End - Start
+  cat("\nDuration= ",Duration, "\n")
+
+
 
 }
 
 test_that("Testing saveBand",
-  {
-  saveBandFuction()
-
-  cat(" End of test saveBand","\n")
-  cat("=====================")
-  })
-
+          {
+            saveBandFuction()
+            cat(" End of test saveBand", "\n")
+            cat("=====================")
+          })
