@@ -9,14 +9,17 @@ createNonCoverageFreqDoubleArrayFunction <- function () {
   myLag <- 1
   myLagCount <- 4
   myKernel <- normalDifferenceKernel
+  myAlphaArray <- seq(from = 0.05,
+                    to   = 1 - 1 / myAlphaCount,
+                    by   = 1 / myAlphaCount)
+
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
   Start=Sys.time()
   doubleAlphaArray = createDoubleAlphaArray(
-    alphaCount = myAlphaCount,
     superReplicationCount = mySuperReplicationCount,
     replicationCount = myReplicationCount,
-    sampleSize = mySampleSize,
+    sampleSize = mySampleSize,alphaArray =myAlphaArray,
     lag = myLag,
     lagCount = myLagCount,
     tParArray = myTParArray,
