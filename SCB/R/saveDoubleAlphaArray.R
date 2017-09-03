@@ -11,7 +11,7 @@ saveDoubleAplhaHatArray <- function(nonCoverageProbabilities, alphaHats, fileNam
   jpeg(paste(myPath,"/",myFileName,sep=""))
 
   arrayOfXAplphaHats <- matrix(0, nrow = length(alphaHats[,1]),
-                               ncol = length(myNonCoverageProbabilities))
+                               ncol = length(nonCoverageProbabilities))
 
   for(i in 1:length(nonCoverageProbabilities))
   {
