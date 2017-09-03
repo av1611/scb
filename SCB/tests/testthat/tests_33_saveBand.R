@@ -21,19 +21,22 @@ saveBandFuction <- function()
     kernel = myKernel,
     sampleSize = mySampleSize,
     nonCoverageProbability = myNonCoverageProbability )
-  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
+  myfileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                     , myNonCoverageProbability, sep = "_")
+
+  cat("\nFileName= ",myfileName)
   Start=Sys.time()
-  saveBand(band = band, corArray = corArray, fileName = fileName)
+  saveBand(band = band, corArray = corArray,fileName = myfileName)
   End=Sys.time()
   Duration=End-Start
+  cat("\nDuration= ",Duration,"\n")
 
 }
 
 test_that("Testing saveBand",
   {
   saveBandFuction()
-    cat("\nDuration= ",Duration,"\n")
+
   cat(" End of test saveBand","\n")
   cat("=====================")
   })
