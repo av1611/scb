@@ -12,7 +12,7 @@ computeNonCoverageFreqArrayFunction <- function() {
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
 Start=Sys.time()
-  nonCoverageFreqArray = computeNonCoverageFreqArray(
+  nonCoverageFreqArray <- computeNonCoverageFreqArray(
     superReplicationCount = mySuperReplicationCount,
     replicationCount = myReplicationCount,
     sampleSize = mySampleSize,

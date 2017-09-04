@@ -16,7 +16,7 @@ createBandFunction <- function()
   myBandwidth = 0.5
   myNonCoverageProbability = 0.05
 Start=Sys.time()
-  band = createBand(
+  band <- createBand(
     tParArray = mockTParArray,
     lag = myLag,
     lagCount = myLagCount,
