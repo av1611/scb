@@ -1,16 +1,19 @@
-createDoubleAlphaArray = function(alphaCount,
-                                  superReplicationCount,
+createDoubleAlphaArray = function(superReplicationCount,
                                   replicationCount,
                                   sampleSize,
                                   lag,
                                   lagCount,
+                                  alphaArray,
                                   tParArray,
                                   kernel = normalDifferenceKernel,
                                   bandwidth,
                                   nonCoverageProbability)
 
 {
+  alphaCount=length(alphaArray)
   doubleAlphaArra = array(0, dim = c(alphaCount, superReplicationCount))
+
+
   for (alphaIndex in 1: alphaCount)
 {
     doubleAlphaArra[alphaIndex, ] = computeNonCoverageFreqArray(
@@ -22,7 +25,7 @@ createDoubleAlphaArray = function(alphaCount,
       tParArray = tParArray,
       kernel = kernel,
       bandwidth = bandwidth,
-      nonCoverageProbability = nonCoverageProbability+0.05)
+      nonCoverageProbability = alphaArray[alphaIndex])
 }
   return(doubleAlphaArra)
 

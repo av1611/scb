@@ -12,7 +12,7 @@ saveNonCoverageFreqArrayFunction <- function()
   myKernel <- normalDifferenceKernel
   myBandwidth <- 0.5
   myNonCoverageProbability <- 0.05
-
+Start=Sys.time()
   nonCoverageFreqArray = computeNonCoverageFreqArray(
     superReplicationCount = mySuperReplicationCount,
     replicationCount = myReplicationCount,
@@ -28,16 +28,22 @@ saveNonCoverageFreqArrayFunction <- function()
   nonCoverageProbability <- myNonCoverageProbability
   alphaHatArray <- nonCoverageFreqArray
 
-  fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
+  myfileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                     , myNonCoverageProbability, sep = "_")
-  fileName <- paste(fileName, "repC", myReplicationCount, sep = "_")
 
+  fileName1 <- paste(myfileName, "repC", myReplicationCount, sep = "_")
+cat("fileName: ",fileName1)
   saveNonCoverageFreqArray(nonCoverageProbability = nonCoverageProbability,
-                                   alphaHatArray = alphaHatArray, fileName = fileName)
+                                   alphaHatArray = alphaHatArray, fileName = fileName1)
+
+
+  End=Sys.time()
+  Duration=End-Start
+  cat("\nDuration",Duration,"\n")
 }
 
 test_that("Testing \'saveNonCoverageFreqArray\'", {
-  saveNonCoverageFreqArray()
+  saveNonCoverageFreqArrayFunction()
   cat("\nEnd of test saveNonCoverageFreqArray", "\n")
   cat("=====================")
 })
