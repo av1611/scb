@@ -10,27 +10,22 @@ saveDoubleAplhaHatArrayFunction <- function()
   myLagCount <- 3
   myKernel <- normalDifferenceKernel
   myBandwidth <- 0.5
-  NonCoverageProbabilities <- c(0.2,0.4,0.6,0.8)
+  nonCoverageProbabilities <- c(0.2,0.4,0.6,0.8)
 
-  alphaHats <- matrix(0,nrow = mySuperReplicationCount, ncol = length(NonCoverageProbabilities))
-  for(i in 1:length(NonCoverageProbabilities))
-  {
-    alphaHats[,i] <- computeNonCoverageFreqArray(
-    superReplicationCount = mySuperReplicationCount,
-    replicationCount = myReplicationCount,
-    sampleSize = mySampleSize,
-    lag = myLag,
-    lagCount = myLagCount,
-    tParArray = myTParArray,
-    kernel = myKernel,
-    bandwidth = myBandwidth,
-    nonCoverageProbability = NonCoverageProbabilities[i])
-  }
+  alphaHats<-createDoubleAlphaArray(superReplicationCount = mySuperReplicationCount,
+                         replicationCount = myReplicationCount,
+                         sampleSize = mySampleSize,
+                         lag = myLag, lagCount = myLagCount,
+                         alphaArray = nonCoverageProbabilities,
+                         tParArray = myTParArray,
+                         kernel = myKernel,
+                         bandwidth = myBandwidth)
+
 
   fileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
-                    , NonCoverageProbabilities, sep = "_")
+                    , nonCoverageProbabilities, sep = "_")
   fileName <- paste(fileName, "repC", myReplicationCount,"SrepC",mySuperReplicationCount, sep = "_")
-  saveDoubleAplhaHatArray(nonCoverageProbabilities = NonCoverageProbabilities,
+  saveDoubleAplhaHatArray(nonCoverageProbabilities = nonCoverageProbabilities,
                           alphaHats = alphaHats,fileName = fileName)
 }
 test_that("Testing \'saveNonCoverageFreqArray\'", {

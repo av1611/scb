@@ -14,7 +14,6 @@ createNonCoverageFreqDoubleArrayFunction <- function () {
                     by   = 1 / myAlphaCount)
 
   myBandwidth <- 0.5
-  myNonCoverageProbability <- 0.05
   Start=Sys.time()
   doubleAlphaArray = createDoubleAlphaArray(
     superReplicationCount = mySuperReplicationCount,
@@ -24,9 +23,7 @@ createNonCoverageFreqDoubleArrayFunction <- function () {
     lagCount = myLagCount,
     tParArray = myTParArray,
     kernel = myKernel,
-    bandwidth = myBandwidth,
-    nonCoverageProbability = myNonCoverageProbability
-  )
+    bandwidth = myBandwidth)
   End=Sys.time()
   duration=End-Start
   cat("DoubleAlphaHatArray= ",doubleAlphaArray)

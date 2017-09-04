@@ -6,17 +6,16 @@ createDoubleAlphaArray = function(superReplicationCount,
                                   alphaArray,
                                   tParArray,
                                   kernel = normalDifferenceKernel,
-                                  bandwidth,
-                                  nonCoverageProbability)
+                                  bandwidth)
 
 {
   alphaCount=length(alphaArray)
-  doubleAlphaArra = array(0, dim = c(alphaCount, superReplicationCount))
+  doubleAlphaArray = array(0, dim = c(alphaCount, superReplicationCount))
 
 
   for (alphaIndex in 1: alphaCount)
 {
-    doubleAlphaArra[alphaIndex, ] = computeNonCoverageFreqArray(
+    doubleAlphaArray[alphaIndex, ] = computeNonCoverageFreqArray(
       superReplicationCount = superReplicationCount,
       replicationCount = replicationCount,
       sampleSize = sampleSize + alphaIndex,
@@ -26,7 +25,12 @@ createDoubleAlphaArray = function(superReplicationCount,
       kernel = kernel,
       bandwidth = bandwidth,
       nonCoverageProbability = alphaArray[alphaIndex])
-}
-  return(doubleAlphaArra)
+  }
+  fileName <- paste("ss", sampleSize, "l", lag, "bandW", bandwidth, "alpha"
+                    , alphaArray, sep = "_")
+  fileName <- paste(fileName, "repC", replicationCount,"SrepC", superReplicationCount, sep = "_")
+  saveDoubleAplhaHatArray(nonCoverageProbabilities = alphaArray,
+                          alphaHats = doubleAlphaArray,fileName = fileName)
+  return(doubleAlphaArray)
 
 }
