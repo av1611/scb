@@ -33,3 +33,4 @@ test_that("Testing \'saveNonCoverageFreqArray\'", {
   cat("\nEnd of test saveNonCoverageFreqArray", "\n")
   cat("=====================")
 })
+
