@@ -77,5 +77,6 @@ corArray=computeCor(lag=lag,coefFunction = sin,tParArray = tParArray)
   upperBound <- corHat + meByCovHat
   band <- cbind(lowerBound, upperBound)
   saveBand(corArray = corArray,band =band,fileName = myfileName )
+  return(band)
 
 }
