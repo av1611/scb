@@ -50,6 +50,7 @@ computeNonCoverageFreqArray  <- function(superReplicationCount,
 
   }
 
+
   myfileName <- paste("ss", mySampleSize, "l", myLag, "bandW", myBandwidth, "alpha"
                       , nonCoverageProbability, sep = "_")
 
