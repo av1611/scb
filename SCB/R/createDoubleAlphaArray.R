@@ -26,11 +26,12 @@ createDoubleAlphaArray = function(superReplicationCount,
       bandwidth = bandwidth,
       nonCoverageProbability = alphaArray[alphaIndex])
   }
-  # fileName <- paste("ss", sampleSize, "l", lag, "bandW", bandwidth, "alpha"
-  #                   , alphaArray, sep = "_")
-  # fileName <- paste(fileName, "repC", replicationCount,"SrepC", superReplicationCount, sep = "_")
-  # saveDoubleAplhaHatArray(nonCoverageProbabilities = alphaArray,
-  #                         alphaHats = doubleAlphaArray,fileName = fileName)
+
+  fileName <- paste("ss", sampleSize, "l", lag, "bandW", bandwidth, sep = "_")
+  fileName <- paste(fileName, "repC", replicationCount,"SrepC", superReplicationCount, sep = "_")
+  saveDoubleAplhaHatArray(nonCoverageProbabilities = alphaArray,
+                          alphaHats = doubleAlphaArray,fileName = fileName)
+
   return(doubleAlphaArray)
 
 }

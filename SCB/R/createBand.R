@@ -51,7 +51,7 @@ createBand <- function(tParArray,
     allCorHats = mockallCorHat,
     C_K = -1.978325,
     PHI_K_NORMAL_DIFF = 0.4065)
-corArray=computeCor(lag=lag,coefFunction = sin,tParArray = tParArray)
+
   corHat = computeCorHat(
     tParArray = tParArray,
     lag = lag,
@@ -78,5 +78,13 @@ corArray=computeCor(lag=lag,coefFunction = sin,tParArray = tParArray)
   band <- cbind(lowerBound, upperBound)
   # saveBand(corArray = corArray,band =band,fileName = myfileName )
   return(band)
+  lowerBound <- corHat - meByCovHat
+  upperBound <- corHat + meByCovHat
+  band <- cbind(lowerBound, upperBound)
+
+
+
+  return (band)
+
 
 }
