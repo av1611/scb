@@ -10,12 +10,12 @@ createDoubleAlphaArray = function(superReplicationCount,
 
 {
   alphaCount=length(alphaArray)
-  doubleAlphaArray = array(0, dim = c(alphaCount, superReplicationCount))
+  doubleAlphaArray = array(0, dim = c(superReplicationCount, alphaCount))
 
 
   for (alphaIndex in 1: alphaCount)
 {
-    doubleAlphaArray[,alphaIndex ] = computeNonCoverageFreqArray(
+    doubleAlphaArray[, alphaIndex] = computeNonCoverageFreqArray(
       superReplicationCount = superReplicationCount,
       replicationCount = replicationCount,
       sampleSize = sampleSize + alphaIndex,

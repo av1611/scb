@@ -59,7 +59,7 @@ corArray=computeCor(lag=lag,coefFunction = sin,tParArray = tParArray)
     kernel = kernel,
     bandwidth = bandwidth
   )
-  cat("corArray= ",corArray)
+
   myfileName <-
     paste(
       "ss",
