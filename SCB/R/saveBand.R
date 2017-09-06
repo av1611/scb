@@ -1,21 +1,25 @@
-saveBand <- function(band, corArray, fileName)
+saveBand <- function(band, corArray, tParCount)
 {
   myPath <- "out"
   if(!dir.exists(myPath))
   {
     dir.create(myPath)
   }
-  fileName <- gsub("\\.","", fileName)
-  myFileName <- gsub(" ","_",paste(fileName ,Sys.time(),".jpg",sep = ""))
-  myFileName <- gsub(":","_", myFileName)
+  fileName <- band$fileName
+  fileName <- gsub("\\.", "", fileName)
+  myFileName <- gsub(" ", "_", paste(fileName,
+                                     Sys.time(),
+                                     ".jpg",
+                                     sep = ""))
+  myFileName <- gsub(":", "_", myFileName)
 
-  jpeg(paste(myPath,"/",myFileName,sep=""))
+  jpeg(paste(myPath,"/", myFileName, sep = ""))
 
 
-  minBand <- min(band)
-  maxBand <- max(band)
-  yMin = -1
-  yMax = 1
+  minBand <- min(band$band)
+  maxBand <- max(band$band)
+  yMin <- -1
+  yMax <-  1
   while(T)
   {
     if(yMin < minBand)
@@ -36,17 +40,21 @@ saveBand <- function(band, corArray, fileName)
   }
   middle = (band[,1] + band[,2])/2
 
-  saveData <- data.frame(band,middle,corArray)
-  myFileName <- gsub(" ","_",paste(fileName, Sys.time(),".csv",sep = ""))
-  myFileName <- gsub(":","_",myFileName)
-  write.csv(saveData, paste(myPath,"/",myFileName,sep=""))
-  tParCount=10
+  saveData <- data.frame(band, middle, corArray)
+  myFileName <- gsub(" ", "_", paste(fileName,
+                                     Sys.time(),
+                                     ".csv",
+                                     sep = ""))
+  myFileName <- gsub(":", "_", myFileName)
+  write.csv(saveData, paste(myPath, "/", myFileName, sep = ""))
+
   mockTParArray=createTParArray(tParCount)
-  plot(x=c(yMax:yMin),y=c(yMax:yMin),type = "n", xlim=c(0:1),main= "Band and Correlation")
-  lines(x=mockTParArray,y = band[,1], type = "l", col="green")
-  lines(x=mockTParArray,y = band[,2], type = "l", col="blue")
-  lines(x=mockTParArray,y = middle, type = "l", col = "brown")
-  lines(x=mockTParArray,y = corArray, type = "l", col="red")
+  plot(x = c(yMax:yMin), y = c(yMax:yMin),
+       type = "n", xlim=c(0:1), main = "Band and Correlation")
+  lines(x = mockTParArray, y = band[,1], type = "l", col="green")
+  lines(x = mockTParArray, y = band[,2], type = "l", col="blue")
+  lines(x = mockTParArray, y = middle, type = "l", col = "brown")
+  lines(x = mockTParArray, y = corArray, type = "l", col="red")
   lineArray <- c("Upper", "Middle", "Lower", "Correlation")
   legend("bottom", title ="Correlation", lineArray, fill =c("blue", "brown", "green", "red"))
   dev.off()

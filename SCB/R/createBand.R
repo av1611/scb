@@ -82,9 +82,6 @@ createBand <- function(tParArray,
   upperBound <- corHat + meByCovHat
   band <- cbind(lowerBound, upperBound)
 
-
-
-  return (band)
-
+  band <- list(band, fileName)
 
 }
