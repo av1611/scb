@@ -1,8 +1,8 @@
 Package: SCB
 Title: Computing confidence bands in a simulation process
 Version: 0.15.0
-Authors: Oleksii Haievskyi
-Maintainer: Oleksii Haievskyi <aleksi.eesti@gmail.com>
+Authors: Aleksi Gaevsky
+Maintainer: Aleksi Gaevsky <aleksi.eesti@gmail.com>
 Description: Computing confidence bands in a simulation process using S3 approach.
 Depends: R (>= 3.3.0)
 License: BSD
