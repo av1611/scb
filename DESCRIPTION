@@ -6,7 +6,7 @@ Maintainer: Oleksii Haievskyi <aleksi.eesti@gmail.com>
 Description: Computing confidence bands in a simulation process using S3 approach.
 Depends: R (>= 3.3.0)
 License: BSD
-URL: https://github.com/statistics101/scb
+URL: https://github.com/av1611/scb
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 6.0.1
